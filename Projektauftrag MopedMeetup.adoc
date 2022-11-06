@@ -1,0 +1,48 @@
+= Moped-Meetup
+
+=== Projektauftraggeber
+ Thomas Stütz
+
+=== Projekthintergrund
+
+=== Projektendergebnis
+
+=== Projektziele
+
+=== Projektbeschreibung
+
+=== Projektphasen / Meilensteine:
+
+[caption=]
+.Meilensteine
+[cols="2,1"]
+|===
+|Meilenstein / Ergebnis | Soll-Termin
+
+|Fertiger Projektauftrag | 07.11.2022
+|===
+
+=== Projektstart
+-
+
+=== Projektende
+-
+
+=== Projektressourcen
+-
+
+=== Projektrisken
+-
+
+=== Projektorganisation
+
+==== Projektleiter:
+ Linus Neslter
+
+==== Projektteam
+ Bajtik Berg
+ Oliver Daxinger
+ Said Nurceski
+
+=== Abschluss des Projektauftrags
+-
