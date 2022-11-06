@@ -2,6 +2,7 @@
 
 ===== Contacts
  l.nestler@students.htl-leonding.ac.at
+ 2.b.berg@students.htl-leonding.ac.at
 
 === Projektauftraggeber
  Thomas Stütz
@@ -19,14 +20,19 @@
 === Projektendergebnis
 
 *Welches Ergebnis soll am Projektende vorliegen*
+Eine funktionsfähige Applikation, mit der sich Mopedfahrer/innen leicht und unkompliziert verabreden können.
 
 *Welche messbaren Eigenschaften hat das Endergebnis, damit von einem Projekterfolg gesprochen werden kann?*
+Eine Anzahl an aktiven Usern der App. 
 
 === Projektziele
 
 === Projektbeschreibung
 
 *Projekthauptaufgaben*
+- Chat-Funktion für einzelne Personen/Gruppen
+- Karte, auf der man sich Treffpunkte markieren kann
+- "Entdecken"-Seite, bei der man nach lokalen Meet-Ups suchen und neue Leute kennenlernen kann
 
 === Projektphasen / Meilensteine:
 
@@ -40,7 +46,7 @@
 |===
 
 === Projektstart
--
+November 2022
 
 === Projektende
 -
