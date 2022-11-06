@@ -1,15 +1,32 @@
 = Moped-Meetup
 
+===== Contacts
+ l.nestler@students.htl-leonding.ac.at
+
 === Projektauftraggeber
  Thomas Stütz
 
 === Projekthintergrund
 
+*Sinn und Zweck*
+
+ Leichte Möglichkeit sich mit anderen Mopedfahrern zu treffen.
+
+*Projektauslöser / Vorprojekt*
+
+ Wir sind selbst Mopedfahrer und eine App um Treffen auszumachen wäre praktisch.
+
 === Projektendergebnis
+
+*Welches Ergebnis soll am Projektende vorliegen*
+
+*Welche messbaren Eigenschaften hat das Endergebnis, damit von einem Projekterfolg gesprochen werden kann?*
 
 === Projektziele
 
 === Projektbeschreibung
+
+*Projekthauptaufgaben*
 
 === Projektphasen / Meilensteine:
 
