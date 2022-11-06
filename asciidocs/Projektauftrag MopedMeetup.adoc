@@ -1,8 +1,11 @@
 = Moped-Meetup
 
 ===== Contacts
- l.nestler@students.htl-leonding.ac.at
- 2.b.berg@students.htl-leonding.ac.at
+
+ 1 l.nestler@students.htl-leonding.ac.at
+ 2 b.berg@students.htl-leonding.ac.at
+ 3 o.daxinger@students.htl-leonding.ac.at
+ 4 s.nurceski@students.htl-leonding.ac.at
 
 === Projektauftraggeber
  Thomas Stütz
@@ -20,16 +23,21 @@
 === Projektendergebnis
 
 *Welches Ergebnis soll am Projektende vorliegen*
-Eine funktionsfähige Applikation, mit der sich Mopedfahrer/innen leicht und unkompliziert verabreden können.
+
+ Eine funktionsfähige Applikation, mit der sich Mopedfahrer/innen leicht und unkompliziert verabreden können.
 
 *Welche messbaren Eigenschaften hat das Endergebnis, damit von einem Projekterfolg gesprochen werden kann?*
-Eine Anzahl an aktiven Usern der App. 
+
+ Eine Anzahl an aktiven Usern der App.
 
 === Projektziele
+
+ Eine funktionierende App die auch verwendet wird.
 
 === Projektbeschreibung
 
 *Projekthauptaufgaben*
+
 - Chat-Funktion für einzelne Personen/Gruppen
 - Karte, auf der man sich Treffpunkte markieren kann
 - "Entdecken"-Seite, bei der man nach lokalen Meet-Ups suchen und neue Leute kennenlernen kann
@@ -46,7 +54,7 @@ Eine Anzahl an aktiven Usern der App.
 |===
 
 === Projektstart
-November 2022
+ November 2022
 
 === Projektende
 -
