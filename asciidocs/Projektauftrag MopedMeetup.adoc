@@ -31,8 +31,7 @@
  Eine Anzahl an aktiven Usern der App.
 
 === Projektziele
-
- Eine funktionierende App die auch verwendet wird.
+Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen. 
 
 === Projektbeschreibung
 
@@ -60,10 +59,10 @@
 -
 
 === Projektressourcen
--
+- 
 
 === Projektrisken
--
+- Schlechte Noten
 
 === Projektorganisation
 
@@ -76,5 +75,4 @@
  Said Nurceski
 
 === Abschluss des Projektauftrags
--
-
+- 
