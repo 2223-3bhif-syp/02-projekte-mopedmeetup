@@ -19,6 +19,8 @@ class Map {
     -string coordinates
 }
 class Chat {
+    - User users
+    - Meetup meetup (optional)
 }
 
 Meetup o--o User : contains
