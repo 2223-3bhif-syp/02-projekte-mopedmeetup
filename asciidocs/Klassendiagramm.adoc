@@ -1,11 +1,30 @@
 [plantuml, target=diagram-classes, format=png]
 ....
-class BlockProcessor
-class DiagramBlock
-class DitaaBlock
-class PlantUmlBlock
+class User {
+    +String name
+    +Meetup meetups
+    -User friends
+    - Chat chatGroup
+}
+class Meetup {
+    + User participants
+    + User creator
+    + Map location
+    + String description
+    + Chat meetupChat
+}
+class Login {
+}
+class Map {
+    -string coordinates
+}
+class Chat {
+}
 
-BlockProcessor <|-- DiagramBlock
-DiagramBlock <|-- DitaaBlock
-DiagramBlock <|-- PlantUmlBlock
+Meetup o--o User : contains
+Map <|-- Meetup : contains
+User --> Meetup : creates
+User --> Login : needs
+Meetup -- Chat : uses
+User --> Chat : joins
 ....
