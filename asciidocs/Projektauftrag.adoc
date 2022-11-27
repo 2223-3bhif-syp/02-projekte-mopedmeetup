@@ -1,16 +1,22 @@
 = Moped-Meetup
+Contents
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
+:linkattrs:
 
-===== Kontakte
+== Kontakte
 
  1 l.nestler@students.htl-leonding.ac.at
  2 b.berg@students.htl-leonding.ac.at
  3 o.daxinger@students.htl-leonding.ac.at
  4 s.nurceski@students.htl-leonding.ac.at
 
-=== Projektauftraggeber
+== Projektauftraggeber
  Thomas Stuetz
 
-=== Projekthintergrund
+== Projekthintergrund
 
 *Sinn und Zweck*
 
@@ -20,7 +26,7 @@
 
  Wir sind selbst Mopedfahrer und eine App um Treffen auszumachen wäre praktisch.
 
-=== Projektendergebnis
+== Projektendergebnis
 
 *Welches Ergebnis soll am Projektende vorliegen*
 
@@ -30,10 +36,10 @@
 
  Eine Anzahl an aktiven Usern der App.
 
-=== Projektziele
+== Projektziele
  Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen.
 
-=== Projektbeschreibung
+== Projektbeschreibung
 
 *Projekthauptaufgaben*
 
@@ -41,7 +47,7 @@
 - Karte, auf der man sich Treffpunkte markieren kann
 - "Entdecken"-Seite, bei der man nach lokalen Meet-Ups suchen und neue Leute kennenlernen kann
 
-=== Projektphasen / Meilensteine:
+== Projektphasen / Meilensteine:
 
 [caption=]
 .Meilensteine
@@ -52,14 +58,14 @@
 |Fertiger Projektauftrag | 07.11.2022
 |===
 
-=== Projektstart
+== Projektstart
  November 2022
 
-=== Projektende
+== Projektende
 -
 
 
-=== Projektorganisation
+== Projektorganisation
 
 ==== Projektleiter:
  Linus Neslter
