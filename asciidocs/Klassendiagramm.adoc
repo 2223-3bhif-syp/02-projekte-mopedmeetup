@@ -1,3 +1,13 @@
+= Klassendiagramm
+Contents
+:toc: left
+:sectnums:
+:toclevels: 1
+:table-caption:
+:linkattrs:
+
+== Diagramm
+
 [plantuml, target=diagram-classes, format=png]
 ....
 class User {
@@ -20,7 +30,7 @@ class Map {
 }
 class Chat {
     - User users
-    - Meetup meetup (optional)
+    - Meetup meetup
 }
 
 Meetup o--o User : contains

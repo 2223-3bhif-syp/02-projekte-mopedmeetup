@@ -35,3 +35,6 @@ Temporary Items
 dist
 docs/slides/revealjs
 .idea/
+.asciidocs
+asciidocs/.asciidoctor/diagram/diagram-classes.png.cache
+asciidocs/.asciidoctor/images/diagram-classes.png

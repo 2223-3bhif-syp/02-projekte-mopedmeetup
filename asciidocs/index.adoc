@@ -1,4 +1,4 @@
-= MopedMeetup
+= MopedMeetup Dokumentation
 Contents
 :toc: left
 :sectnums:
@@ -6,13 +6,15 @@ Contents
 :table-caption:
 :linkattrs:
 
+== Kontakte
+
  1 l.nestler@students.htl-leonding.ac.at
  2 b.berg@students.htl-leonding.ac.at
  3 o.daxinger@students.htl-leonding.ac.at
  4 s.nurceski@students.htl-leonding.ac.at
 
 == Projektauftrag
-TBD
+https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
 
 == Klassendiagramm
-TBD
+https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm ]
