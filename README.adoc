@@ -1,3 +1,12 @@
 = MopedMeetup
 
+== Dokumentation
+
 == Aufgabenstellung
+ App um sich mit anderen Mopedfahter/innen zu treffen und gleichzeitig neue Leute kennenzulernen.
+
+== Probleme
+ Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig sich auf einen Standord zu einigen und wirklich neue Leute kennenzulernen.
+
+== Adoc Documente:
+ 
