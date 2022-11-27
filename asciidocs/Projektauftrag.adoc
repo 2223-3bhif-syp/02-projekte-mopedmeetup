@@ -8,13 +8,14 @@ Contents
 
 == Kontakte
 
- 1 l.nestler@students.htl-leonding.ac.at
- 2 b.berg@students.htl-leonding.ac.at
- 3 o.daxinger@students.htl-leonding.ac.at
- 4 s.nurceski@students.htl-leonding.ac.at
+ 1. l.nestler@students.htl-leonding.ac.at
+ 2. b.berg@students.htl-leonding.ac.at
+ 3. o.daxinger@students.htl-leonding.ac.at
+ 4. s.nurceski@students.htl-leonding.ac.at
 
 == Projektauftraggeber
- Thomas Stuetz
+
+Thomas Stuetz: t.stuetz@htl-leonding.ac.at
 
 == Projekthintergrund
 
@@ -24,7 +25,7 @@ Contents
 
 *Projektauslöser / Vorprojekt*
 
- Wir sind selbst Mopedfahrer und eine App um Treffen auszumachen wäre praktisch.
+ Wir sind selbst Mopedfahrer und eine App um Treffen auszumachen wäre praktisch. Und eine gute Möglichkeit andere Mopedfahrer/innen in seiner nähe zu treffen, sowie neue bekanntschaften zu machen.
 
 == Projektendergebnis
 
@@ -37,6 +38,7 @@ Contents
  Eine Anzahl an aktiven Usern der App.
 
 == Projektziele
+
  Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen.
 
 == Projektbeschreibung
@@ -56,6 +58,8 @@ Contents
 |Meilenstein / Ergebnis | Soll-Termin
 
 |Fertiger Projektauftrag | 07.11.2022
+|Erster Entwurf Klassendiagramm | 14.11.2022
+|GitHub Pages | 28.11.2022
 |===
 
 == Projektstart
@@ -63,7 +67,6 @@ Contents
 
 == Projektende
 -
-
 
 == Projektorganisation
 
