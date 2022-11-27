@@ -8,13 +8,13 @@
  4 s.nurceski@students.htl-leonding.ac.at
 
 === Projektauftraggeber
- Thomas Stütz
+ Thomas Stuetz
 
 === Projekthintergrund
 
 *Sinn und Zweck*
 
- Leichte Möglichkeit sich mit anderen Mopedfahrern zu treffen.
+ Leichte Möglichkeit sich mit anderen Mopedfahrern zu treffen und neue Leute kennenzulernen.
 
 *Projektauslöser / Vorprojekt*
 
@@ -31,7 +31,7 @@
  Eine Anzahl an aktiven Usern der App.
 
 === Projektziele
-Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen. 
+ Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen.
 
 === Projektbeschreibung
 
@@ -58,11 +58,6 @@ Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Tre
 === Projektende
 -
 
-=== Projektressourcen
-- 
-
-=== Projektrisken
-- Schlechte Noten
 
 === Projektorganisation
 
@@ -73,6 +68,3 @@ Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Tre
  Bajtik Berg
  Oliver Daxinger
  Said Nurceski
-
-=== Abschluss des Projektauftrags
-- 
