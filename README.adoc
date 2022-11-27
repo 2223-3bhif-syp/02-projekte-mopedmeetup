@@ -8,7 +8,7 @@ App um sich mit anderen Mopedfahter/innen zu treffen und gleichzeitig neue Leute
 
 == Probleme
 Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig sich auf einen Standord zu einigen und
-wirklich neue Leute kennenzulernen.
+wirklich neue Leute zu treffen.
 
 == Adoc Documente:
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
