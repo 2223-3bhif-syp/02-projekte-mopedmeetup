@@ -1,6 +1,6 @@
 = Moped-Meetup
 
-===== Contacts
+===== Kontakte
 
  1 l.nestler@students.htl-leonding.ac.at
  2 b.berg@students.htl-leonding.ac.at
