@@ -12,5 +12,7 @@ Contents
  4 s.nurceski@students.htl-leonding.ac.at
 
 == Projektauftrag
+TBD
 
 == Klassendiagramm
+TBD
