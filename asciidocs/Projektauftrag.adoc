@@ -25,7 +25,7 @@ Thomas Stuetz: t.stuetz@htl-leonding.ac.at
 
 *Projektauslöser / Vorprojekt*
 
- Wir sind selbst Mopedfahrer und eine App um Treffen auszumachen wäre praktisch. Und eine gute Möglichkeit andere Mopedfahrer/innen in seiner nähe zu treffen, sowie neue bekanntschaften zu machen.
+ Wir sind selbst Mopedfahrer und hatten bisher immer den Wunsch, eine schnelle, praktische und einfache Möglichkeit zu haben, neue Mopedfahrer/Mopedfahrerinnen kennenzulernen. 
 
 == Projektendergebnis
 
@@ -46,7 +46,7 @@ Mehr organisierte Moped-Treffen für jede/n Mopedfahrer/in.
 *Projekthauptaufgaben*
 
 - Chat-Funktion für einzelne Personen/Gruppen
-- Karte, auf der man sich Treffpunkte suchen und markieren kann
+- Karte, auf der man sich Treffpunkte markieren kann
 - "Entdecken"-Seite, bei der man nach lokalen Meet-Ups suchen und neue Leute kennenlernen kann
 
 == Projektphasen / Meilensteine:
