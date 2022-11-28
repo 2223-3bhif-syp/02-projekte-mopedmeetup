@@ -15,8 +15,10 @@ Contents
 class User {
     +String name
     +Meetup meetups
-    -User friends
+    +int age
+    - User[] friends
     - Chat chatGroup
+    - boolean isAlreadyBusy
 }
 class Meetup {
     + User participants
@@ -31,7 +33,7 @@ class Map {
     -string coordinates
 }
 class Chat {
-    - User users
+    - User participants
     - Meetup meetup
 }
 

@@ -46,7 +46,7 @@ Mehr organisierte Moped-Treffen für jede/n Mopedfahrer/in.
 *Projekthauptaufgaben*
 
 - Chat-Funktion für einzelne Personen/Gruppen
-- Karte, auf der man sich Treffpunkte markieren kann
+- Karte, auf der man sich Treffpunkte suchen und markieren kann
 - "Entdecken"-Seite, bei der man nach lokalen Meet-Ups suchen und neue Leute kennenlernen kann
 
 == Projektphasen / Meilensteine:
