@@ -35,11 +35,11 @@ Thomas Stuetz: t.stuetz@htl-leonding.ac.at
 
 *Welche messbaren Eigenschaften hat das Endergebnis, damit von einem Projekterfolg gesprochen werden kann?*
 
- Eine Anzahl an aktiven Usern der App.
+ Eine Anzahl an aktiven Usern der App, regelmäßige ausgemachte Treffen und gute Bewertungen.
 
 == Projektziele
 
- Eine leichtere und unkompliziertere Möglichkeit für Mopedfahrer/innen sich Treffen auszumachen.
+Mehr organisierte Moped-Treffen für jede/n Mopedfahrer/in.
 
 == Projektbeschreibung
 
