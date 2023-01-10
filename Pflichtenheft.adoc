@@ -1,0 +1,29 @@
+= Pflichtenheft für Moped-Meetup App
+
+Authoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxing
+
+Klasse: 3BHIF
+
+
+[options="header"]
+|===
+| Phase           | Beschreibung       |Beispiel
+
+| Ausgangssituation
+|Derzeit gibt es keine spezielle App, die sich auf Moped-Meetups und die Vernetzung von Moped-Fahrern konzentriert. Es gibt zwar Foren und soziale Medien, aber diese sind nicht speziell auf die Bedürfnisse von Moped-Fahrern ausgerichtet.
+
+| Ein Moped-Fahrer, der in einer neuen Stadt lebt, hat Schwierigkeiten, Gleichgesinnte zu finden, mit denen er sich treffen und fahren kann. Er nutzt derzeit soziale Medien, um andere Moped-Fahrer zu finden, aber es ist schwierig, durch alle Beiträge zu navigieren und gezielt nach Meetups in seiner Umgebung zu suchen.
+
+| Istzustand           | Viele Moped-Fahrer fahren alleine oder nur mit ein paar Freunden. Es gibt keine einfache Möglichkeit, andere Moped-Fahrer in der Umgebung kennenzulernen, um gemeinsam zu fahren oder sich zu treffen.
+| Eine Gruppe von Freunden, die alle Moped fahren, möchten gerne ein Wochenende lang gemeinsam fahren. Sie haben Schwierigkeiten, weitere Moped-Fahrer in ihrer Umgebung zu finden, die sie einladen können, um die Gruppe zu vergrößern.
+
+| Problemstellung       | Moped-Fahrer haben Schwierigkeiten, Gleichgesinnte in ihrer Umgebung zu finden, um gemeinsam zu fahren oder sich zu treffen. Es gibt keine spezielle App, die ihnen dabei hilft, einfach andere Moped-Fahrer in ihrer Umgebung zu finden und kontaktieren zu können.
+| Ein Moped-Fahrer, der gerne an Rallies teilnimmt, hat Schwierigkeiten, andere Moped-Fahrer zu finden, die an denselben Rallies teilnehmen möchten. Er nutzt derzeit soziale Medien, um andere Moped-Fahrer zu finden, aber es ist schwierig, gezielt nach Leuten zu suchen, die an denselben Rallies interessiert sind.
+
+| Sollzustand / Ergebnis / Leistung / Aufgabenstellung | Die Moped-Meetup App soll Moped-Fahrern ermöglichen, sich einfach in ihrer Umgebung zu organisierten Meetups zu treffen, neue Freunde zu finden und miteinander zu chatten. Die App soll eine einfache Möglichkeit bieten, andere Moped-Fahrer in der Umgebung zu finden und Kontakt aufzunehmen. Es soll auch die Möglichkeit geboten werden, Meetups zu erstellen und zu verwalten.
+| Ein Moped-Fahrer, der gerne an Rallies teilnimmt, kann nun die Moped-Meetup App nutzen, um andere Moped-Fahrer in seiner Umgebung zu finden, die an denselben Rallies interessiert sind. Er kann mit ihnen chatten, um sich besser kennenzulernen und gemeinsam an Rallies teilzunehmen. Auch kann er selbst Meetups erstellen und verwalten, damit auch andere Rallies organisieren können.
+
+| Ziel                      | Das Ziel der Moped-Meetup App ist es, Moped-Fahrern zu helfen, Gleichgesinnte in ihrer Umgebung zu finden, um gemeinsam zu fahren und sich zu unterhalten. Es soll dazu beitragen, die Moped-Fahrer-Community zu stärken und neue Freundschaften zu schließen.
+| Eine Person, die neu in eine Stadt gezogen ist und gerne Moped fährt, nutzt die Moped-Meetup App um Gleichgesinnte in der Umgebung zu finden. Sie trifft sich regelmäßig mit anderen Moped-Fahrern aus der App und hat dadurch die Möglichkeit neue Freunde zu finden, sich mit anderen Moped-Fahrern auszutauschen und an gemeinsamen Ausfahrten teilzunehmen. Dadurch fühlt sie sich in ihrer neuen Umgebung schneller integriert.
+
+|===
