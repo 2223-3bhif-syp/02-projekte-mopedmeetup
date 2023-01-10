@@ -14,6 +14,7 @@ wirklich neue Leute zu treffen.
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm ]
+- https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup/blob/219ea920237b929f1cd6f6c257052ff792a1f3b5/Pflichtenheft.adoc
 
 
  
