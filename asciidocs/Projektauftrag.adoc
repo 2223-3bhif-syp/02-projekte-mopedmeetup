@@ -66,10 +66,10 @@ Mehr organisierte Moped-Treffen für jede/n Mopedfahrer/in.
 
 == Projektorganisation
 
-==== Projektleiter:
+=== Projektleiter:
  Linus Neslter
 
-==== Projektteam
+=== Projektteam
  Bajtik Berg
  Oliver Daxinger
  Said Nurceski
