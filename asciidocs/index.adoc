@@ -1,5 +1,5 @@
 = MopedMeetup Dokumentation
-Contents
+
 :toc: left
 :sectnums:
 :toclevels: 1
