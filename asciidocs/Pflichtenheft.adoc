@@ -1,6 +1,6 @@
 = Pflichtenheft für Moped-MeetUp App
 
-Authoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger
+Autoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger
 
 Klasse: 3BHIF
 
