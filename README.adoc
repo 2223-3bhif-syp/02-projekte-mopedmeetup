@@ -4,11 +4,10 @@
 https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Dokumentation]
 
 == Aufgabenstellung
-App um sich mit anderen Mopedfahter/innen zu treffen und gleichzeitig neue Leute kennenzulernen.
+App um sich mit anderen Mopedfahrer/innen zu treffen und gleichzeitig neue Leute kennenzulernen.
 
 == Probleme
-Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig sich auf einen Standord zu einigen und
-wirklich neue Leute zu treffen.
+Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig ein Treffen mit neuen Leuten auszumachen.
 
 == Asciidoc Documente:
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
