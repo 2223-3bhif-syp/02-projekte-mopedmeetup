@@ -17,4 +17,8 @@ Contents
 https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
 
 == Klassendiagramm
-https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm ]
+https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm]
+
+== Pflichtenheft
+https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Pflichtenheft[Pflichtenheft]
+
