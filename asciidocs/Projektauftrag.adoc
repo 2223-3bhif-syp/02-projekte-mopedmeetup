@@ -8,14 +8,14 @@ Contents
 
 == Kontakte
 
- 1. l.nestler@students.htl-leonding.ac.at
- 2. b.berg@students.htl-leonding.ac.at
- 3. o.daxinger@students.htl-leonding.ac.at
- 4. s.nurceski@students.htl-leonding.ac.at
+ 1. Nestler Linus: l.nestler@students.htl-leonding.ac.at
+ 2. Berg Bajtik: b.berg@students.htl-leonding.ac.at
+ 3. Daxinger Oliver: o.daxinger@students.htl-leonding.ac.at
+ 4. Nurceski Said: s.nurceski@students.htl-leonding.ac.at
 
 == Projektauftraggeber
 
-Thomas Stuetz: t.stuetz@htl-leonding.ac.at
+-
 
 == Projekthintergrund
 
