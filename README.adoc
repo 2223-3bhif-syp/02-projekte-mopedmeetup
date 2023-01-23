@@ -3,6 +3,9 @@
 == Dokumentation
 https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Dokumentation]
 
+== Project Backlog
+https://vm81.htl-leonding.ac.at/projects/32b82658-1098-4f00-87c4-6e19a2d1bd3b[Project Backlog]
+
 == Aufgabenstellung
 App um sich mit anderen Mopedfahter/innen zu treffen und gleichzeitig neue Leute kennenzulernen.
 
