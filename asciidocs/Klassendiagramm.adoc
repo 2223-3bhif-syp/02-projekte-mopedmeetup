@@ -9,9 +9,9 @@ class User {
     - id : int
     - firstName: String
     - lastName : String
-    - email: String
-    - meetups : Meetup
     - age : int
+    - email: String
+    - meetups : List<Meetup>
     - friends : User[]
     - chatGroup : Chat
     - isAlreadyBusy : boolean
@@ -20,12 +20,12 @@ class Meetup {
     + id : int
     + participants : User
     + creator : User
-    + location : Map
+    + location : Location
     + description : String
     + meetupChat : Chat
 }
 
-class Map {
+class Location {
     - id : int
     - coordinates : String
 }
@@ -36,7 +36,7 @@ class Chat {
 }
 
 Meetup "*"--"*" User : ""
-Map "1"--"1" Meetup : ""
+Location "1"--"1" Meetup : ""
 Meetup "1"--"1" Chat : ""
 User "1"--"1" Chat : ""
 ....
