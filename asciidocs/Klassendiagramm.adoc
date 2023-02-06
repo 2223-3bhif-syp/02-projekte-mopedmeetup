@@ -6,7 +6,10 @@
 [plantuml, target=diagram-classes, format=png]
 ....
 class User {
-    - name: String
+    - id : int
+    - firstName: String
+    - lastName : String
+    - email: String
     - meetups : Meetup
     - age : int
     - friends : User[]
@@ -14,6 +17,7 @@ class User {
     - isAlreadyBusy : boolean
 }
 class Meetup {
+    + id : int
     + participants : User
     + creator : User
     + location : Map
@@ -22,9 +26,11 @@ class Meetup {
 }
 
 class Map {
+    - id : int
     - coordinates : String
 }
 class Chat {
+    - id : int
     - participants : User
     - meetup : Meetup
 }
