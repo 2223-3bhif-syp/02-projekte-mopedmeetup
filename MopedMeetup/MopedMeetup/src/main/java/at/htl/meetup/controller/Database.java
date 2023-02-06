@@ -1,4 +1,4 @@
-package at.htl.survey.controller;
+package at.htl.meetup.controller;
 
 import org.apache.derby.jdbc.ClientDataSource;
 

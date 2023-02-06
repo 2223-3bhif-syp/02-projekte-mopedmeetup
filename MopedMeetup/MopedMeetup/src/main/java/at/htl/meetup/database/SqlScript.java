@@ -1,4 +1,4 @@
-package at.htl.survey.database;
+package at.htl.meetup.database;
 
 public enum SqlScript  {
     DROP,

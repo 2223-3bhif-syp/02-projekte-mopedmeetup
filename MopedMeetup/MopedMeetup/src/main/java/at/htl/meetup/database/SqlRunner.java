@@ -1,6 +1,6 @@
-package at.htl.survey.database;
+package at.htl.meetup.database;
 
-import at.htl.survey.controller.Database;
+import at.htl.meetup.controller.Database;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.apache.ibatis.logging.LogFactory;
 

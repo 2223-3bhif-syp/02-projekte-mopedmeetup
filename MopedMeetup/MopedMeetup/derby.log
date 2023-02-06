@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Feb 06 07:43:52 UTC 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0186-25ae-65bb-000007388f20 
+Mon Feb 06 09:19:31 UTC 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0186-2605-f9ce-000007388f20 
 on database directory C:\School\Year3\SYP\MopedMeetup\02-projekte-mopedmeetup\MopedMeetup\MopedMeetup\db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
 Loaded from file:/C:/Users/Linus/AppData/Roaming/JetBrains/IntelliJIdea2022.3/jdbc-drivers/Apache%20Derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=JetBrains s.r.o.
