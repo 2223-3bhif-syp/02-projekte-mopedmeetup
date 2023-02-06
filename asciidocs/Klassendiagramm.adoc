@@ -8,25 +8,25 @@
 class User {
     - name: String
     - meetups : Meetup
-    - int age
-    - User[] friends
-    - Chat chatGroup
-    - boolean isAlreadyBusy
+    - age : int
+    - friends : User[]
+    - chatGroup : Chat
+    - isAlreadyBusy : boolean
 }
 class Meetup {
-    + User participants
-    + User creator
-    + Map location
-    + String description
-    + Chat meetupChat
+    + participants : User
+    + creator : User
+    + location : Map
+    + description : String
+    + meetupChat : Chat
 }
 
 class Map {
-    -string coordinates
+    - coordinates : String
 }
 class Chat {
-    - User participants
-    - Meetup meetup
+    - participants : User
+    - meetup : Meetup
 }
 
 Meetup "*"--"*" User : ""
