@@ -1,11 +1,4 @@
 = Klassendiagramm
-Contents
-:toc: left
-:sectnums:
-:toclevels: 1
-:table-caption:
-:linkattrs:
-
 == Diagramm
 
  1.Version
@@ -13,9 +6,9 @@ Contents
 [plantuml, target=diagram-classes, format=png]
 ....
 class User {
-    +String name
-    +Meetup meetups
-    +int age
+    - name: String
+    - meetups : Meetup
+    - int age
     - User[] friends
     - Chat chatGroup
     - boolean isAlreadyBusy
@@ -27,8 +20,7 @@ class Meetup {
     + String description
     + Chat meetupChat
 }
-class Login {
-}
+
 class Map {
     -string coordinates
 }
@@ -37,10 +29,8 @@ class Chat {
     - Meetup meetup
 }
 
-Meetup o--o User : contains
-Map <|-- Meetup : contains
-User --> Meetup : creates
-User --> Login : needs
-Meetup -- Chat : uses
-User --> Chat : joins
+Meetup "*"--"*" User : ""
+Map "1"--"1" Meetup : ""
+Meetup "1"--"1" Chat : ""
+User "1"--"1" Chat : ""
 ....
