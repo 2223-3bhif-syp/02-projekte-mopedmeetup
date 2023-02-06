@@ -1,7 +1,7 @@
 = Klassendiagramm
 == Diagramm
 
- 1.Version
+ 2.Version
 
 [plantuml, target=diagram-classes, format=png]
 ....
@@ -12,8 +12,6 @@ class User {
     - age : int
     - email: String
     - meetups : List<Meetup>
-    - friends : User[]
-    - chatGroup : Chat
     - isAlreadyBusy : boolean
 }
 class Meetup {
@@ -22,21 +20,15 @@ class Meetup {
     + creator : User
     + location : Location
     + description : String
-    + meetupChat : Chat
 }
 
 class Location {
     - id : int
     - coordinates : String
 }
-class Chat {
-    - id : int
-    - participants : User
-    - meetup : Meetup
-}
+
 
 Meetup "*"--"*" User : ""
 Location "1"--"1" Meetup : ""
-Meetup "1"--"1" Chat : ""
-User "1"--"1" Chat : ""
+
 ....
