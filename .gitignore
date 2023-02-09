@@ -38,3 +38,12 @@ docs/slides/revealjs
 .asciidocs
 asciidocs/.asciidoctor/diagram/diagram-classes.png.cache
 asciidocs/.asciidoctor/images/diagram-classes.png
+
+#Project Files
+**/.idea/
+**/db/
+**/datasource.txt
+**/derbydb-create.sh
+**/derbydb-start.sh
+**/target/
+**/application.properties
