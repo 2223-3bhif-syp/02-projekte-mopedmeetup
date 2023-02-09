@@ -438,62 +438,198 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>Pflichtenheft für Moped-MeetUp App</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_ausgangssituation">1. Ausgangssituation</a></li>
+<li><a href="#_ist_zustand">2. Ist-Zustand</a></li>
+<li><a href="#_problemstellung">3. Problemstellung</a></li>
+<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a>
+<ul class="sectlevel2">
+<li><a href="#_funktionale_anforderungen">4.1. Funktionale Anforderungen</a></li>
+<li><a href="#_nicht_funktionale_anforderungen">4.2. Nicht funktionale Anforderungen</a></li>
+</ul>
+</li>
+<li><a href="#_ziel">5. Ziel</a></li>
+<li><a href="#_mengengerüst">6. Mengengerüst</a></li>
+<li><a href="#_rahmenbedingungen">7. Rahmenbedingungen</a></li>
+<li><a href="#_datenmodell">8. Datenmodell</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>Autoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger</p>
 </div>
 <div class="paragraph">
 <p>Klasse: 3BHIF</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Phase</th>
-<th class="tableblock halign-left valign-top">Beschreibung</th>
-<th class="tableblock halign-left valign-top">Beispiel</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ausgangssituation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Es gibt sehr viele MopedfahrerInnen in Österreich.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In der HTL Leonding gibt es viele MopedfahrerInnen. Besonders in den wärmeren Zeiten des Jahres gelangen sie so zur Schule.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Istzustand</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Manche Moped-Fahrer treffen sich gelegentlich. Sie fahren gemeinsam bestimmte Strecken oder wollen einfach zu einem gemeinsamen Ziel gelangen.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Drei Freunde treffen sich jeden 2. Monat, um gemeinsam ihre Lieblingsstrecke zu fahren.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Problemstellung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Moped-Fahrer haben Schwierigkeiten, Gleichgesinnte in ihrer Umgebung zu finden, um gemeinsam zu fahren oder sich zu treffen.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ein Moped-Fahrer, der gerne an Rallies teilnimmt, hat Schwierigkeiten, andere Moped-Fahrer zu finden, die an denselben Rallies teilnehmen möchten. Er nutzt derzeit soziale Medien, um andere Moped-Fahrer zu finden, aber es ist schwierig, gezielt nach Leuten zu suchen, die an denselben Rallies interessiert sind.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sollzustand / Ergebnis / Leistung / Aufgabenstellung</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Die Moped-Meetup App soll Moped-Fahrern ermöglichen, sich einfach in ihrer Umgebung zu organisierten Meetups zu treffen, neue Freunde zu finden und miteinander zu chatten. Die App soll eine einfache Möglichkeit bieten, andere Moped-Fahrer in der Umgebung zu finden und Kontakt aufzunehmen. Es soll auch die Möglichkeit geboten werden, Meetups zu erstellen und zu verwalten.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ein Moped-Fahrer, der gerne an Rallies teilnimmt, kann nun die Moped-Meetup App nutzen, um andere Moped-Fahrer in seiner Umgebung zu finden, die an denselben Rallies interessiert sind. Er kann mit ihnen chatten, um sich besser kennenzulernen und gemeinsam an Rallies teilzunehmen. Auch kann er selbst Meetups erstellen und verwalten, damit auch andere Rallies organisieren können.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ziel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Das Ziel der Moped-Meetup App ist es, Moped-Fahrern zu helfen, Gleichgesinnte in ihrer Umgebung zu finden, um gemeinsam zu fahren und sich zu unterhalten. Sie trägt dazu bei, die Moped-Fahrer-Community zu stärken und neue Freundschaften zu schließen.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Eine Person, die neu in eine Stadt gezogen ist und gerne Moped fährt, nutzt die Moped-Meetup App um Gleichgesinnte in der Umgebung zu finden. Sie trifft sich regelmäßig mit anderen Moped-Fahrern aus der App und hat dadurch die Möglichkeit neue Freunde zu finden, sich mit anderen Moped-Fahrern auszutauschen und an gemeinsamen Ausfahrten teilzunehmen. Dadurch fühlt sie sich in ihrer neuen Umgebung schneller integriert.</p></td>
-</tr>
-</tbody>
-</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>1. Ausgangssituation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ist_zustand"><a class="anchor" href="#_ist_zustand"></a>2. Ist-Zustand</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MopedfahrerInnen treffen sich, um</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>gemeinsam durch die Stadt oder durch das Land zu fahren</p>
+</li>
+<li>
+<p>neue Leute kennenzulernen</p>
+</li>
+<li>
+<p>Spaß zu haben</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>3. Problemstellung</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Gesellschaftssuche: einige haben das Problem, sich Fahrgesellschaften zu suchen</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit bietet, andere MopedfahrerInnen in der Umgebung zu finden und Kontakt aufzunehmen.</p>
+</div>
+<div class="sect2">
+<h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Kommunikation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Anwendung beinhaltet eine Chat-Funktion, damit alle user untereinander kommunitieren können</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Meetup-Verwaltung</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User können Meetups erstellen bzw. verwalten</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.2. Nicht funktionale Anforderungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Benutzerfreundlichkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Anwendung besitzt intuitive Benutzeroberfläche, die leicht zu bedienen ist</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ziel"><a class="anchor" href="#_ziel"></a>5. Ziel</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Mehr Treffen von MopedfahrerInnen in Österreich</p>
+</li>
+<li>
+<p>Einfachere Vereinbarung für Treffen</p>
+</li>
+<li>
+<p>Zahlreiche neue Freundschaftsschließungen</p>
+</li>
+<li>
+<p>Stärkung der Mopedfahrer-Community</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>6. Mengengerüst</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Anwendung wird auf einer webbasierten Plattform entwickelt</p>
+</li>
+<li>
+<p>Anwendung ist für jeden zugänglich</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>7. Rahmenbedingungen</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Einhaltung der Datenschutzrichtlinien</p>
+</li>
+<li>
+<p>Umsetzung des Projekts innerhalb eines definierten Zeitrahmens und Budgets</p>
+</li>
+<li>
+<p>Codinglanguage: Java</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>8. Datenmodell</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="./puml/Klassendiagramm.puml" class="bare">./puml/Klassendiagramm.puml</a></p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-06 08:37:10 UTC
+Last updated 2023-02-09 09:57:20 UTC
 </div>
 </div>
 </body>
