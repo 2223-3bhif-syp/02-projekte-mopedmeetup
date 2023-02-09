@@ -54,4 +54,7 @@ Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit b
 
 == Datenmodell
 
-link:./puml/Klassendiagramm.puml[]
+[plantuml]
+----
+include::./puml/Klassendiagramm.puml[]
+----

@@ -1,35 +1,28 @@
 @startuml CLD
 
 class User {
-    +String name
-    +Meetup meetups
-    +int age
-    - User[] friends
-    - Chat chatGroup
-    - boolean isAlreadyBusy
+    - id : int
+    - firstName: String
+    - lastName : String
+    - age : int
+    - email: String
+    - meetups : List<Meetup>
 }
 class Meetup {
-    + User participants
-    + User creator
-    + Map location
-    + String description
-    + Chat meetupChat
-}
-class Login {
-}
-class Map {
-    -string coordinates
-}
-class Chat {
-    - User participants
-    - Meetup meetup
+    + id : int
+    + participants : User
+    + creator : User
+    + location : Location
+    + description : String
 }
 
-Meetup o--o User : contains
-Map <|-- Meetup : contains
-User --> Meetup : creates
-User --> Login : needs
-Meetup -- Chat : uses
-User --> Chat : joins
+class Location {
+    - id : int
+    - coordinates : String
+}
+
+
+Meetup "*"--"*" User : ""
+Location "1"--"1" Meetup : ""
 
 @enduml
