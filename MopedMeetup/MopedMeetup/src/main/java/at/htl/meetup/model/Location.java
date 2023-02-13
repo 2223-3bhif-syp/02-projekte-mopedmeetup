@@ -2,13 +2,15 @@ package at.htl.meetup.model;
 
 public class Location {
     private int locationID;
-    private String coordinates;
+    private String adress;
+    private String name;
 
     public Location() {
+
     }
 
-    public Location(String coordinates) {
-        this.coordinates = coordinates;
+    public Location(String adress) {
+        this.adress = adress;
     }
 
     public int getLocationID() {
@@ -19,11 +21,19 @@ public class Location {
         this.locationID = locationID;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

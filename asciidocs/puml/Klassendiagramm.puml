@@ -22,7 +22,7 @@ class Location {
 }
 
 
-Meetup "*"--"*" User : ""
+Meetup "*"--"1" User : ""
 Location "1"--"1" Meetup : ""
 
 @enduml
