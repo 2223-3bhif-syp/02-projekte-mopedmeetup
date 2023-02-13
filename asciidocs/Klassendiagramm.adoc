@@ -1,5 +1,4 @@
 = Klassendiagramm
-== Diagramm
 
  2.Version
 
