@@ -15,5 +15,5 @@ Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig ein Treffen 
 == Asciidoc Documente:
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
-- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm ]
--  https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Pflichtenheft.adoc[Pflichtenheft]
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm]
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Pflichtenheft[Pflichtenheft]
