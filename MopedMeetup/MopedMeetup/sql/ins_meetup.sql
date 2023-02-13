@@ -1,0 +1,8 @@
+INSERT INTO mm_LOCATION (NAME, ADRESS) VALUES ('Meetup1', 'Hamberg 12');
+INSERT INTO mm_LOCATION (NAME, ADRESS) VALUES ('Meetup2', 'Plus City');
+
+INSERT INTO mm_USER (FIRST_NAME, LAST_NAME, EMAIL) VALUES ('Linus', 'Nestler', 'ln@gmail.com');
+INSERT INTO mm_USER (FIRST_NAME, LAST_NAME, EMAIL) VALUES ('Oliver', 'Daxinger', 'od@gmail.com');
+
+INSERT INTO mm_MEETUP (DESCRIPTION, CREATOR_ID, Location_ID) VALUES ('Linus Meetup', 1, 1);
+INSERT INTO mm_MEETUP (DESCRIPTION, CREATOR_ID, Location_ID) VALUES ('Oliver Meetup', 2, 2);

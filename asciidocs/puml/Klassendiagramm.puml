@@ -22,7 +22,9 @@ class Location {
 }
 
 
-Meetup "*"--"1" User : ""
+Meetup "*"--"1" User
 Location "1"--"1" Meetup : ""
+Meetup "*"--"*" User
+(User, Meetup) .. MeetupUserMapping
 
 @enduml
