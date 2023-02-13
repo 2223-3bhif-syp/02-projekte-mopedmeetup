@@ -1,4 +1,4 @@
-package at.htl.meetup.model;
+package at.htl.meetup;
 
 import at.htl.meetup.database.SqlRunner;
 
