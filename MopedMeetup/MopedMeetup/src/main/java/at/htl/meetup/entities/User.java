@@ -4,7 +4,7 @@ package at.htl.meetup.entities;
 import java.util.List;
 
 public class User {
-    private int userID;
+    private int id;
     private String firstName;
     private String lastName;
     private int age;
@@ -18,12 +18,12 @@ public class User {
         this.email = email;
     }
 
-    public int getUserID() {
-        return userID;
+    public int getId() {
+        return id;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {

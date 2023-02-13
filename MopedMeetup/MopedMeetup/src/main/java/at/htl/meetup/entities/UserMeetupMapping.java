@@ -1,11 +1,21 @@
 package at.htl.meetup.entities;
 
 public class UserMeetupMapping {
+
+    private int id;
     private int UserId;
     private int MeetupId;
 
     public UserMeetupMapping(){
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getUserId() {

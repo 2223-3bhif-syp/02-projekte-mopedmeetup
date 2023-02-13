@@ -1,32 +1,38 @@
 package at.htl.meetup.entities;
 
 public class Location {
-    private int locationID;
-    private String adress;
+    private int id;
+    private String address;
     private String name;
 
     public Location() {
 
     }
 
-    public Location(String adress) {
-        this.adress = adress;
+    public Location(String address) {
+        this.address = address;
     }
 
-    public int getLocationID() {
-        return locationID;
+    public Location(int id, String address, String name) {
+        this.id = id;
+        this.address = address;
+        this.name = name;
     }
 
-    public void setLocationID(int locationID) {
-        this.locationID = locationID;
+    public int getId() {
+        return this.id;
     }
 
-    public String getAdress() {
-        return adress;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getName() {

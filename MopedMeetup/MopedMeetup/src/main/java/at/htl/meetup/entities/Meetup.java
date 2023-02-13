@@ -4,7 +4,7 @@ package at.htl.meetup.entities;
 import java.util.List;
 
 public class Meetup {
-    private int meetupID;
+    private int id;
     private User creator;
     private List<User> participants;
     private Location location;
@@ -19,12 +19,12 @@ public class Meetup {
         this.description = description;
     }
 
-    public int getMeetupID() {
-        return meetupID;
+    public int getId() {
+        return id;
     }
 
-    public void setMeetupID(int meetupID) {
-        this.meetupID = meetupID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getCreator() {
