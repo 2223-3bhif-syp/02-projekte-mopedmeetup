@@ -1,4 +1,4 @@
-package at.htl.meetup.model;
+package at.htl.meetup.entities;
 
 public class Location {
     private int locationID;
