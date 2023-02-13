@@ -16,4 +16,4 @@ Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig ein Treffen 
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
 - https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm ]
-- https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup/blob/0b55d85beff7efd1259376326c20882840662f6c/Pflichtenheft.adoc[Pflichtenheft]
+-  https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Pflichtenheft.adoc[Pflichtenheft]
