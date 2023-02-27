@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserRepositoryTest {
     @Test
     void testUser() {
-        Table table = new Table(Database.getDataSource(), "USER");
+        Table table = new Table(Database.getDataSource(), "MM_USER");
         output(table).toConsole();
     }
 

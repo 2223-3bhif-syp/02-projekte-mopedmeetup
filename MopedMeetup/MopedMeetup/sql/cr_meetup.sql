@@ -8,13 +8,14 @@ CREATE TABLE mm_USER (
 
 CREATE TABLE mm_LOCATION (
                           LOCATION_ID       INT NOT NULL CONSTRAINT LOCATION_PK PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-                          ADRESS       VARCHAR(15),
+                          ADRESS            VARCHAR(50),
                           NAME              VARCHAR(20)
 );
 
 CREATE TABLE mm_MEETUP (
                            MEETUP_ID         INT NOT NULL CONSTRAINT MEETUP_PK PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
                            DESCRIPTION       VARCHAR(200),
+                           MEETUP_DATE       DATE,
                            CREATOR_ID        INT CONSTRAINT MEETUP_USER_FK REFERENCES mm_USER(USER_ID),
                            Location_ID       INT CONSTRAINT MEETUP_LOCATION_FK REFERENCES mm_LOCATION(LOCATION_ID)
 );

@@ -19,6 +19,11 @@ public class Location {
         this.name = name;
     }
 
+    public Location(String name, String address) {
+        this.address = address;
+        this.name = name;
+    }
+
     public int getId() {
         return this.id;
     }

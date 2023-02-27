@@ -85,7 +85,7 @@ public class LocationRepository {
             while (result.next()) {
                 int id = result.getInt("LOCATION_ID");
                 String name = result.getString("NAME");
-                String address = result.getString("ADDRESS");
+                String address = result.getString("ADRESS");
                 locationList.add(new Location(id,address,name));
             }
 
@@ -103,12 +103,9 @@ public class LocationRepository {
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
 
-
-
             while (result.next()) {
-                long ao_q_id = result.getLong("ao_q_id");
-                return new Location(result.getInt("LOCATION_ID"), result.getString("ADDRESS"), result.getString("NAME"));
-
+                if(id == result.getInt("LOCATION_ID"))
+                return new Location(result.getInt("LOCATION_ID"), result.getString("ADRESS"), result.getString("NAME"));
             }
 
         } catch (SQLException e) {
