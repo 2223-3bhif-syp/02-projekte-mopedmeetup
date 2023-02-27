@@ -26,8 +26,14 @@ class Location {
     - coordinates : String
 }
 
+class MeetupUserMapping {
+    + meetupId : int
+    + userId : int
+}
+
+
 
 Meetup "*"--"*" User : ""
 Location "1"--"1" Meetup : ""
-
+(User, Meetup) .. MeetupUserMapping
 ....
