@@ -12,7 +12,7 @@ public class Location {
 
     }
 
-    public Location(String street, String city, int zip, String name) {
+    public Location(String name, String city, String street, int zip) {
         this.street = street;
         this.city = city;
         this.zip = zip;
