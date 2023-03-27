@@ -43,7 +43,5 @@ asciidocs/.asciidoctor/images/diagram-classes.png
 **/.idea/
 **/db/
 **/datasource.txt
-**/derbydb-create.sh
-**/derbydb-start.sh
 **/target/
 **/application.properties
