@@ -1,9 +1,4 @@
-= Klassendiagramm
-
- 3.Version
-
-[plantuml, target=diagram-classes, format=png]
-....
+@startuml
 class User {
     - id : Long
     - firstName: String
@@ -39,4 +34,5 @@ Location "1"--"*" Meetup : ""
 Meetup "1"--"1" User : "creates"
 Meetup "*"--"*" User : ""
 (User, Meetup) .. Participant
-....
+
+@enduml

@@ -1,33 +1,49 @@
 = Pflichtenheft für Moped-MeetUp App
+:description: Pflichtenheft Mopedmeetup
 :sectnums:
+:url-repo: https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup
 
 Autoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger
 
 Klasse: 3BHIF
 
 == Ausgangssituation
-Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding. 
+Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding, einer mittelgroßen Schule im Raum Linz. 
 
 == Ist-Zustand
-MopedfahrerInnen treffen sich, um
-
-* gemeinsam durch die Stadt oder durch das Land zu fahren
-* neue Leute kennenzulernen
-* Spaß zu haben
+MopedfahrerInnen treffen sich nach der Schule oder machen sich über z.B. Whatsapp oder Snapchat aus wann und wo sie sich treffen wollen.
 
 == Problemstellung 
 
-* Gesellschaftssuche: einige haben das Problem, sich Fahrgesellschaften zu suchen
+Schüler/innen ohne Freunde die ein Moped haben fällt es schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen.
 
 == Aufgabenstellung
 Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit bietet, andere MopedfahrerInnen in der Umgebung zu finden und Kontakt aufzunehmen. 
 
 === Funktionale Anforderungen
 
-* Kommunikation 
-** Anwendung beinhaltet eine Chat-Funktion, damit alle user untereinander kommunitieren können
+==== Use-case Diagramm
+
+ Hier
+
+* Meetups einsehen
+** Ein Benutzer kann alle Meetups in nächster Zeit in einer Übersicht sehen. 
+* Bei einem Meetup teilnehmen.
+** Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen das er teilnimmt.
 * Meetup-Verwaltung
-** User können Meetups erstellen bzw. verwalten
+** Meetups erstellen
+*** Jeder Benutzer hat die Möglichkeit ein neues Meetup zu erstellen.
+** Meetup bearbeiten
+*** Der Ersteller eines Meetups kann Details noch verändern.
+** Meetup löschen
+*** Der Ersteller eines Meetups kann das Meetup auch löschen.
+
+==== Domain Object Model des Systems
+
+[plantuml]
+----
+include::./puml/Klassendiagramm.puml[]
+----
 
 === Nicht funktionale Anforderungen
 
@@ -54,7 +70,3 @@ Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit b
 
 == Datenmodell
 
-[plantuml]
-----
-include::./puml/Klassendiagramm.puml[]
-----
