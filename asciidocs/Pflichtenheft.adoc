@@ -3,22 +3,30 @@
 :sectnums:
 :url-repo: https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup
 
-Autoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger
+Version: 1.1
+
+Version Date: 27-03-2023
+
+Autoren:
+
+* Said Nurceski s.nurceski@students.htl-leonding.ac.at
+* Linus Nestler l.nestler@students.htl-leonding.ac.at
+* Bajtik Berg b.berg@students.htl-leonding.ac.at
+* Oliver Daxinger o.daxinger@students.htl-leonding.ac.at
 
 Klasse: 3BHIF
 
 == Ausgangssituation
-Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding, einer mittelgroßen Schule im Raum Linz. 
+Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding, einer mittelgroßen Schule im Raum Linz.
 
 == Ist-Zustand
 MopedfahrerInnen treffen sich nach der Schule oder machen sich über z.B. Whatsapp oder Snapchat aus wann und wo sie sich treffen wollen.
 
 == Problemstellung 
 
-Schüler/innen ohne Freunde die ein Moped haben fällt es schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen.
+Schüler/innen ohne Freunde, die ein Moped haben, fällt es, schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen und nur sehr schwer ein Moped treffen organisieren, das jeder mitbekommt.
 
 == Aufgabenstellung
-Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit bietet, andere MopedfahrerInnen in der Umgebung zu finden und Kontakt aufzunehmen. 
 
 === Funktionale Anforderungen
 
@@ -29,7 +37,9 @@ Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit b
 * Meetups einsehen
 ** Ein Benutzer kann alle Meetups in nächster Zeit in einer Übersicht sehen. 
 * Bei einem Meetup teilnehmen.
-** Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen das er teilnimmt.
+** Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen, dass er teilnimmt.
+* Für ein Meetup abmelden
+** Ein Benutzer kann sich jederzeit bei eine Meetup abmelden.
 * Meetup-Verwaltung
 ** Meetups erstellen
 *** Jeder Benutzer hat die Möglichkeit ein neues Meetup zu erstellen.
@@ -37,6 +47,11 @@ Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit b
 *** Der Ersteller eines Meetups kann Details noch verändern.
 ** Meetup löschen
 *** Der Ersteller eines Meetups kann das Meetup auch löschen.
+* Chatten im Meetup
+** Jeder Benutzer ist möglich im Meetup mit allen Teilnehmern zu chatten und so falls Fragen auftauchen die beteiligten zu Frage
+* Bewerten von Meetups
+** Jeder Benutzer kann nach erfolgreichem Abschließen eines Meetups bewerten, wie es war.
+
 
 ==== Domain Object Model des Systems
 
@@ -45,10 +60,79 @@ Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit b
 include::./puml/Klassendiagramm.puml[]
 ----
 
+=== GUI
+
+* GUI für das Anmelden
+
+.Anmeldeseite
+[%collapsible]
+====
+Bild von Anmeldeseite
+====
+
+* GUI für das Registrieren
+
+.Registrierungsseite
+[%collapsible]
+====
+Bild von der Registrierungsseite
+====
+
+* GUI für die Sicht der User
+
+.User-Ansicht - Startseite
+[%collapsible]
+====
+GUI von der Startseite
+====
+
+* GUI für die Erstellung eines Meetups als Admin
+
+.Admin-Ansicht - Erstellen eines Meetups
+[%collapsible]
+====
+GUI von Erstellen des Meetups
+====
+
+* GUI für das Bearbeiten eines Kurses als Admin
+
+.Admin-Ansicht - Bearbeiten eines Kurses
+[%collapsible]
+====
+Bild
+====
+
+* GUI für die teilnahme bei einem Meetup als User
+
+.User-Ansicht - Teilnahme eines Meetups
+[%collapsible]
+====
+Bild
+====
+
+* GUI für die Abmeldung eines Meetups als Users
+
+.Admin-Ansicht - Abmelden eines Meetups
+[%collapsible]
+====
+Bild
+====
+
 === Nicht funktionale Anforderungen
 
 * Benutzerfreundlichkeit
 ** Anwendung besitzt intuitive Benutzeroberfläche, die leicht zu bedienen ist
+* Zuverlässigkeit
+**  Die App sollte stabil und zuverlässig sein, um sicherzustellen, dass Benutzer keine Abstürze oder Datenverluste erfahren.
+* Effizienzanforderung
+** Als User soll man sofort bei einem Meetup teilnehmen, ein Meetup erstellen und sich auch sofort abmelden können.
+* Sicherheitsanforderung
+** Die Daten der Nutzer müssen so gut wie möglich vor Dritten geschützt werden.
+* Wartbarkeit
+** Die App soll leicht zu warte und zu aktualisieren sein, um sicherzustellen, dass die App auf dem neuesten Stand bleibt.
+* Zuverlässigkeit
+** Robustheit / Fehlertoleranz
+*** Auch bei der Eingabe von ungültigen Werten und falschen Benutzung stützt das Programm nicht ab.
 
 == Ziel
 
@@ -67,6 +151,10 @@ include::./puml/Klassendiagramm.puml[]
 * Einhaltung der Datenschutzrichtlinien
 * Umsetzung des Projekts innerhalb eines definierten Zeitrahmens und Budgets
 * Codinglanguage: Java
+
+== Lieferumfang
+* Dokumentation
+* Quellcode
 
 == Datenmodell
 
