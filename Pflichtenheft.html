@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.18">
+<meta name="description" content="Pflichtenheft Mopedmeetup">
 <link rel="icon" type="image/png" href="themes/favicon.png">
 <title>Pflichtenheft für Moped-MeetUp App</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -475,7 +476,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>1. Ausgangssituation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding.</p>
+<p>Es gibt zahlreiche MopedfahrerInnen in der HTBLA Leonding, einer mittelgroßen Schule im Raum Linz.</p>
 </div>
 </div>
 </div>
@@ -483,32 +484,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_ist_zustand"><a class="anchor" href="#_ist_zustand"></a>2. Ist-Zustand</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>MopedfahrerInnen treffen sich, um</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>gemeinsam durch die Stadt oder durch das Land zu fahren</p>
-</li>
-<li>
-<p>neue Leute kennenzulernen</p>
-</li>
-<li>
-<p>Spaß zu haben</p>
-</li>
-</ul>
+<p>MopedfahrerInnen treffen sich nach der Schule oder machen sich über z.B. Whatsapp oder Snapchat aus wann und wo sie sich treffen wollen.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>3. Problemstellung</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Gesellschaftssuche: einige haben das Problem, sich Fahrgesellschaften zu suchen</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Schüler/innen ohne Freunde die ein Moped haben fällt es schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen.</p>
 </div>
 </div>
 </div>
@@ -520,14 +504,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
+<div class="sect3">
+<h4 id="_use_case_diagramm"><a class="anchor" href="#_use_case_diagramm"></a>4.1.1. Use-case Diagramm</h4>
+<div class="literalblock">
+<div class="content">
+<pre>Hier</pre>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Kommunikation</p>
+<p>Meetups einsehen</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Anwendung beinhaltet eine Chat-Funktion, damit alle user untereinander kommunitieren können</p>
+<p>Ein Benutzer kann alle Meetups in nächster Zeit in einer Übersicht sehen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bei einem Meetup teilnehmen.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen das er teilnimmt.</p>
 </li>
 </ul>
 </div>
@@ -537,12 +538,48 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>User können Meetups erstellen bzw. verwalten</p>
+<p>Meetups erstellen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Jeder Benutzer hat die Möglichkeit ein neues Meetup zu erstellen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Meetup bearbeiten</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Ersteller eines Meetups kann Details noch verändern.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Meetup löschen</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Ersteller eines Meetups kann das Meetup auch löschen.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_domain_object_model_des_systems"><a class="anchor" href="#_domain_object_model_des_systems"></a>4.1.2. Domain Object Model des Systems</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/diag-f1bf7fb41e3381ef80547a5afdb75b93.png" alt="Diagram" width="273" height="713">
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -621,24 +658,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>8. Datenmodell</h2>
 <div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>Failed to generate image: PlantUML preprocessing failed: [From &lt;input&gt; (line 2) ]
 
-@startuml
-Unresolved directive in Pflichtenheft.adoc - include::./puml/Klassendiagramm.puml[]
-^^^^^
- Syntax Error?
-
-Unresolved directive in Pflichtenheft.adoc - include::./puml/Klassendiagramm.puml[]</pre>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-27 08:26:25 UTC
+Last updated 2023-03-27 18:49:37 UTC
 </div>
 </div>
 </body>
