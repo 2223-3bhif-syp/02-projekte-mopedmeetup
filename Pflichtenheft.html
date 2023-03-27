@@ -451,13 +451,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_aufgabenstellung">4. Aufgabenstellung</a>
 <ul class="sectlevel2">
 <li><a href="#_funktionale_anforderungen">4.1. Funktionale Anforderungen</a></li>
-<li><a href="#_nicht_funktionale_anforderungen">4.2. Nicht funktionale Anforderungen</a></li>
+<li><a href="#_gui">4.2. GUI</a></li>
+<li><a href="#_nicht_funktionale_anforderungen">4.3. Nicht funktionale Anforderungen</a></li>
 </ul>
 </li>
 <li><a href="#_ziel">5. Ziel</a></li>
 <li><a href="#_mengengerüst">6. Mengengerüst</a></li>
 <li><a href="#_rahmenbedingungen">7. Rahmenbedingungen</a></li>
-<li><a href="#_datenmodell">8. Datenmodell</a></li>
+<li><a href="#_lieferumfang">8. Lieferumfang</a></li>
+<li><a href="#_datenmodell">9. Datenmodell</a></li>
 </ul>
 </div>
 </div>
@@ -465,7 +467,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Autoren: Said Nurceski, Linus Nestler, Bajtik Berg und Oliver Daxinger</p>
+<p>Version: 1.1</p>
+</div>
+<div class="paragraph">
+<p>Version Date: 27-03-2023</p>
+</div>
+<div class="paragraph">
+<p>Autoren:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Said Nurceski <a href="mailto:s.nurceski@students.htl-leonding.ac.at">s.nurceski@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p>Linus Nestler <a href="mailto:l.nestler@students.htl-leonding.ac.at">l.nestler@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p>Bajtik Berg <a href="mailto:b.berg@students.htl-leonding.ac.at">b.berg@students.htl-leonding.ac.at</a></p>
+</li>
+<li>
+<p>Oliver Daxinger <a href="mailto:o.daxinger@students.htl-leonding.ac.at">o.daxinger@students.htl-leonding.ac.at</a></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Klasse: 3BHIF</p>
@@ -492,16 +516,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>3. Problemstellung</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Schüler/innen ohne Freunde die ein Moped haben fällt es schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen.</p>
+<p>Schüler/innen ohne Freunde, die ein Moped haben, fällt es, schwer sich eine Gruppe zum Fahren zu suchen. Auch Schüler/innen mit einer bereits bestehenden Moped-Gruppe können nicht leicht neue Mopedfahrer kennenlernen und nur sehr schwer ein Moped treffen organisieren, das jeder mitbekommt.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Entwicklung einer Application, die MopedfahrerInnen eine einfache Möglichkeit bietet, andere MopedfahrerInnen in der Umgebung zu finden und Kontakt aufzunehmen.</p>
-</div>
 <div class="sect2">
 <h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
 <div class="sect3">
@@ -528,7 +549,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen das er teilnimmt.</p>
+<p>Ein Benutzer kann sich bei einem Meetup hinzufügen, so das andere sehen, dass er teilnimmt.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Für ein Meetup abmelden</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ein Benutzer kann sich jederzeit bei eine Meetup abmelden.</p>
 </li>
 </ul>
 </div>
@@ -570,6 +601,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 </li>
+<li>
+<p>Chatten im Meetup</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Jeder Benutzer ist möglich im Meetup mit allen Teilnehmern zu chatten und so falls Fragen auftauchen die beteiligten zu Frage</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bewerten von Meetups</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Jeder Benutzer kann nach erfolgreichem Abschließen eines Meetups bewerten, wie es war.</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -583,7 +634,115 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.2. Nicht funktionale Anforderungen</h3>
+<h3 id="_gui"><a class="anchor" href="#_gui"></a>4.2. GUI</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für das Anmelden</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Anmeldeseite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Bild von Anmeldeseite</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für das Registrieren</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Registrierungsseite</summary>
+<div class="content">
+<div class="paragraph">
+<p>Bild von der Registrierungsseite</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für die Sicht der User</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">User-Ansicht - Startseite</summary>
+<div class="content">
+<div class="paragraph">
+<p>GUI von der Startseite</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für die Erstellung eines Meetups als Admin</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Admin-Ansicht - Erstellen eines Meetups</summary>
+<div class="content">
+<div class="paragraph">
+<p>GUI von Erstellen des Meetups</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für das Bearbeiten eines Kurses als Admin</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Admin-Ansicht - Bearbeiten eines Kurses</summary>
+<div class="content">
+<div class="paragraph">
+<p>Bild</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für die teilnahme bei einem Meetup als User</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">User-Ansicht - Teilnahme eines Meetups</summary>
+<div class="content">
+<div class="paragraph">
+<p>Bild</p>
+</div>
+</div>
+</details>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI für die Abmeldung eines Meetups als Users</p>
+</li>
+</ul>
+</div>
+<details>
+<summary class="title">Admin-Ansicht - Abmelden eines Meetups</summary>
+<div class="content">
+<div class="paragraph">
+<p>Bild</p>
+</div>
+</div>
+</details>
+</div>
+<div class="sect2">
+<h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.3. Nicht funktionale Anforderungen</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -592,6 +751,63 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul>
 <li>
 <p>Anwendung besitzt intuitive Benutzeroberfläche, die leicht zu bedienen ist</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Zuverlässigkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die App sollte stabil und zuverlässig sein, um sicherzustellen, dass Benutzer keine Abstürze oder Datenverluste erfahren.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Effizienzanforderung</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Als User soll man sofort bei einem Meetup teilnehmen, ein Meetup erstellen und sich auch sofort abmelden können.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sicherheitsanforderung</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Daten der Nutzer müssen so gut wie möglich vor Dritten geschützt werden.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Wartbarkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die App soll leicht zu warte und zu aktualisieren sein, um sicherzustellen, dass die App auf dem neuesten Stand bleibt.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Zuverlässigkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Robustheit / Fehlertoleranz</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Auch bei der Eingabe von ungültigen Werten und falschen Benutzung stützt das Programm nicht ab.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -656,7 +872,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>8. Datenmodell</h2>
+<h2 id="_lieferumfang"><a class="anchor" href="#_lieferumfang"></a>8. Lieferumfang</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Dokumentation</p>
+</li>
+<li>
+<p>Quellcode</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>9. Datenmodell</h2>
 <div class="sectionbody">
 
 </div>
@@ -664,7 +895,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-27 18:49:37 UTC
+Last updated 2023-03-27 20:51:24 UTC
 </div>
 </div>
 </body>
