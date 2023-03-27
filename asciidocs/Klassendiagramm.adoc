@@ -27,11 +27,6 @@ class Location {
     - zip : Int
 }
 
-class MeetupUserMapping {
-    + meetup : Meetup
-    + user : User
-}
-
 
 
 Location "1"--"*" Meetup : ""
