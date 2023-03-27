@@ -2,13 +2,10 @@ package at.htl.meetup.controller;
 
 import at.htl.meetup.database.SqlRunner;
 import at.htl.meetup.entities.*;
-
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import static org.assertj.db.api.Assertions.assertThat;
 import org.assertj.db.type.DateValue;
 import org.assertj.db.type.Source;
@@ -159,9 +156,15 @@ class LocationRepositoryTest {
         Location location3 = new Location(name3, adress3);
         locationRepository.insert(location3);
 
+        String name4 = "Said Meetup";
+        String adress4 = "Hamberg 12, 4201 Gramastetten";
+        Location location4 = new Location(name4, adress4);
+        locationRepository.insert(location4);
+
         assertEquals(location.getId(), locationRepository.getById(location.getId()).getId());
         assertEquals(location2.getId(), locationRepository.getById(location2.getId()).getId());
         assertEquals(location3.getId(), locationRepository.getById(location3.getId()).getId());
+        assertEquals(location4.getId(), locationRepository.getById(location4.getId()).getId());
 
     }
 }

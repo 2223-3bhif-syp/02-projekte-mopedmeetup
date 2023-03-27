@@ -12,10 +12,10 @@ import java.util.List;
 
 public class LocationRepository {
 
-    private DataSource dataSource = Database.getDataSource();
+    /*private DataSource dataSource = Database.getDataSource();
     public void insert(Location location) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_LOCATION (ADRESS, NAME) VALUES (?,?)";
+            String sql = "INSERT INTO MM_LOCATION (ADRESS, NAME, ) VALUES (?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, location.getAddress());
@@ -105,7 +105,7 @@ public class LocationRepository {
 
             while (result.next()) {
                 if(id == result.getInt("LOCATION_ID"))
-                return new Location(result.getInt("LOCATION_ID"), result.getString("ADRESS"), result.getString("NAME"));
+                //return new Location(result.getInt("LOCATION_ID"), result.getString("ADRESS"), result.getString("NAME"));
             }
 
         } catch (SQLException e) {
@@ -113,5 +113,5 @@ public class LocationRepository {
         }
 
         return null;
-    }
+    }*/
 }

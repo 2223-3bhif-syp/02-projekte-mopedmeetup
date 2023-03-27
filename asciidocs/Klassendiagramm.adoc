@@ -1,19 +1,18 @@
 = Klassendiagramm
 
- 2.Version
+ 3.Version
 
 [plantuml, target=diagram-classes, format=png]
 ....
 class User {
-    - id : int
+    - id : Long
     - firstName: String
     - lastName : String
     - age : int
     - email: String
-    - meetups : List<Meetup>
 }
 class Meetup {
-    + id : int
+    + id : Long
     + participants : User
     + date : DateTime
     + creator : User
@@ -22,18 +21,21 @@ class Meetup {
 }
 
 class Location {
-    - id : int
-    - coordinates : String
+    - id : Long
+    - city: String
+    - street : String
+    - zip : Int
 }
 
 class MeetupUserMapping {
-    + meetupId : int
-    + userId : int
+    + meetup : Meetup
+    + user : User
 }
 
 
 
+Location "1"--"*" Meetup : ""
+Meetup "1"--"1" User : "creates"
 Meetup "*"--"*" User : ""
-Location "1"--"1" Meetup : ""
-(User, Meetup) .. MeetupUserMapping
+(User, Meetup) .. Participants
 ....

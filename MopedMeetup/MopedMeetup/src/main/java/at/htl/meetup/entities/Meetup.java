@@ -8,7 +8,6 @@ import java.util.List;
 public class Meetup {
     private int id;
     private User creator;
-    private List<User> participants;
     private Location location;
     private String description;
 
@@ -46,14 +45,6 @@ public class Meetup {
 
     public void setCreator(User creator) {
         this.creator = creator;
-    }
-
-    public List<User> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<User> participants) {
-        this.participants = participants;
     }
 
     public Location getLocation() {

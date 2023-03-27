@@ -2,25 +2,20 @@ package at.htl.meetup.entities;
 
 public class Location {
     private int id;
-    private String address;
+
+    private String street;
+    private String city;
+    private int zip;
     private String name;
 
     public Location() {
 
     }
 
-    public Location(String address) {
-        this.address = address;
-    }
-
-    public Location(int id, String address, String name) {
-        this.id = id;
-        this.address = address;
-        this.name = name;
-    }
-
-    public Location(String name, String address) {
-        this.address = address;
+    public Location(String street, String city, int zip, String name) {
+        this.street = street;
+        this.city = city;
+        this.zip = zip;
         this.name = name;
     }
 
@@ -32,12 +27,28 @@ public class Location {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
     }
 
     public String getName() {

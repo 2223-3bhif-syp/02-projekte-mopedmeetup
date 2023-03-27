@@ -9,7 +9,6 @@ public class User {
     private String lastName;
     private int age;
     private String email;
-    private List<Meetup> meetups;
 
     public User(String firstName, String lastName, int age, String email) {
         this.firstName = firstName;
@@ -58,11 +57,4 @@ public class User {
         this.email = email;
     }
 
-    public List<Meetup> getMeetups() {
-        return meetups;
-    }
-
-    public void setMeetups(List<Meetup> meetups) {
-        this.meetups = meetups;
-    }
 }
