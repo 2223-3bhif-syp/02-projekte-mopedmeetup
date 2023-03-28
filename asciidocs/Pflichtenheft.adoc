@@ -32,7 +32,11 @@ Schüler/innen ohne Freunde, die ein Moped haben, fällt es, schwer sich eine Gr
 
 ==== Use-case Diagramm
 
- Hier
+[plantuml,ucd,png]
+----
+include::puml/use-case-diagram.puml[]
+----
+
 
 * Meetups einsehen
 ** Ein Benutzer kann alle Meetups in nächster Zeit in einer Übersicht sehen. 

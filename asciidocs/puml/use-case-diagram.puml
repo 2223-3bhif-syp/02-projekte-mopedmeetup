@@ -1,0 +1,17 @@
+@startuml
+skinparam actorstyle awesome
+left to right direction
+
+actor "User" as user
+
+rectangle Moped-Meetup {
+    usecase "Meetup erstellen" as te
+    usecase "Bei einem Meetup beitreten" as at
+    usecase "Von einem Meetup abmelden" as ab
+
+
+    user -- te
+    user -- at
+    user -- ab
+}
+@enduml
