@@ -3,7 +3,7 @@
 :sectnums:
 :url-repo: https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup
 
-Version: 3.1.1
+Version: 3.1.2
 
 Version Date: 27-03-2023
 
@@ -51,11 +51,6 @@ include::puml/use-case-diagram.puml[]
 *** Der Ersteller eines Meetups kann Details noch verändern.
 ** Meetup löschen
 *** Der Ersteller eines Meetups kann das Meetup auch löschen.
-* Chatten im Meetup
-** Jeder Benutzer ist möglich im Meetup mit allen Teilnehmern zu chatten und so falls Fragen auftauchen die beteiligten zu Frage
-* Bewerten von Meetups
-** Jeder Benutzer kann nach erfolgreichem Abschließen eines Meetups bewerten, wie es war.
-
 
 ==== Domain Object Model des Systems
 
