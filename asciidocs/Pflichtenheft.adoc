@@ -3,7 +3,7 @@
 :sectnums:
 :url-repo: https://github.com/2223-3bhif-syp/02-projekte-mopedmeetup
 
-Version: 1.1
+Version: 3.1.1
 
 Version Date: 27-03-2023
 
@@ -143,8 +143,10 @@ Bild
 
 == Mengengerüst
 
-* Anwendung wird auf einer webbasierten Plattform entwickelt
-* Anwendung ist für jeden zugänglich
+* Benutzer (insegesamt)
+** ca. 500
+* Gleichzeitig aktive Nutzer
+** ca. 50
 
 == Rahmenbedingungen
 
@@ -155,6 +157,4 @@ Bild
 == Lieferumfang
 * Dokumentation
 * Quellcode
-
-== Datenmodell
 
