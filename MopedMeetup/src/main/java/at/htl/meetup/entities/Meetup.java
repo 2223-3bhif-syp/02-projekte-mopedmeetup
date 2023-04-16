@@ -22,6 +22,13 @@ public class Meetup {
         this.description = description;
         this.meetupDate = meetupDate;
     }
+    public Meetup(Long id, User creator, Location location, String description, DateTime meetupDate) {
+        this.id = id;
+        this.creator = creator;
+        this.location = location;
+        this.description = description;
+        this.meetupDate = meetupDate;
+    }
 
     public DateTime getMeetupDate() {
         return meetupDate;
