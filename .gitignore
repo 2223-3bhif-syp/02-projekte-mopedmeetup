@@ -42,6 +42,5 @@ asciidocs/.asciidoctor/images/diagram-classes.png
 #Project Files
 **/.idea/
 **/db/
-**/datasource.txt
 **/target/
 **/application.properties
