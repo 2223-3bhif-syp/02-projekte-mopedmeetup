@@ -3,6 +3,7 @@ import  at.htl.meetup.entity.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +87,8 @@ public class UserRepository {
                 String firstName = result.getString("U_FIRST_NAME");
                 String lastName = result.getString("U_LAST_NAME");
                 String email = result.getString("U_EMAIL");
-                userList.add(new User(id, firstName, lastName, email,));
+                LocalDateTime dateOfBirth = result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
+                userList.add(new User(id, firstName, lastName, email, dateOfBirth));
             }
 
         } catch (SQLException e) {
@@ -96,20 +98,21 @@ public class UserRepository {
         return userList;
     }
 
-    public Location getById(int id){
+    public User getById(int id){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
+            String sql = "SELECT * FROM MM_USER WHERE U_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("L_ID"))
-                    return new Location(result.getLong("L_ID"),
-                            result.getString("L_NAME"),
-                            result.getString("L_CITY"),
-                            result.getString("L_STREET"),
-                            result.getInt("L_ZIP"));
+                if(id == result.getInt("U_ID"))
+                    return new User(result.getLong("U_ID"),
+                            result.getString("U_FIRST_NAME"),
+                            result.getString("U_LAST_NAME"),
+                            result.getString("U_EMAIL"),
+                            result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime());
+
             }
 
         } catch (SQLException e) {

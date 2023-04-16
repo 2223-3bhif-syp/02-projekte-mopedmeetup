@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MeetupRepository {
-    private DataSource dataSource = Database.getDataSource();
+    /*private DataSource dataSource = Database.getDataSource();
     public void insert(Meetup meetup) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_MEETUP (M_DESCRIPTION, M_MEETUP_DATE, M_U_ID, M_L_ID) VALUES (?,?,?,?)";
@@ -126,5 +126,5 @@ public class MeetupRepository {
         }
 
         return null;
-    }
+    }   */
 }
