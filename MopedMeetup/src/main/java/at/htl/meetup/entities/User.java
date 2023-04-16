@@ -17,12 +17,12 @@ public class User {
         setEmail(email);
         setDateOfBirth(dateOfBirth);
     }
-    public User(Long id, String firstName, String lastName, String email, LocalDateTime birthday) {
+    public User(Long id, String firstName, String lastName, String email, LocalDateTime dateOfBirth) {
         setId(id);
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
-        setBirthday(birthday);
+        setDateOfBirth(dateOfBirth);
     }
 
     public Long getId() {
