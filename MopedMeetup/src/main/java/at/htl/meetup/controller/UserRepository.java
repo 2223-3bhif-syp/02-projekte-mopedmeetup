@@ -58,7 +58,7 @@ public class UserRepository {
         }
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_USER WHERE U_ID=?";
 
@@ -99,11 +99,11 @@ public class UserRepository {
         return userList;
     }
 
-    public User getById(int id){
+    public User getById(long id){
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_USER WHERE U_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
