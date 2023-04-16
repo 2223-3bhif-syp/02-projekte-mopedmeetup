@@ -41,7 +41,7 @@ public class ParticipantsRepository {
     public void update(Participants participants) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_PARTICIPANTS SET P_U_ID=?, " +
-                    "P_M_ID=?, " +
+                    "P_M_ID=? " +
                     "WHERE P_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
