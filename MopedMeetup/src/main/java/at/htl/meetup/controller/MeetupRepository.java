@@ -91,11 +91,11 @@ public class MeetupRepository {
                 Long id = result.getLong("M_ID");
                 String description = result.getString("M_DESCRIPTION");
                 Date meetupDate = result.getDate("M_MEETUP_DATE");
-                User creator = new User();
+                //User creator = new User();
 
 
                    
-                meetupList.add(new Meetup(id, description, meetupDate, creatorId, locationId));
+                //meetupList.add(new Meetup(id, description, meetupDate, creatorId, locationId));
             }
 
         } catch (SQLException e) {

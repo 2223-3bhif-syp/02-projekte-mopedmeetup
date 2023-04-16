@@ -86,7 +86,7 @@ public class UserRepository {
                 String firstName = result.getString("U_FIRST_NAME");
                 String lastName = result.getString("U_LAST_NAME");
                 String email = result.getString("U_EMAIL");
-                userList.add(new User(id, firstName, lastName, email,));
+                //userList.add(new User(id, firstName, lastName, email,));
             }
 
         } catch (SQLException e) {
