@@ -1,27 +1,28 @@
 package at.htl.meetup.entities;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class User {
-    private int id;
+    private Long id;
     private String firstName;
     private String lastName;
-    private int age;
     private String email;
+    private LocalDateTime birthday;
 
-    public User(String firstName, String lastName, int age, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.email = email;
+    public User(String firstName, String lastName, String email, LocalDateTime birthday) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setBirthday(birthday);
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,14 +42,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -57,4 +50,16 @@ public class User {
         this.email = email;
     }
 
+     public int getAge() {
+         LocalDateTime age = LocalDateTime.now().minusYears(birthday.getYear()).minusMonths(birthday.getMonthValue()).minusDays(birthday.getDayOfMonth());
+         return age.getYear();
+     }
+
+    public LocalDateTime getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDateTime birthday) {
+        this.birthday = birthday;
+    }
 }

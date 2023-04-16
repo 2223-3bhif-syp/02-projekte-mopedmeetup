@@ -6,7 +6,7 @@ import org.apache.derby.client.am.DateTime;
 import java.util.List;
 
 public class Meetup {
-    private int id;
+    private Long id;
     private User creator;
     private Location location;
     private String description;
@@ -31,11 +31,11 @@ public class Meetup {
         this.meetupDate = meetupDate;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

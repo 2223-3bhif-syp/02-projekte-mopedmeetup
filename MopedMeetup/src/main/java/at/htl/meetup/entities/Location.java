@@ -1,7 +1,7 @@
 package at.htl.meetup.entities;
 
 public class Location {
-    private int id;
+    private Long id;
 
     private String street;
     private String city;
@@ -18,12 +18,19 @@ public class Location {
         this.zip = zip;
         this.name = name;
     }
+    public Location(Long id, String name, String city, String street, int zip) {
+        this.id = id;
+        this.street = street;
+        this.city = city;
+        this.zip = zip;
+        this.name = name;
+    }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

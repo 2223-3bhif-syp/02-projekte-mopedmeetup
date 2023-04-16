@@ -1,7 +1,7 @@
 package at.htl.meetup.entities;
 
 public class Participants {
-    private int id;
+    private Long id;
     private User user;
     private Meetup meetup;
 
@@ -10,11 +10,11 @@ public class Participants {
         this.meetup = meetup;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

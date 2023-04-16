@@ -12,14 +12,16 @@ import java.util.List;
 
 public class LocationRepository {
 
-    /*private DataSource dataSource = Database.getDataSource();
+    private DataSource dataSource = Database.getDataSource();
     public void insert(Location location) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_LOCATION (ADRESS, NAME, ) VALUES (?,?)";
+            String sql = "INSERT INTO MM_LOCATION (L_STREET, L_CITY, L_ZIP, L_NAME) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, location.getAddress());
-            statement.setString(2, location.getName());
+            statement.setString(1, location.getStreet());
+            statement.setString(2, location.getCity());
+            statement.setString(3, String.valueOf(location.getZip()));
+            statement.setString(4, location.getName());
 
 
             if (statement.executeUpdate() == 0) {
@@ -29,7 +31,7 @@ public class LocationRepository {
 
             try (ResultSet keys = statement.getGeneratedKeys()) {
                 if (keys.next()) {
-                    location.setId(keys.getInt(1));
+                    location.setId(keys.getLong(1));
                 } else {
                     throw new SQLException("Insert into MM_LOCATION failed, no ID obtained");
                 }
@@ -41,13 +43,18 @@ public class LocationRepository {
 
     public void update(Location location) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE MM_LOCATION SET ADRESS=?, NAME=? WHERE LOCATION_ID=?";
+            String sql = "UPDATE MM_LOCATION SET L_STREET=?, " +
+                    "L_CITY=?, " +
+                    "L_ZIP=?, " +
+                    "L_NAME=? " +
+                    "WHERE L_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, location.getAddress());
-            statement.setString(2, location.getName());
-            statement.setInt(3, location.getId());
-
+            statement.setString(1, location.getStreet());
+            statement.setString(2, location.getCity());
+            statement.setString(3, String.valueOf(location.getZip()));
+            statement.setString(4, location.getName());
+            statement.setLong(5, location.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of MM_LOCATION failed, no rows affected");
@@ -60,7 +67,7 @@ public class LocationRepository {
 
     public void delete(int id) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "DELETE FROM MM_LOCATION WHERE LOCATION_ID=?";
+            String sql = "DELETE FROM MM_LOCATION WHERE L_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
@@ -83,10 +90,12 @@ public class LocationRepository {
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                int id = result.getInt("LOCATION_ID");
-                String name = result.getString("NAME");
-                String address = result.getString("ADRESS");
-                locationList.add(new Location(id,address,name));
+                Long id = result.getLong("L_ID");
+                String name = result.getString("L_NAME");
+                String street = result.getString("L_STREET");
+                String city = result.getString("L_CITY");
+                int zip = result.getInt("L_ZIP");
+                locationList.add(new Location(id, name, city, street, zip));
             }
 
         } catch (SQLException e) {
@@ -98,14 +107,18 @@ public class LocationRepository {
 
     public Location getById(int id){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM MM_LOCATION WHERE LOCATION_ID=?";
+            String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("LOCATION_ID"))
-                //return new Location(result.getInt("LOCATION_ID"), result.getString("ADRESS"), result.getString("NAME"));
+                if(id == result.getInt("L_ID"))
+                    return new Location(result.getLong("L_ID"),
+                            result.getString("L_NAME"),
+                            result.getString("L_CITY"),
+                            result.getString("L_STREET"),
+                            result.getInt("L_ZIP"));
             }
 
         } catch (SQLException e) {
@@ -113,5 +126,5 @@ public class LocationRepository {
         }
 
         return null;
-    }*/
+    }
 }
