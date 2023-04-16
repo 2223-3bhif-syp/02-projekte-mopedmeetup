@@ -4,19 +4,27 @@ import  at.htl.meetup.entity.*;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class UserRepository {
     private DataSource dataSource = Database.getDataSource();
     public void insert(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL) VALUES (?,?,?)";
+            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
+            String dateString = user.getDateOfBirth().toString();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.ROOT);
+            LocalDateTime dateTime = LocalDateTime.parse(dateString, formatter);
+            statement.setString(4, dateTime.toString()); //so ein hs das teil
 
 
             if (statement.executeUpdate() == 0) {
@@ -40,14 +48,16 @@ public class UserRepository {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_USER SET U_FIRST_NAME=?, " +
                     "U_LAST_NAME=?, " +
-                    "U_EMAIL=? " +
+                    "U_EMAIL=?, " +
+                    "U_DATE_OF_BIRTH=? " +
                     "WHERE U_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
-            statement.setLong(4, user.getId());
+            statement.setString(4, String.valueOf(user.getDateOfBirth()));
+            statement.setLong(5, user.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of MM_LOCATION failed, no rows affected");
@@ -89,7 +99,6 @@ public class UserRepository {
                 String email = result.getString("U_EMAIL");
                 LocalDateTime dateOfBirth = result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
                 userList.add(new User(id, firstName, lastName, email, dateOfBirth));
-                //userList.add(new User(id, firstName, lastName, email,));
             }
 
         } catch (SQLException e) {
