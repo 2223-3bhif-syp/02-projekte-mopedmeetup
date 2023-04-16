@@ -21,10 +21,8 @@ public class UserRepository {
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
-            String dateString = user.getDateOfBirth().toString();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss", Locale.ROOT);
-            LocalDateTime dateTime = LocalDateTime.parse(dateString, formatter);
-            statement.setString(4, dateTime.toString()); //so ein hs das teil
+            LocalDateTime dateTime = user.getDateOfBirth();
+            statement.setTimestamp(4,  Timestamp.valueOf(dateTime)  );
 
 
             if (statement.executeUpdate() == 0) {
