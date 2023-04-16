@@ -1,24 +1,16 @@
 package at.htl.meetup.controller;
 
 import at.htl.meetup.database.SqlRunner;
-import at.htl.meetup.entities.*;
+import at.htl.meetup.entity.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.db.api.Assertions.assertThat;
-import org.assertj.db.type.DateValue;
-import org.assertj.db.type.Source;
-import org.assertj.db.type.Table;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.assertj.db.type.Table;
+
+import java.util.List;
 
 class LocationRepositoryTest {
 

@@ -1,8 +1,7 @@
-package at.htl.meetup.entities;
+package at.htl.meetup.entity;
 
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class User {
     private Long id;

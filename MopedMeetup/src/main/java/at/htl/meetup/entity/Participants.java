@@ -1,4 +1,4 @@
-package at.htl.meetup.entities;
+package at.htl.meetup.entity;
 
 public class Participants {
     private Long id;

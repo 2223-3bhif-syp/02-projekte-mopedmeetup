@@ -1,9 +1,7 @@
-package at.htl.meetup.entities;
+package at.htl.meetup.entity;
 
 
 import org.apache.derby.client.am.DateTime;
-
-import java.util.List;
 
 public class Meetup {
     private Long id;

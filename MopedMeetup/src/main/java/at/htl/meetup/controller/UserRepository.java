@@ -1,5 +1,5 @@
 package at.htl.meetup.controller;
-import  at.htl.meetup.entities.*;
+import  at.htl.meetup.entity.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
