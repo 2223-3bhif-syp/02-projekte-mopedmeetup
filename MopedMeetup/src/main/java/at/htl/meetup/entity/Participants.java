@@ -33,4 +33,13 @@ public class Participants {
     public void setMeetup(Meetup meetup) {
         this.meetup = meetup;
     }
+
+    @Override
+    public String toString() {
+        return "Participants{" +
+                "id=" + id +
+                ", user=" + user +
+                ", meetup=" + meetup +
+                '}';
+    }
 }

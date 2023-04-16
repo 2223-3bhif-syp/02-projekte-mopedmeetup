@@ -67,4 +67,15 @@ public class Meetup {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Meetup{" +
+                "id=" + id +
+                ", creator=" + creator +
+                ", location=" + location +
+                ", description='" + description + '\'' +
+                ", meetupDate=" + meetupDate +
+                '}';
+    }
 }
