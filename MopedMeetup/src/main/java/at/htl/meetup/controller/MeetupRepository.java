@@ -6,11 +6,12 @@ import at.htl.meetup.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MeetupRepository {
-    /*private DataSource dataSource = Database.getDataSource();
+    private DataSource dataSource = Database.getDataSource();
     public void insert(Meetup meetup) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_MEETUP (M_DESCRIPTION, M_MEETUP_DATE, M_U_ID, M_L_ID) VALUES (?,?,?,?)";
@@ -23,7 +24,7 @@ public class MeetupRepository {
 
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of MM_LOCATION failed, no rows affected");
+                throw new SQLException("Update of MM_MEETUP failed, no rows affected");
             }
 
 
@@ -31,7 +32,7 @@ public class MeetupRepository {
                 if (keys.next()) {
                     meetup.setId(keys.getLong(1));
                 } else {
-                    throw new SQLException("Insert into MM_LOCATION failed, no ID obtained");
+                    throw new SQLException("Insert into MM_MEETUP failed, no ID obtained");
                 }
             }
         } catch (SQLException e) {
@@ -55,7 +56,7 @@ public class MeetupRepository {
             statement.setLong(5, meetup.getId());
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of MM_LOCATION failed, no rows affected");
+                throw new SQLException("Update of MM_MEETUP failed, no rows affected");
             }
 
         } catch (SQLException e) {
@@ -71,7 +72,7 @@ public class MeetupRepository {
             statement.setLong(1, id);
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Delete from MM_LOCATION failed, no rows affected");
+                throw new SQLException("Delete from MM_MEETUP failed, no rows affected");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -90,12 +91,16 @@ public class MeetupRepository {
             while (result.next()) {
                 Long id = result.getLong("M_ID");
                 String description = result.getString("M_DESCRIPTION");
-                Date meetupDate = result.getDate("M_MEETUP_DATE");
-                //User creator = new User();
+                LocalDateTime meetupDate = result.getTimestamp("M_MEETUP_DATE").toLocalDateTime();
+                Long creatorId = result.getLong("M_U_ID");
+                Long locationId = result.getLong("M_L_ID");
+                UserRepository userRepository = new UserRepository();
+                User creator = userRepository.getById(creatorId);
+                LocationRepository locationRepository = new LocationRepository();
+                Location location = locationRepository.getById(locationId);
 
 
-                   
-                //meetupList.add(new Meetup(id, description, meetupDate, creatorId, locationId));
+                meetupList.add(new Meetup(id, creator, location, description, meetupDate));
             }
 
         } catch (SQLException e) {
@@ -105,20 +110,26 @@ public class MeetupRepository {
         return meetupList;
     }
 
-    public Location getById(int id){
+    public Meetup getById(long id){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
+            String sql = "SELECT * FROM MM_MEETUP WHERE L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("L_ID"))
-                    return new Location(result.getLong("L_ID"),
-                            result.getString("L_NAME"),
-                            result.getString("L_CITY"),
-                            result.getString("L_STREET"),
-                            result.getInt("L_ZIP"));
+                if(id == result.getInt("L_ID")){
+                    String description = result.getString("M_DESCRIPTION");
+                    LocalDateTime meetupDate = result.getTimestamp("M_MEETUP_DATE").toLocalDateTime();
+                    Long creatorId = result.getLong("M_U_ID");
+                    Long locationId = result.getLong("M_L_ID");
+                    UserRepository userRepository = new UserRepository();
+                    User creator = userRepository.getById(creatorId);
+                    LocationRepository locationRepository = new LocationRepository();
+                    Location location = locationRepository.getById(locationId);
+
+                    return new Meetup(id, creator, location, description, meetupDate);
+                }
             }
 
         } catch (SQLException e) {
@@ -126,5 +137,5 @@ public class MeetupRepository {
         }
 
         return null;
-    }   */
+    }
 }

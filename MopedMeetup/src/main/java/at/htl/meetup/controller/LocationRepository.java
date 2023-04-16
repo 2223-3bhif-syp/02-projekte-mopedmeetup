@@ -62,7 +62,7 @@ public class LocationRepository {
         }
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_LOCATION WHERE L_ID=?";
 
@@ -102,11 +102,11 @@ public class LocationRepository {
         return locationList;
     }
 
-    public Location getById(int id){
+    public Location getById(long id){
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {

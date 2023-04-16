@@ -10,6 +10,12 @@ public class Participants {
         this.meetup = meetup;
     }
 
+    public Participants(Long id, User user, Meetup meetup) {
+        this.id = id;
+        this.user = user;
+        this.meetup = meetup;
+    }
+
     public Long getId() {
         return id;
     }
