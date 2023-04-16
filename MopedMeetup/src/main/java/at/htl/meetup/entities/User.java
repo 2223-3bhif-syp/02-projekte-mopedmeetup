@@ -17,6 +17,13 @@ public class User {
         setEmail(email);
         setBirthday(birthday);
     }
+    public User(Long id, String firstName, String lastName, String email, LocalDateTime birthday) {
+        setId(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setBirthday(birthday);
+    }
 
     public Long getId() {
         return id;
