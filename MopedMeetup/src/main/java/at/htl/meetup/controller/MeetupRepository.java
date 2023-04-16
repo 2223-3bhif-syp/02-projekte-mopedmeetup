@@ -127,7 +127,7 @@ public class MeetupRepository {
                     User creator = userRepository.getById(creatorId);
                     LocationRepository locationRepository = new LocationRepository();
                     Location location = locationRepository.getById(locationId);
-                    
+
                     return new Meetup(id, creator, location, description, meetupDate);
                 }
             }
