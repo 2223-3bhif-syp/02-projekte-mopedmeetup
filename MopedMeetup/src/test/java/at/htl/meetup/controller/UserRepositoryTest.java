@@ -189,10 +189,10 @@ class UserRepositoryTest {
         User user4 = new User(firstName4, lastName4, email4, dateOfBirth4);
         userRepository.insert(user4);
 
-        assertEquals(1, Integer.parseInt(user.getId().toString()));
-        assertEquals(2, Integer.parseInt(user2.getId().toString()));
-        assertEquals(3, Integer.parseInt(user3.getId().toString()));
-        assertEquals(4, Integer.parseInt(user4.getId().toString()));
+        assertEquals(1, Integer.parseInt(userRepository.getById(1).getId().toString()));
+        assertEquals(2, Integer.parseInt(userRepository.getById(2).getId().toString()));
+        assertEquals(3, Integer.parseInt(userRepository.getById(3).getId().toString()));
+        assertEquals(4, Integer.parseInt(userRepository.getById(4).getId().toString()));
     }
 
 }

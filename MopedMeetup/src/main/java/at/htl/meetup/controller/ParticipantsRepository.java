@@ -47,7 +47,7 @@ public class ParticipantsRepository {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, participants.getUser().getId());
             statement.setLong(2, participants.getMeetup().getId());
-            statement.setLong(4, participants.getId());
+            statement.setLong(3, participants.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of MM_PARTICIPANTS failed, no rows affected");

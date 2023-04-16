@@ -22,7 +22,7 @@ public class UserRepository {
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
             LocalDateTime dateTime = user.getDateOfBirth();
-            statement.setTimestamp(4,  Timestamp.valueOf(dateTime)  );
+            statement.setTimestamp(4, Timestamp.valueOf(dateTime));
 
 
             if (statement.executeUpdate() == 0) {
@@ -54,7 +54,8 @@ public class UserRepository {
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
-            statement.setString(4, String.valueOf(user.getDateOfBirth()));
+            LocalDateTime dateTime = user.getDateOfBirth();
+            statement.setTimestamp(4, Timestamp.valueOf(dateTime));
             statement.setLong(5, user.getId());
 
             if (statement.executeUpdate() == 0) {
@@ -95,7 +96,7 @@ public class UserRepository {
                 String firstName = result.getString("U_FIRST_NAME");
                 String lastName = result.getString("U_LAST_NAME");
                 String email = result.getString("U_EMAIL");
-                LocalDateTime dateOfBirth = result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
+                LocalDateTime dateOfBirth = result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
                 userList.add(new User(id, firstName, lastName, email, dateOfBirth));
             }
 
@@ -119,8 +120,7 @@ public class UserRepository {
                             result.getString("U_FIRST_NAME"),
                             result.getString("U_LAST_NAME"),
                             result.getString("U_EMAIL"),
-                            result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime());
-
+                            result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime());
             }
 
         } catch (SQLException e) {
