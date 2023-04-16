@@ -18,7 +18,7 @@ public class MeetupRepository {
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, meetup.getDescription());
-            statement.setString(2, String.valueOf(meetup.getMeetupDate()));
+            statement.setTimestamp(2, Timestamp.valueOf(meetup.getMeetupDate()));
             statement.setString(3, String.valueOf(meetup.getCreator()));
             statement.setString(4, String.valueOf(meetup.getLocation()));
 
@@ -50,7 +50,7 @@ public class MeetupRepository {
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, meetup.getDescription());
-            statement.setString(2, String.valueOf(meetup.getMeetupDate()));
+            statement.setTimestamp(2, Timestamp.valueOf(meetup.getMeetupDate()));
             statement.setString(3, String.valueOf(meetup.getCreator()));
             statement.setString(4, String.valueOf(meetup.getLocation()));
             statement.setLong(5, meetup.getId());
