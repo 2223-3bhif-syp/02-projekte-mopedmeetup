@@ -89,6 +89,7 @@ public class UserRepository {
                 String email = result.getString("U_EMAIL");
                 LocalDateTime dateOfBirth = result.getString("U_DATE_OF_BIRTH") == null ? null : result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
                 userList.add(new User(id, firstName, lastName, email, dateOfBirth));
+                //userList.add(new User(id, firstName, lastName, email,));
             }
 
         } catch (SQLException e) {
