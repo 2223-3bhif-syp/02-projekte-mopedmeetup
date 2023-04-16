@@ -1,10 +1,10 @@
 INSERT INTO mm_LOCATION (l_NAME, L_CITY, L_STREET, L_ZIP) VALUES ('Meetup1', 'Gramastetten', 'Hamberg', 12);
 INSERT INTO mm_LOCATION (l_NAME, L_CITY, L_STREET, L_ZIP) VALUES ('Meetup2', 'Linz', 'Limesstrasse', 14);
 
-INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL) VALUES ('Linus', 'Nestler', 'ln@gmail.com');
-INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL) VALUES ('Oliver', 'Daxinger', 'od@gmail.com');
-INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL) VALUES ('Bajtik', 'Berg', 'bb@gmail.com');
-INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL) VALUES ('Said', 'Nurceski', 'sn@gmail.com');
+INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES ('Linus', 'Nestler', 'ln@gmail.com', '2005-07-05');
+INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES ('Oliver', 'Daxinger', 'od@gmail.com', '2005-10-22');
+INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES ('Bajtik', 'Berg', 'bb@gmail.com', '2005-09-22');
+INSERT INTO mm_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES ('Said', 'Nurceski', 'sn@gmail.com', '2006-07-05');
 
 INSERT INTO mm_MEETUP (M_DESCRIPTION, M_U_ID, M_L_ID, M_MEETUP_DATE) VALUES ('Linus Meetup', 1, 1, '2023-01-01' );
 INSERT INTO mm_MEETUP (M_DESCRIPTION, M_U_ID, M_L_ID, M_MEETUP_DATE) VALUES ('Oliver Meetup', 2, 2, '2023-01-01');

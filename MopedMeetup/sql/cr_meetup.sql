@@ -2,7 +2,8 @@ CREATE TABLE mm_USER (
                         U_ID           INT NOT NULL CONSTRAINT U_PK PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
                         U_FIRST_NAME        VARCHAR(15),
                         U_LAST_NAME         VARCHAR(25),
-                        U_EMAIL             VARCHAR(30)
+                        U_EMAIL             VARCHAR(30),
+                        U_DATE_OF_BIRTH     DATE
 );
 
 CREATE TABLE mm_LOCATION (

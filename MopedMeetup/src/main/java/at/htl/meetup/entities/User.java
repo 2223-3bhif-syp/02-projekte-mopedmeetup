@@ -9,13 +9,13 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDateTime birthday;
+    private LocalDateTime dateOfBirth;
 
-    public User(String firstName, String lastName, String email, LocalDateTime birthday) {
+    public User(String firstName, String lastName, String email, LocalDateTime dateOfBirth) {
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
-        setBirthday(birthday);
+        setDateOfBirth(dateOfBirth);
     }
 
     public Long getId() {
@@ -51,15 +51,15 @@ public class User {
     }
 
      public int getAge() {
-         LocalDateTime age = LocalDateTime.now().minusYears(birthday.getYear()).minusMonths(birthday.getMonthValue()).minusDays(birthday.getDayOfMonth());
+         LocalDateTime age = LocalDateTime.now().minusYears(dateOfBirth.getYear()).minusMonths(dateOfBirth.getMonthValue()).minusDays(dateOfBirth.getDayOfMonth());
          return age.getYear();
      }
 
-    public LocalDateTime getBirthday() {
-        return birthday;
+    public LocalDateTime getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setBirthday(LocalDateTime birthday) {
-        this.birthday = birthday;
+    public void setDateOfBirth(LocalDateTime dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }
