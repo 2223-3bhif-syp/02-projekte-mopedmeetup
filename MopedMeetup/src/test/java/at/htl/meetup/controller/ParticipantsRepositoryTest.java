@@ -1,6 +1,7 @@
 package at.htl.meetup.controller;
 
 import at.htl.meetup.database.SqlRunner;
+<<<<<<< HEAD
 import at.htl.meetup.entity.*;
 import javafx.util.converter.LocalDateStringConverter;
 import org.junit.jupiter.api.AfterEach;
@@ -17,10 +18,24 @@ public class ParticipantsRepositoryTest {
 
     @BeforeEach
     void setUp() {
+=======
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ParticipantsRepositoryTest {
+    private static String tableName = "MM_PARTICIPANTS";
+    @BeforeEach
+    public void setUp() {
+        // to make sure every Table is empty and set up right
+>>>>>>> 186a8e029619ea7573660ab0f44493864a4ae98f
         SqlRunner.dropTablesAndCreateEmptyTables();
     }
 
     @AfterEach
+<<<<<<< HEAD
     void tearDown() {
         SqlRunner.dropTablesAndCreateEmptyTables();
     }
@@ -69,3 +84,29 @@ public class ParticipantsRepositoryTest {
                 .value().isEqualTo(participants.getMeetup().getMeetupDate());
     }
 }
+=======
+    public void tearDown() {
+        // to clear the tables again of all the test values
+        SqlRunner.dropTablesAndCreateEmptyTables();
+    }
+    @Test
+    void insert() {
+    }
+
+    @Test
+    void update() {
+    }
+
+    @Test
+    void delete() {
+    }
+
+    @Test
+    void getAll() {
+    }
+
+    @Test
+    void getById() {
+    }
+}
+>>>>>>> 186a8e029619ea7573660ab0f44493864a4ae98f
