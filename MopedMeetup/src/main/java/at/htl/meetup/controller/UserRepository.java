@@ -12,7 +12,7 @@ import java.util.Locale;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class UserRepository {
-    private DataSource dataSource = Database.getDataSource();
+    private static DataSource dataSource = Database.getDataSource();
     public void insert(User user) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES (?,?,?,?)";
@@ -107,7 +107,7 @@ public class UserRepository {
         return userList;
     }
 
-    public User getById(long id){
+    public static User getById(long id){
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_USER WHERE U_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);

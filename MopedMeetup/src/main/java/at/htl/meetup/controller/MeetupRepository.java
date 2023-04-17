@@ -14,13 +14,14 @@ public class MeetupRepository {
     private DataSource dataSource = Database.getDataSource();
     public void insert(Meetup meetup) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_MEETUP (M_DESCRIPTION, M_MEETUP_DATE, M_U_ID, M_L_ID) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO MM_MEETUP (M_DESCRIPTION, M_U_ID, M_L_ID, M_MEETUP_DATE) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, meetup.getDescription());
-            statement.setTimestamp(2, Timestamp.valueOf(meetup.getMeetupDate()));
-            statement.setString(3, String.valueOf(meetup.getCreator()));
-            statement.setString(4, String.valueOf(meetup.getLocation()));
+            statement.setLong(2, Long.parseLong(String.valueOf(meetup.getCreator())));
+            statement.setLong(3, Long.parseLong(String.valueOf(meetup.getLocation())));
+            statement.setTimestamp(4, Timestamp.valueOf(meetup.getMeetupDate()));
+
 
 
             if (statement.executeUpdate() == 0) {

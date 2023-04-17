@@ -9,7 +9,7 @@ import java.util.List;
 
 public class LocationRepository {
 
-    private DataSource dataSource = Database.getDataSource();
+    private static DataSource dataSource = Database.getDataSource();
     public void insert(Location location) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_LOCATION (L_STREET, L_CITY, L_ZIP, L_NAME) VALUES (?,?,?,?)";
@@ -102,7 +102,7 @@ public class LocationRepository {
         return locationList;
     }
 
-    public Location getById(long id){
+    public static Location getById(long id){
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
