@@ -224,4 +224,42 @@ public class ParticipantsRepositoryTest {
 
         assertEquals(2, participantsList.size());
     }
+
+    @Test
+    void getByIdTest() {
+        Table table = new Table(Database.getDataSource(), tableName);
+        ParticipantsRepository participantsRepository = new ParticipantsRepository();
+
+        String fName = "Bajtik";
+        String lName = "Berg";
+        String email = "example@mail.com";
+        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
+
+        User user1 = new User(fName,lName,email,dateOfBirth);
+
+        String fName2 = "Linus";
+        String lName2 = "Nestler";
+        String email2 = "example@gmail.com";
+        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
+
+        User organisator = new User(fName2, lName2, email2, dob);
+
+        String street = "Limesstraße 8";
+        String city = "Leonding";
+        int zip = 4060;
+        String name = "Meetup";
+
+        Location location = new Location(name, city, street, zip);
+
+        String description = "...";
+        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
+
+        Meetup meetup = new Meetup(organisator, location, description, meetupDate);
+
+        Participants participants = new Participants(user1, meetup);
+
+        participantsRepository.insert(participants);
+
+        assertEquals(1, Integer.parseInt(participantsRepository.getById(1).getId().toString()));
+    }
 }
