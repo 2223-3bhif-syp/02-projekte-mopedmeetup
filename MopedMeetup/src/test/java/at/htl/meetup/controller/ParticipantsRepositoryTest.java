@@ -30,6 +30,7 @@ public class ParticipantsRepositoryTest {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
 
+        //Setting up objects to test
         String fName = "Bajtik";
         String lName = "Berg";
         String email = "example@mail.com";
