@@ -4,11 +4,11 @@ class User {
     - firstName: String
     - lastName : String
     - email: String
+    - dateOfBirth : LocalDateTime
 }
 class Meetup {
     + id : Long
-    + participants : User
-    + date : DateTime
+    + meetupDate : LocalDateTime
     + creator : User
     + location : Location
     + description : String
