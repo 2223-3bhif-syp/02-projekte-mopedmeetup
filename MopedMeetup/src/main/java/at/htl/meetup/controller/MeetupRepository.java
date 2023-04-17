@@ -22,8 +22,6 @@ public class MeetupRepository {
             statement.setLong(3, Long.parseLong(String.valueOf(meetup.getLocation().getId())));
             statement.setTimestamp(4, Timestamp.valueOf(meetup.getMeetupDate()));
 
-
-
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of MM_MEETUP failed, no rows affected");
             }
