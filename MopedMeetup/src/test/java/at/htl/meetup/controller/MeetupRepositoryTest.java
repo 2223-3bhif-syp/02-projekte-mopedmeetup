@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MeetupRepositoryTest {
 
-    private static String tableName = "MM_LOCATION";
+    private static String tableName = "MM_Meetup";
     @BeforeEach
     public void setUp() {
         // to make sure every Table is empty and set up right
@@ -34,11 +34,17 @@ class MeetupRepositoryTest {
     void insert() {
         Table table = new Table(Database.getDataSource(), tableName);
         MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
 
         String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2020, 12, 12, 12, 0);
-        User creator = UserRepository.getById(2);
-        Location location = LocationRepository.getById(2);
+        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
+
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location);
+
+        User creator = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
 
@@ -46,8 +52,11 @@ class MeetupRepositoryTest {
 
         String description2 = "Linus's Meetup";
         LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        User creator2 = UserRepository.getById(1);
-        Location location2 = LocationRepository.getById(1);
+        Location location2 = new Location("meetup12", "Linz", "street1", 4020);
+        locationRepository.insert(location2);
+
+        User creator2 = new User("Oliver2", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator2);
 
         Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
         meetupRepository.insert(meetup2);
@@ -61,21 +70,27 @@ class MeetupRepositoryTest {
                 .value().isEqualTo(meetup.getDescription());
         assertThat(table).column("M_MEETUP_DATE")
                 .value().isEqualTo(meetup .getMeetupDate());
-        assertThat(table).column("M_CREATOR")
-                .value().isEqualTo(meetup .getCreator());
-        assertThat(table).column("M_LOCATION")
-                .value().isEqualTo(meetup .getLocation());
+        assertThat(table).column("M_U_ID")
+                .value().isEqualTo(meetup.getCreator().getId());
+        assertThat(table).column("M_L_ID")
+                .value().isEqualTo(meetup .getLocation().getId());
     }
 
     @Test
     void update() {
         Table table = new Table(Database.getDataSource(), tableName);
         MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
 
         String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2020, 12, 12, 12, 0);
-        User creator = UserRepository.getById(2);
-        Location location = LocationRepository.getById(2);
+        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
+
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location);
+
+        User creator = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
 
@@ -91,27 +106,33 @@ class MeetupRepositoryTest {
         assertThat(table).column("M_ID")
                 .value().isEqualTo(meetup .getId());
         assertThat(table).column("M_DESCRIPTION")
-                .value().isEqualTo(newDescription);
+                .value().isEqualTo(meetup.getDescription());
         assertThat(table).column("M_MEETUP_DATE")
                 .value().isEqualTo(meetup .getMeetupDate());
-        assertThat(table).column("M_CREATOR")
-                .value().isEqualTo(meetup .getCreator());
-        assertThat(table).column("M_LOCATION")
-                .value().isEqualTo(meetup .getLocation());
+        assertThat(table).column("M_U_ID")
+                .value().isEqualTo(meetup.getCreator().getId());
+        assertThat(table).column("M_L_ID")
+                .value().isEqualTo(meetup .getLocation().getId());
     }
 
     @Test
     void delete() {
         Table table = new Table(Database.getDataSource(), tableName);
 
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
         String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2020, 12, 12, 12, 0);
-        User creator = UserRepository.getById(2);
-        Location location = LocationRepository.getById(2);
+        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
+
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location);
+
+        User creator = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
-        MeetupRepository meetupRepository = new MeetupRepository();
 
         meetupRepository.insert(meetup);
         meetupRepository.delete(Integer.parseInt(meetup.getId().toString()));
@@ -123,27 +144,43 @@ class MeetupRepositoryTest {
     void getAll() {
         Table table = new Table(Database.getDataSource(), tableName);
 
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
         String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2020, 12, 12, 12, 0);
-        User creator = UserRepository.getById(2);
-        Location location = LocationRepository.getById(2);
+        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
+
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location);
+
+        User creator = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
 
-        MeetupRepository meetupRepository = new MeetupRepository();
         meetupRepository.insert(meetup);
 
         String description2 = "Linus's Meetup";
         LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        User creator2 = UserRepository.getById(1);
-        Location location2 = LocationRepository.getById(1);
+        Location location2 = new Location("meetup44", "Linz", "street1", 4020);
+        locationRepository.insert(location2);
+
+        User creator2 = new User("Oliver1", "Nestle1r", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator2);
+
+
         Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
         meetupRepository.insert(meetup2);
 
         String description3 = "Said's Meetup";
         LocalDateTime meetupDate3 = LocalDateTime.of(2020, 1, 5, 12, 0);
-        User creator3 = UserRepository.getById(1);
-        Location location3 = LocationRepository.getById(2);
+        Location location3 = new Location("meetup44", "Linz", "street1", 4020);
+        locationRepository.insert(location3);
+
+        User creator3 = new User("Oliver1", "Nestle1r", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator3);
+
         Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
         meetupRepository.insert(meetup3);
 
@@ -156,36 +193,52 @@ class MeetupRepositoryTest {
     void getById() {
         Table table = new Table(Database.getDataSource(), tableName);
 
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
         String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2020, 12, 12, 12, 0);
-        User creator = UserRepository.getById(2);
-        Location location = LocationRepository.getById(2);
+        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
+
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location);
+
+        User creator = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
 
-        MeetupRepository meetupRepository = new MeetupRepository();
         meetupRepository.insert(meetup);
 
         String description2 = "Linus's Meetup";
         LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        User creator2 = UserRepository.getById(1);
-        Location location2 = LocationRepository.getById(1);
+        Location location2 = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location2);
+
+        User creator2 = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator2);
 
         Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
         meetupRepository.insert(meetup2);
 
         String description3 = "Said's Meetup";
         LocalDateTime meetupDate3 = LocalDateTime.of(2020, 1, 5, 12, 0);
-        User creator3 = UserRepository.getById(1);
-        Location location3 = LocationRepository.getById(2);
+        Location location3 = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location3);
+
+        User creator3 = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator3);
 
         Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
         meetupRepository.insert(meetup3);
 
         String description4 = "Bajtik's Meetup";
         LocalDateTime meetupDate4 = LocalDateTime.of(2020, 1, 30, 12, 0);
-        User creator4 = UserRepository.getById(1);
-        Location location4 = LocationRepository.getById(2);
+        Location location4 = new Location("meetup1", "Linz", "street1", 4020);
+        locationRepository.insert(location4);
+
+        User creator4 = new User("Oliver", "Nestler", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        userRepository.insert(creator4);
 
         Meetup meetup4 = new Meetup(creator4, location4, description4, meetupDate4);
         meetupRepository.insert(meetup4);

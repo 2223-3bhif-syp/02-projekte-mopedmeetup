@@ -52,8 +52,8 @@ public class MeetupRepository {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, meetup.getDescription());
             statement.setTimestamp(2, Timestamp.valueOf(meetup.getMeetupDate()));
-            statement.setString(3, String.valueOf(meetup.getCreator()));
-            statement.setString(4, String.valueOf(meetup.getLocation()));
+            statement.setLong(3, Long.valueOf(meetup.getCreator().getId()));
+            statement.setLong(4, Long.valueOf(meetup.getLocation().getId()));
             statement.setLong(5, meetup.getId());
 
             if (statement.executeUpdate() == 0) {
