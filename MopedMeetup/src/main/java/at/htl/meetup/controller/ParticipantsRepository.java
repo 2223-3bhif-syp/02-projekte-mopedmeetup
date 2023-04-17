@@ -13,6 +13,9 @@ import java.util.List;
 public class ParticipantsRepository {
     private DataSource dataSource = Database.getDataSource();
     public void insert(Participants participants) {
+        if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
+            throw new IllegalArgumentException("User or Meetup is null");
+
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_PARTICIPANTS (P_U_ID, P_M_ID) VALUES (?,?)";
 
@@ -39,6 +42,9 @@ public class ParticipantsRepository {
     }
 
     public void update(Participants participants) {
+        if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
+            throw new IllegalArgumentException("User or Meetup is null");
+
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_PARTICIPANTS SET P_U_ID=?, " +
                     "P_M_ID=? " +

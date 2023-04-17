@@ -29,6 +29,9 @@ public class ParticipantsRepositoryTest {
     void insertTest() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
 
         String fName = "Bajtik";
         String lName = "Berg";
@@ -36,26 +39,29 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
         User user1 = new User(fName,lName,email,dateOfBirth);
+        userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
         LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator = new User(fName2, lName2, email2, dob);
+        User organisator = new User( fName2, lName2, email2, dob);
+        userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
         String city = "Leonding";
         int zip = 4060;
         String name = "Meetup";
 
-        Location location = new Location(name, city, street, zip);
+        Location location = new Location( name, city, street, zip);
+        locationRepository.insert(location);
 
         String description = "...";
         LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup = new Meetup(organisator, location, description, meetupDate);
-
+        meetupRepository.insert(meetup);
         Participants participants = new Participants(user1, meetup);
 
         participantsRepository.insert(participants);
@@ -65,13 +71,16 @@ public class ParticipantsRepositoryTest {
         assertThat(table).column("P_U_ID")
                 .value().isEqualTo(participants.getUser().getId());
         assertThat(table).column("P_M_ID")
-                .value().isEqualTo(participants.getMeetup().getMeetupDate());
+                .value().isEqualTo(participants.getMeetup().getId());
     }
 
     @Test
     void updateTest() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
 
         String fName = "Bajtik";
         String lName = "Berg";
@@ -79,6 +88,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
         User user1 = new User(fName,lName,email,dateOfBirth);
+        userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
@@ -86,19 +96,21 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
         User organisator = new User(fName2, lName2, email2, dob);
+        userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
         String city = "Leonding";
         int zip = 4060;
         String name = "Meetup";
 
-        Location location = new Location(name, city, street, zip);
+        Location location = new Location( name, city, street, zip);
+        locationRepository.insert(location);
 
         String description = "...";
         LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup = new Meetup(organisator, location, description, meetupDate);
-
+        meetupRepository.insert(meetup);
         Participants participants = new Participants(user1, meetup);
 
         participantsRepository.insert(participants);
@@ -119,6 +131,9 @@ public class ParticipantsRepositoryTest {
     void deleteTest() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
 
         String fName = "Bajtik";
         String lName = "Berg";
@@ -126,6 +141,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
         User user1 = new User(fName,lName,email,dateOfBirth);
+        userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
@@ -133,18 +149,21 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
         User organisator = new User(fName2, lName2, email2, dob);
+        userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
         String city = "Leonding";
         int zip = 4060;
         String name = "Meetup";
 
-        Location location = new Location(name, city, street, zip);
+        Location location = new Location( name, city, street, zip);
+        locationRepository.insert(location);
 
         String description = "...";
         LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup = new Meetup(organisator, location, description, meetupDate);
+        meetupRepository.insert(meetup);
 
         Participants participants = new Participants(user1, meetup);
 
@@ -158,6 +177,9 @@ public class ParticipantsRepositoryTest {
     void getAllTest() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
 
         String fName = "Bajtik";
         String lName = "Berg";
@@ -165,6 +187,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
         User user1 = new User(fName,lName,email,dateOfBirth);
+        userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
@@ -172,6 +195,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
         User organisator1 = new User(fName2, lName2, email2, dob);
+        userRepository.insert(organisator1);
 
         String street = "Limesstraße 8";
         String city = "Leonding";
@@ -179,11 +203,13 @@ public class ParticipantsRepositoryTest {
         String name = "Meetup";
 
         Location location = new Location(name, city, street, zip);
+        locationRepository.insert(location);
 
         String description = "...";
         LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup = new Meetup(organisator1, location, description, meetupDate);
+        meetupRepository.insert(meetup);
 
         Participants participants = new Participants(user1, meetup);
 
@@ -195,6 +221,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth3 = LocalDateTime.of(2005,9,22,0,0);
 
         User user2 = new User(fName3,lName3,email3,dateOfBirth3);
+        userRepository.insert(user2);
 
         String fName4 = "Linus";
         String lName4 = "Nestler";
@@ -202,6 +229,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dob4 = LocalDateTime.of(2005,7,5,0,0);
 
         User organisator2 = new User(fName4, lName4, email4, dob4);
+        userRepository.insert(organisator2);
 
         String street2 = "Hamerlingstraße 8";
         String city2 = "Linz";
@@ -209,11 +237,13 @@ public class ParticipantsRepositoryTest {
         String name2 = "Meetup";
 
         Location location2 = new Location(name2, city2, street2, zip2);
+        locationRepository.insert(location2);
 
         String description2 = "...";
         LocalDateTime meetupDate2 = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup2 = new Meetup(organisator2, location2, description2, meetupDate2);
+        meetupRepository.insert(meetup2);
 
         Participants participants2 = new Participants(user2, meetup2);
 
@@ -229,6 +259,9 @@ public class ParticipantsRepositoryTest {
     void getByIdTest() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
 
         String fName = "Bajtik";
         String lName = "Berg";
@@ -236,6 +269,7 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
         User user1 = new User(fName,lName,email,dateOfBirth);
+        userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
@@ -243,18 +277,21 @@ public class ParticipantsRepositoryTest {
         LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
         User organisator = new User(fName2, lName2, email2, dob);
+        userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
         String city = "Leonding";
         int zip = 4060;
         String name = "Meetup";
 
-        Location location = new Location(name, city, street, zip);
+        Location location = new Location(1L,name, city, street, zip);
+        locationRepository.insert(location);
 
         String description = "...";
         LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
 
         Meetup meetup = new Meetup(organisator, location, description, meetupDate);
+        meetupRepository.insert(meetup);
 
         Participants participants = new Participants(user1, meetup);
 

@@ -18,8 +18,8 @@ public class MeetupRepository {
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, meetup.getDescription());
-            statement.setLong(2, Long.parseLong(String.valueOf(meetup.getCreator())));
-            statement.setLong(3, Long.parseLong(String.valueOf(meetup.getLocation())));
+            statement.setLong(2, Long.parseLong(String.valueOf(meetup.getCreator().getId())));
+            statement.setLong(3, Long.parseLong(String.valueOf(meetup.getLocation().getId())));
             statement.setTimestamp(4, Timestamp.valueOf(meetup.getMeetupDate()));
 
 
@@ -113,13 +113,13 @@ public class MeetupRepository {
 
     public Meetup getById(long id){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM MM_MEETUP WHERE L_ID=?";
+            String sql = "SELECT * FROM MM_MEETUP WHERE M_L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("L_ID")){
+                if(id == result.getInt("M_L_ID")){
                     String description = result.getString("M_DESCRIPTION");
                     LocalDateTime meetupDate = result.getTimestamp("M_MEETUP_DATE").toLocalDateTime();
                     Long creatorId = result.getLong("M_U_ID");
