@@ -7,8 +7,8 @@ module mopedMeetup {
     requires org.apache.derby.tools;
     requires org.mybatis;
 
-    opens at.htl.meetup to javafx.fxml;
-    exports at.htl.meetup;
+    opens at.htl.meetup.view to javafx.fxml;
+    exports at.htl.meetup.view;
     exports at.htl.meetup.controller;
     exports at.htl.meetup.entity;
 }

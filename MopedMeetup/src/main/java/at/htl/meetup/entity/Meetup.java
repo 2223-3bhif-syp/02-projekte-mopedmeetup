@@ -1,8 +1,5 @@
 package at.htl.meetup.entity;
 
-
-import org.apache.derby.client.am.DateTime;
-
 import java.time.LocalDateTime;
 
 public class Meetup {
