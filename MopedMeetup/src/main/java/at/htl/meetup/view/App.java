@@ -11,9 +11,8 @@ import java.util.Objects;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        //System.out.print(Objects.requireNonNull(App.class.getResource("/moped-view.fxml")).getPath());
-       FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/moped-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/moped-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 700, 550);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
