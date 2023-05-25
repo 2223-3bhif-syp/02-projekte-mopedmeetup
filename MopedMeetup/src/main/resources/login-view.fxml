@@ -15,9 +15,9 @@
          <children>
             <AnchorPane prefHeight="507.0" prefWidth="234.0" style="-fx-background-color: #9e9e9e;">
                <children>
-                  <ImageView fitHeight="172.0" fitWidth="190.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="173.0" fitWidth="202.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../java/at/htl/meetup/view/pics/moped_logo.PNG" />
+                        <Image url="@../java/at/htl/meetup/view/pics/moped_transparent.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="3.0" layoutY="279.0" prefHeight="19.0" prefWidth="234.0" text="Moped-Meetup@support.com">
@@ -71,7 +71,7 @@
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="419.0" layoutY="449.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up?" textFill="#1310df" underline="true">
+            <Button id="button_sign_up" layoutX="419.0" layoutY="449.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up?" textFill="#1310df" underline="true">
                <font>
                   <Font name="Arial Rounded MT Bold" size="14.0" />
                </font></Button>
