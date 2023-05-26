@@ -17,7 +17,7 @@
                <children>
                   <ImageView fitHeight="173.0" fitWidth="202.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../java/at/htl/meetup/view/pics/moped_transparent.png" />
+                        <Image url="@../../../pics/moped_transparent.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="3.0" layoutY="279.0" prefHeight="19.0" prefWidth="234.0" text="Moped-Meetup@support.com">
@@ -39,7 +39,7 @@
             </AnchorPane>
             <ImageView fitHeight="79.0" fitWidth="87.0" layoutX="402.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../java/at/htl/meetup/view/pics/Lock_icon.png" />
+                  <Image url="@../../../pics/Lock_icon.png" />
                </image>
             </ImageView>
             <Label layoutX="248.0" layoutY="194.0" text="Username">
