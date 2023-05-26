@@ -1,0 +1,28 @@
+.parent{
+    -fx-background-color: white;
+}
+.forgetBtn{
+    -fx-text-fill: #a3a3a3;
+}
+.forgetBtn:hover{
+    -fx-text-fill:  #455a64;
+    -fx-underline:  true;
+}
+.loginBtn{
+    -fx-background-color:  #455a64;
+    -fx-text-fill: #FFF;
+    -fx-background-radius: 10px;
+}
+.loginBtn:pressed{
+    -fx-background-color: #455a64;
+    -fx-effect: dropshadow(three-pass-box, rgb(69, 90, 100), 10, 0, 0, 0);
+}
+.loginBtn:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #455a64;
+    -fx-border-color: #455a64;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+}

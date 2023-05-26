@@ -10,7 +10,7 @@
    <children>
       <VBox layoutX="-5.0" prefHeight="551.0" prefWidth="279.0" style="-fx-background-color: #455a64;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane prefHeight="108.0" prefWidth="279.0">
+            <Pane prefHeight="124.0" prefWidth="279.0">
                <children>
                   <ImageView fitHeight="102.0" fitWidth="139.0" layoutX="87.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -19,14 +19,14 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/styling.css" text="Create Meetup" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Create Meetup" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
                <font>
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font></Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/styling.css" text="Join Meetup" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Join Meetup" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -34,7 +34,7 @@
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/styling.css" text="Find Meetup" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Find Meetup" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -42,7 +42,7 @@
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/styling.css" text="Delete Meetup" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Delete Meetup" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
@@ -50,7 +50,7 @@
                   <Font name="Arial Rounded MT Bold" size="13.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="212.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/styling.css" text="Settings" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" layoutX="10.0" layoutY="212.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Settings" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>
