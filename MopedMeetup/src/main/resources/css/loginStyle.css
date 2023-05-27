@@ -11,7 +11,7 @@
 .loginBtn{
     -fx-background-color:  #455a64;
     -fx-text-fill: #FFF;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 5px;
 }
 .loginBtn:pressed{
     -fx-background-color: #455a64;
@@ -19,10 +19,16 @@
 }
 .loginBtn:hover{
     -fx-background-color: transparent;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 5px;
     -fx-text-fill: #455a64;
     -fx-border-color: #455a64;
     -fx-border-width: 1px;
     -fx-border-style: solid;
-    -fx-border-radius: 10px;
+    -fx-border-radius: 5px;
+}
+.closeBtn{
+    -fx-fill:#455a64;
+}
+.closeBtn:hover{
+    -fx-fill:#ff6666;
 }
