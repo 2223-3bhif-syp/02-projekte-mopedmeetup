@@ -1,30 +1,28 @@
 package at.htl.meetup.entity;
 
 
-import java.time.LocalDateTime;
-
 public class User {
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private LocalDateTime dateOfBirth;
+    private Integer age;
 
-    public User(String firstName, String lastName, String password, String email, LocalDateTime dateOfBirth) {
+    public User(String firstName, String lastName, String password, String email, Integer age) {
         setFirstName(firstName);
         setLastName(lastName);
         setPassword(password);
         setEmail(email);
-        setDateOfBirth(dateOfBirth);
+        setAge(age);
     }
-    public User(Long id, String firstName, String lastName, String password, String email, LocalDateTime dateOfBirth) {
+    public User(Long id, String firstName, String lastName, String password, String email, Integer age) {
         setId(id);
         setFirstName(firstName);
         setLastName(lastName);
         setPassword(password);
         setEmail(email);
-        setDateOfBirth(dateOfBirth);
+        setAge(age);
     }
 
     public Long getId() {
@@ -67,17 +65,12 @@ public class User {
         this.email = email;
     }
 
-     public int getAge() {
-         LocalDateTime age = LocalDateTime.now().minusYears(dateOfBirth.getYear()).minusMonths(dateOfBirth.getMonthValue()).minusDays(dateOfBirth.getDayOfMonth());
-         return age.getYear();
-     }
-
-    public LocalDateTime getDateOfBirth() {
-        return dateOfBirth;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     @Override
@@ -87,7 +80,8 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", password='" + password + '\'' +
+                ", age=" + age +
                 '}';
     }
 }

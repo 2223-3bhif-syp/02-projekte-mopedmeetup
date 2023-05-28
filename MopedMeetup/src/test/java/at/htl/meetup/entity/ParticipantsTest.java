@@ -12,9 +12,8 @@ class ParticipantsTest {
     void test_getters_after_simple_constructor_ok() {
         //arrange
         LocalDateTime date = LocalDateTime.now();
-        LocalDateTime dateOfBirth = LocalDateTime.now();
         Location location = new Location("meetup1", "Linz", "street1", 4020);
-        User user = new User("Linus", "Nestler","123", "ln@email.com", dateOfBirth);
+        User user = new User("Linus", "Nestler","123", "ln@email.com", 12);
         Meetup meetup = new Meetup(user, location, "description", date);
 
         Participants participants = new Participants(user, meetup);

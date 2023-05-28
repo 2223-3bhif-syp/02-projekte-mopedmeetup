@@ -16,7 +16,7 @@ import java.util.List;
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ParticipantsRepositoryTest {
-    private static String tableName = "MM_PARTICIPANTS";
+    private static final String tableName = "MM_PARTICIPANTS";
 
     @BeforeEach
     void setUp() {
@@ -40,17 +40,15 @@ public class ParticipantsRepositoryTest {
         String lName = "Berg";
         String email = "example@mail.com";
         String password = "1234";
-        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
-        User user1 = new User(fName,lName,password,email,dateOfBirth);
+        User user1 = new User(fName,lName,password,email,13);
         userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
-        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator = new User( fName2, lName2,password, email2, dob);
+        User organisator = new User( fName2, lName2,password, email2, 13);
         userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
@@ -90,17 +88,15 @@ public class ParticipantsRepositoryTest {
         String lName = "Berg";
         String email = "example@mail.com";
         String password = "1234";
-        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
-        User user1 = new User(fName,lName,password,email,dateOfBirth);
+        User user1 = new User(fName,lName,password,email,13);
         userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
-        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator = new User(fName2, lName2,password, email2, dob);
+        User organisator = new User(fName2, lName2,password, email2, 13);
         userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
@@ -144,17 +140,15 @@ public class ParticipantsRepositoryTest {
         String lName = "Berg";
         String email = "example@mail.com";
         String password = "1234";
-        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
-        User user1 = new User(fName,lName,password, email,dateOfBirth);
+        User user1 = new User(fName,lName,password, email,13);
         userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
-        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator = new User(fName2, lName2,password, email2, dob);
+        User organisator = new User(fName2, lName2,password, email2, 14);
         userRepository.insert(organisator);
 
         String street = "Limesstraße 8";
@@ -191,17 +185,15 @@ public class ParticipantsRepositoryTest {
         String lName = "Berg";
         String email = "example@mail.com";
         String password = "1234";
-        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
-        User user1 = new User(fName,lName,password,email,dateOfBirth);
+        User user1 = new User(fName,lName,password,email,13);
         userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
-        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator1 = new User(fName2, lName2,password, email2, dob);
+        User organisator1 = new User(fName2, lName2,password, email2, 12);
         userRepository.insert(organisator1);
 
         String street = "Limesstraße 8";
@@ -225,17 +217,15 @@ public class ParticipantsRepositoryTest {
         String fName3 = "Oliver";
         String lName3 = "Daxinger";
         String email3 = "example@mail.com";
-        LocalDateTime dateOfBirth3 = LocalDateTime.of(2005,9,22,0,0);
 
-        User user2 = new User(fName3,lName3,password, email3,dateOfBirth3);
+        User user2 = new User(fName3,lName3,password, email3,133);
         userRepository.insert(user2);
 
         String fName4 = "Linus";
         String lName4 = "Nestler";
         String email4 = "example@gmail.com";
-        LocalDateTime dob4 = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator2 = new User(fName4, lName4,password, email4, dob4);
+        User organisator2 = new User(fName4, lName4,password, email4, 12);
         userRepository.insert(organisator2);
 
         String street2 = "Hamerlingstraße 8";
@@ -274,17 +264,15 @@ public class ParticipantsRepositoryTest {
         String lName = "Berg";
         String email = "example@mail.com";
         String password = "1234";
-        LocalDateTime dateOfBirth = LocalDateTime.of(2005,9,22,0,0);
 
-        User user1 = new User(fName,lName, password, email,dateOfBirth);
+        User user1 = new User(fName,lName, password, email,13);
         userRepository.insert(user1);
 
         String fName2 = "Linus";
         String lName2 = "Nestler";
         String email2 = "example@gmail.com";
-        LocalDateTime dob = LocalDateTime.of(2005,7,5,0,0);
 
-        User organisator = new User(fName2, lName2,password, email2, dob);
+        User organisator = new User(fName2, lName2,password, email2, 8);
         userRepository.insert(organisator);
 
         String street = "Limesstraße 8";

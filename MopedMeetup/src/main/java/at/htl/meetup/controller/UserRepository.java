@@ -4,23 +4,21 @@ import at.htl.meetup.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository {
-    private static DataSource dataSource = Database.getDataSource();
+    private static final DataSource dataSource = Database.getDataSource();
     public void insert(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_PASSWORD, U_EMAIL, U_DATE_OF_BIRTH) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_PASSWORD, U_EMAIL, U_AGE) VALUES (?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getPassword());
             statement.setString(4, user.getEmail());
-            LocalDateTime dateTime = user.getDateOfBirth();
-            statement.setTimestamp(5, Timestamp.valueOf(dateTime));
+            statement.setInt(5, user.getAge());
 
 
             if (statement.executeUpdate() == 0) {
@@ -46,7 +44,7 @@ public class UserRepository {
                     "U_FIRST_NAME=?, " +
                     "U_LAST_NAME=?, " +
                     "U_EMAIL=?, " +
-                    "U_DATE_OF_BIRTH=?, " +
+                    "U_AGE=?, " +
                     "U_PASSWORD=? " +
                     "WHERE U_ID=?";
 
@@ -54,8 +52,7 @@ public class UserRepository {
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setString(3, user.getEmail());
-            LocalDateTime dateTime = user.getDateOfBirth();
-            statement.setTimestamp(4, Timestamp.valueOf(dateTime));
+            statement.setInt(4, user.getAge());
             statement.setString(5, user.getPassword());
             statement.setLong(6, user.getId());
 
@@ -98,8 +95,8 @@ public class UserRepository {
                 String lastName = result.getString("U_LAST_NAME");
                 String password = result.getString("U_PASSWORD");
                 String email = result.getString("U_EMAIL");
-                LocalDateTime dateOfBirth = result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
-                userList.add(new User(id, firstName, lastName, password, email, dateOfBirth));
+                Integer age = result.getInt("U_AGE");
+                userList.add(new User(id, firstName, lastName, password, email, age));
             }
 
         } catch (SQLException e) {
@@ -123,7 +120,7 @@ public class UserRepository {
                             result.getString("U_LAST_NAME"),
                             result.getString("U_PASSWORD"),
                             result.getString("U_EMAIL"),
-                            result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime());
+                            result.getInt("U_AGE"));
             }
 
         } catch (SQLException e) {

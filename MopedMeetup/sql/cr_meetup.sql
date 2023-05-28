@@ -4,7 +4,7 @@ CREATE TABLE mm_USER (
                         U_LAST_NAME         VARCHAR(25),
                         U_PASSWORD          VARCHAR(30),
                         U_EMAIL             VARCHAR(30),
-                        U_DATE_OF_BIRTH     DATE
+                        U_AGE               INT
 );
 
 CREATE TABLE mm_LOCATION (

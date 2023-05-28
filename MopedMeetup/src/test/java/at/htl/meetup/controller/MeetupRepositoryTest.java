@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MeetupRepositoryTest {
 
-    private static String tableName = "MM_Meetup";
+    private static final String tableName = "MM_Meetup";
     @BeforeEach
     public void setUp() {
         // to make sure every Table is empty and set up right
@@ -45,7 +45,7 @@ class MeetupRepositoryTest {
         Location location = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location);
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 12);
         userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
@@ -57,7 +57,7 @@ class MeetupRepositoryTest {
         Location location2 = new Location("meetup12", "Linz", "street1", 4020);
         locationRepository.insert(location2);
 
-        User creator2 = new User("Oliver2", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator2 = new User("Oliver2", "Nestler", "password", "l@.net", 14);
 
         Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
 
@@ -95,7 +95,7 @@ class MeetupRepositoryTest {
         Location location = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location);
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator = new User("Oliver", "Nestler", "password", "l@.net",4);
         userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
@@ -135,7 +135,7 @@ class MeetupRepositoryTest {
         Location location = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location);
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator = new User("Oliver", "Nestler", "password", "l@.net",15);
         userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
@@ -160,7 +160,7 @@ class MeetupRepositoryTest {
         Location location = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location);
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 16);
         userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
@@ -172,7 +172,7 @@ class MeetupRepositoryTest {
         Location location2 = new Location("meetup44", "Linz", "street1", 4020);
         locationRepository.insert(location2);
 
-        User creator2 = new User("Oliver1", "Nestle1r", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator2 = new User("Oliver1", "Nestle1r", "password", "l@.net", 16);
         userRepository.insert(creator2);
 
 
@@ -184,7 +184,7 @@ class MeetupRepositoryTest {
         Location location3 = new Location("meetup44", "Linz", "street1", 4020);
         locationRepository.insert(location3);
 
-        User creator3 = new User("Oliver1", "Nestle1r", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator3 = new User("Oliver1", "Nestle1r", "password", "l@.net", 15);
         userRepository.insert(creator3);
 
         Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
@@ -209,7 +209,7 @@ class MeetupRepositoryTest {
         Location location = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location);
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 15);
         userRepository.insert(creator);
 
         Meetup meetup = new Meetup(creator, location, description, meetupDate);
@@ -221,7 +221,7 @@ class MeetupRepositoryTest {
         Location location2 = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location2);
 
-        User creator2 = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator2 = new User("Oliver", "Nestler", "password", "l@.net", 16);
         userRepository.insert(creator2);
 
         Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
@@ -232,7 +232,7 @@ class MeetupRepositoryTest {
         Location location3 = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location3);
 
-        User creator3 = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator3 = new User("Oliver", "Nestler", "password", "l@.net", 17);
         userRepository.insert(creator3);
 
         Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
@@ -243,7 +243,7 @@ class MeetupRepositoryTest {
         Location location4 = new Location("meetup1", "Linz", "street1", 4020);
         locationRepository.insert(location4);
 
-        User creator4 = new User("Oliver", "Nestler", "password", "l@.net", LocalDateTime.of(1999, 12, 12, 12, 0));
+        User creator4 = new User("Oliver", "Nestler", "password", "l@.net",16);
         userRepository.insert(creator4);
 
         Meetup meetup4 = new Meetup(creator4, location4, description4, meetupDate4);
