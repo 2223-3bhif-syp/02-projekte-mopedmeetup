@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:controller="at.htl.meetup.view.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.meetup.view.LoginController">
    <children>
       <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #455a64;">
          <children>
@@ -27,7 +27,7 @@
                </font>
             </Label>
          </children></VBox>
-      <Pane layoutX="400.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;">
+      <Pane fx:id="content_area" layoutX="400.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;">
          <children>
             <ImageView fitHeight="119.0" fitWidth="149.0" layoutX="22.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,11 +45,6 @@
                </font>
             </Label>
             <TextField layoutX="49.0" layoutY="256.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
-            <TextField layoutX="49.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Passowrd">
                <font>
                   <Font size="14.0" />
                </font>
@@ -84,6 +79,11 @@
                   <Image url="@img/close.png" />
                </image>
             </ImageView>
+            <PasswordField layoutX="49.0" layoutY="306.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />

@@ -32,3 +32,10 @@
 .closeBtn:hover{
     -fx-fill:#ff6666;
 }
+
+.backBtn{
+    -fx-fill: #455a64;
+}
+.backBtn:hover {
+    -fx-fill:#455a64;
+}
