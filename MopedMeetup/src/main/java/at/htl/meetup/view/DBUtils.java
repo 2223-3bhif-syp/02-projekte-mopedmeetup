@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String firstName){
@@ -33,7 +34,7 @@ public class DBUtils {
         }
         else{
             try{
-                root = FXMLLoader.load(DBUtils.class.getResource(fxmlFile));
+                root = FXMLLoader.load(Objects.requireNonNull(DBUtils.class.getResource(fxmlFile)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -46,9 +47,9 @@ public class DBUtils {
 
     public static void signUpUser(ActionEvent event, String firstName, String lastName, String email, int age, String password){
         UserRepository user = new UserRepository();
-        ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
+        boolean isUserExisting = user.isUserExisting(email, password);
 
-        if(!users.isEmpty()){
+        if(isUserExisting){
             System.out.println("User already exists!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("You cannot use this username!");
