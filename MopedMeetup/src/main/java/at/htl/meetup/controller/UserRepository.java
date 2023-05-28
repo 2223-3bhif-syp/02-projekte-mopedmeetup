@@ -66,6 +66,9 @@ public class UserRepository {
     }
 
     public void delete(long id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_USER WHERE U_ID=?";
 
@@ -107,6 +110,9 @@ public class UserRepository {
     }
 
     public static User getById(long id){
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_USER WHERE U_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
