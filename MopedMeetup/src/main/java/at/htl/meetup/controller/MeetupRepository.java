@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MeetupRepository {
-    private DataSource dataSource = Database.getDataSource();
+    private final DataSource dataSource = Database.getDataSource();
     public void insert(Meetup meetup) {
         throwExceptionOnInvalidMeetup(meetup);
         try (Connection connection = dataSource.getConnection()) {
@@ -65,7 +65,7 @@ public class MeetupRepository {
         }
     }
 
-    public void delete(int id) {
+    public void delete(Long id) {
         if (id < 0) {
             throw new IllegalArgumentException("ID must not be negative");
         }
@@ -119,13 +119,13 @@ public class MeetupRepository {
             throw new IllegalArgumentException("ID must not be negative");
         }
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT * FROM MM_MEETUP WHERE M_L_ID=?";
+            String sql = "SELECT * FROM MM_MEETUP WHERE M_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(id == result.getInt("M_L_ID")){
+                if(id == result.getInt("M_ID")){
                     String description = result.getString("M_DESCRIPTION");
                     LocalDateTime meetupDate = result.getTimestamp("M_MEETUP_DATE").toLocalDateTime();
                     Long creatorId = result.getLong("M_U_ID");
@@ -142,7 +142,6 @@ public class MeetupRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -156,7 +155,7 @@ public class MeetupRepository {
         if (meetup.getLocation() == null) {
             throw new IllegalArgumentException("Meetup must have a location");
         }
-        if(meetup.getCreator().getId() == null || meetup.getLocation().getId() < 0){
+        if(meetup.getCreator().getId() == null || meetup.getLocation().getId() == null){
             throw new IllegalArgumentException("Location or Creator must have an ID");
         }
     }

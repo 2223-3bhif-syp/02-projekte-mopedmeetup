@@ -10,13 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import static org.assertj.db.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.db.output.Outputs.output;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.db.api.Assertions.assertThat;
+import static org.assertj.db.output.Outputs.output;
 
 
 class MeetupRepositoryTest {
@@ -35,7 +33,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_insert_meetup_check_Database_ok() {
+    void test_insert_meetup_check_database_ok() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
 
@@ -54,8 +52,6 @@ class MeetupRepositoryTest {
 
 
         // assert
-        assertThat(meetup.getId().equals(1));
-
         assertThat(table).row(0)
                 .value().isEqualTo(meetup.getId())
                 .value().isEqualTo(meetup.getDescription())
@@ -69,8 +65,6 @@ class MeetupRepositoryTest {
     @Test
     void test_insert_meetup_without_location_and_creator_ok() {
         //arrange
-        Table table = new Table(Database.getDataSource(), tableName);
-
         MeetupRepository meetupRepository = new MeetupRepository();
         Meetup meetup = new Meetup(null, null, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
 
@@ -82,177 +76,220 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void update() {
-        Table table = new Table(Database.getDataSource(), tableName);
+    void test_insert_meetup_without_location_and_creator_present_in_DB_ok() {
+        //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
-        LocationRepository locationRepository = new LocationRepository();
-        UserRepository userRepository = new UserRepository();
-
-        String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
-
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
         Location location = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
 
-        User creator = new User("Oliver", "Nestler", "password", "l@.net",4);
-        userRepository.insert(creator);
+        //act
 
-        Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
-        meetupRepository.insert(meetup);
-
-        String newDescription = "UgahBugah Meetup";
-        meetup.setDescription(newDescription);
-
-        meetupRepository.update(meetup);
-
-        assertEquals(meetup.getId(), 1);
-
-        assertThat(table).column("M_ID")
-                .value().isEqualTo(meetup .getId());
-        assertThat(table).column("M_DESCRIPTION")
-                .value().isEqualTo(meetup.getDescription());
-        assertThat(table).column("M_MEETUP_DATE")
-                .value().isEqualTo(meetup .getMeetupDate());
-        assertThat(table).column("M_U_ID")
-                .value().isEqualTo(meetup.getCreator().getId());
-        assertThat(table).column("M_L_ID")
-                .value().isEqualTo(meetup .getLocation().getId());
+        // assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.insert(meetup));
     }
 
     @Test
-    void delete() {
+    void test_insert_meetup_null_ok() {
+        //arrange
+        MeetupRepository meetupRepository = new MeetupRepository();
+        //act
+
+        // assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.insert(null));
+    }
+
+    @Test
+    void test_update_meetup_check_database_ok() {
+        //arrange
         Table table = new Table(Database.getDataSource(), tableName);
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        Location location2 = new Location("3", "4", "5", 4020);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
+        locationRepository.insert(location);
+        locationRepository.insert(location2);
+        userRepository.insert(creator);
+        meetupRepository.insert(meetup);
+
+        meetup.setDescription("eee");
+        meetup.setLocation(location2);
+
+        meetupRepository.update(meetup);
+        // assert
+         assertThat(table).row(0)
+                .value().isEqualTo(meetup.getId())
+                .value().isEqualTo("eee")
+                .value().isEqualTo(meetup.getMeetupDate())
+                .value().isEqualTo(meetup.getCreator().getId())
+                .value().isEqualTo(location2.getId());
+
+        output(table).toConsole();
+    }
+
+    @Test
+    void test_update_meetup_set_location_null_ok() {
+        //arrange
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
+        locationRepository.insert(location);
+        userRepository.insert(creator);
+        meetupRepository.insert(meetup);
+
+        meetup.setLocation(null);
+
+        // assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.update(meetup));
+    }
+
+    @Test
+    void test_update_meetup_set_creator_null_ok() {
+        //arrange
 
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
 
-        String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
-
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
         Location location = new Location("meetup1", "Linz", "street1", 4020);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
         locationRepository.insert(location);
-
-        User creator = new User("Oliver", "Nestler", "password", "l@.net",15);
         userRepository.insert(creator);
-
-        Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
         meetupRepository.insert(meetup);
-        meetupRepository.delete(Integer.parseInt(meetup.getId().toString()));
 
+        meetup.setCreator(null);
+
+        // assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.update(meetup));
+    }
+
+    @Test
+    void test_update_null_ok() {
+        //arrange
+        MeetupRepository meetupRepository = new MeetupRepository();
+
+        //act
+
+        // assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.update(null));
+    }
+
+    @Test
+    void test_delete_meetup_from_database_ok() {
+        //arrange
+        Table table = new Table(Database.getDataSource(), tableName);
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
+
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
+        locationRepository.insert(location);
+        userRepository.insert(creator);
+        meetupRepository.insert(meetup);
+        meetupRepository.delete(meetup.getId());
+
+        //assert
         assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
-    void getAll() {
-        Table table = new Table(Database.getDataSource(), tableName);
-
+    void test_delete_meetup_illegal_id_ok() {
+        //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
-        LocationRepository locationRepository = new LocationRepository();
-        UserRepository userRepository = new UserRepository();
+        //act
 
-        String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
-
-        Location location = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location);
-
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", 16);
-        userRepository.insert(creator);
-
-        Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
-        meetupRepository.insert(meetup);
-
-        String description2 = "Linus's Meetup";
-        LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        Location location2 = new Location("meetup44", "Linz", "street1", 4020);
-        locationRepository.insert(location2);
-
-        User creator2 = new User("Oliver1", "Nestle1r", "password", "l@.net", 16);
-        userRepository.insert(creator2);
-
-
-        Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
-        meetupRepository.insert(meetup2);
-
-        String description3 = "Said's Meetup";
-        LocalDateTime meetupDate3 = LocalDateTime.of(2020, 1, 5, 12, 0);
-        Location location3 = new Location("meetup44", "Linz", "street1", 4020);
-        locationRepository.insert(location3);
-
-        User creator3 = new User("Oliver1", "Nestle1r", "password", "l@.net", 15);
-        userRepository.insert(creator3);
-
-        Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
-        meetupRepository.insert(meetup3);
-
-        List<Meetup> meetupList = meetupRepository.getAll();
-
-        assertEquals(3, meetupList.size());
+        //assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.delete((long) -1));
     }
 
     @Test
-    void getById() {
-        Table table = new Table(Database.getDataSource(), tableName);
-
+    void test_getAll_list_contains_inserted_values_ok() {
+        //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
 
-        String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
-
         Location location = new Location("meetup1", "Linz", "street1", 4020);
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
+
+        Meetup meetup1 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+        Meetup meetup2 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+        Meetup meetup3 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
         locationRepository.insert(location);
-
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", 15);
         userRepository.insert(creator);
-
-        Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
-        meetupRepository.insert(meetup);
-
-        String description2 = "Linus's Meetup";
-        LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        Location location2 = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location2);
-
-        User creator2 = new User("Oliver", "Nestler", "password", "l@.net", 16);
-        userRepository.insert(creator2);
-
-        Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
+        meetupRepository.insert(meetup1);
         meetupRepository.insert(meetup2);
-
-        String description3 = "Said's Meetup";
-        LocalDateTime meetupDate3 = LocalDateTime.of(2020, 1, 5, 12, 0);
-        Location location3 = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location3);
-
-        User creator3 = new User("Oliver", "Nestler", "password", "l@.net", 17);
-        userRepository.insert(creator3);
-
-        Meetup meetup3 = new Meetup(creator3, location3, description3, meetupDate3);
         meetupRepository.insert(meetup3);
 
-        String description4 = "Bajtik's Meetup";
-        LocalDateTime meetupDate4 = LocalDateTime.of(2020, 1, 30, 12, 0);
-        Location location4 = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location4);
+        //assert
+        assertThat(meetupRepository.getAll()).hasSize(3)
+                .usingRecursiveFieldByFieldElementComparator().
+                contains(meetup1, meetup2, meetup3);
 
-        User creator4 = new User("Oliver", "Nestler", "password", "l@.net",16);
-        userRepository.insert(creator4);
+    }
 
-        Meetup meetup4 = new Meetup(creator4, location4, description4, meetupDate4);
-        meetupRepository.insert(meetup4);
+    @Test
+    void test_getById_find_inserted_values_ok() {
+        //arrange
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+        UserRepository userRepository = new UserRepository();
 
+        Location location = new Location("meetup1", "Linz", "street1", 4020);
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
 
+        Meetup meetup1 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+        Meetup meetup2 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+        Meetup meetup3 = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
 
-        assertEquals(1, Integer.parseInt(meetup.getId().toString()));
-        assertEquals(2, Integer.parseInt(meetup2.getId().toString()));
-        assertEquals(3, Integer.parseInt(meetup3.getId().toString()));
-        assertEquals(4, Integer.parseInt(meetup4.getId().toString()));
+        //act
+        locationRepository.insert(location);
+        userRepository.insert(creator);
+        meetupRepository.insert(meetup1);
+        meetupRepository.insert(meetup2);
+        meetupRepository.insert(meetup3);
+
+        //assert
+        assertThat(meetupRepository.getById(1)).usingRecursiveComparison().isEqualTo(meetup1);
+        assertThat(meetupRepository.getById(2)).usingRecursiveComparison().isEqualTo(meetup2);
+        assertThat(meetupRepository.getById(3)).usingRecursiveComparison().isEqualTo(meetup3);
+    }
+
+    @Test
+    void test_getById_with_id_not_in_database_ok() {
+        //arrange
+        MeetupRepository meetupRepository = new MeetupRepository();
+
+        //act
+
+        //assert
+        assertThat(meetupRepository.getById(1)).isNull();
     }
 }
