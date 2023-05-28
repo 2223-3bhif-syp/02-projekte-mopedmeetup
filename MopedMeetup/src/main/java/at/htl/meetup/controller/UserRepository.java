@@ -111,12 +111,12 @@ public class UserRepository {
         return userList;
     }
 
-    public static boolean isUserExisting(String fName, String pwd){
+    public static boolean isUserExisting(String email, String pwd){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT count() from MM_USER WHERE U_PASSWORD = ? AND U_FIRST_NAME = ?";
+            String sql = "SELECT count() from MM_USER WHERE U_PASSWORD = ? AND U_EMAIL = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pwd);
-            statement.setString(2, fName);
+            statement.setString(2, email);
 
             ResultSet resultSet = statement.executeQuery();
             if(resultSet.next()){

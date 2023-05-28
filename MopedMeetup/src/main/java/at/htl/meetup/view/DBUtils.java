@@ -61,19 +61,19 @@ public class DBUtils {
         }
     }
 
-    public static void loginUser(ActionEvent event, String firstName, String password){
+    public static void loginUser(ActionEvent event, String email, String password){
         UserRepository user = new UserRepository();
         ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
 
 
-        if(users.isEmpty() || !user.isUserExisting(firstName, password)){
+        if(users.isEmpty() || !user.isUserExisting(email, password)){
             System.out.println("User not found!");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Provided credentials are incorrect!");
             alert.show();
         }
         else{
-           changeScene(event, "home-view.fxml", "Home", firstName);
+           changeScene(event, "home-view.fxml", "Home", email);
         }
     }
 }
