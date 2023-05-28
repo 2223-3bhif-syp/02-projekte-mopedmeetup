@@ -1,28 +1,26 @@
 package at.htl.meetup.controller;
-import  at.htl.meetup.entity.*;
+
+import at.htl.meetup.entity.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-
-import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class UserRepository {
     private static DataSource dataSource = Database.getDataSource();
     public void insert(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_EMAIL, U_DATE_OF_BIRTH) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_PASSWORD, U_EMAIL, U_DATE_OF_BIRTH) VALUES (?,?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
-            statement.setString(3, user.getEmail());
+            statement.setString(3, user.getPassword());
+            statement.setString(4, user.getEmail());
             LocalDateTime dateTime = user.getDateOfBirth();
-            statement.setTimestamp(4, Timestamp.valueOf(dateTime));
+            statement.setTimestamp(5, Timestamp.valueOf(dateTime));
 
 
             if (statement.executeUpdate() == 0) {
@@ -44,10 +42,12 @@ public class UserRepository {
 
     public void update(User user) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE MM_USER SET U_FIRST_NAME=?, " +
+            String sql = "UPDATE MM_USER SET " +
+                    "U_FIRST_NAME=?, " +
                     "U_LAST_NAME=?, " +
                     "U_EMAIL=?, " +
-                    "U_DATE_OF_BIRTH=? " +
+                    "U_DATE_OF_BIRTH=?, " +
+                    "U_PASSWORD=? " +
                     "WHERE U_ID=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -56,7 +56,8 @@ public class UserRepository {
             statement.setString(3, user.getEmail());
             LocalDateTime dateTime = user.getDateOfBirth();
             statement.setTimestamp(4, Timestamp.valueOf(dateTime));
-            statement.setLong(5, user.getId());
+            statement.setString(5, user.getPassword());
+            statement.setLong(6, user.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of MM_LOCATION failed, no rows affected");
@@ -95,9 +96,10 @@ public class UserRepository {
                 Long id = result.getLong("U_ID");
                 String firstName = result.getString("U_FIRST_NAME");
                 String lastName = result.getString("U_LAST_NAME");
+                String password = result.getString("U_PASSWORD");
                 String email = result.getString("U_EMAIL");
                 LocalDateTime dateOfBirth = result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime();
-                userList.add(new User(id, firstName, lastName, email, dateOfBirth));
+                userList.add(new User(id, firstName, lastName, password, email, dateOfBirth));
             }
 
         } catch (SQLException e) {
@@ -119,6 +121,7 @@ public class UserRepository {
                     return new User(result.getLong("U_ID"),
                             result.getString("U_FIRST_NAME"),
                             result.getString("U_LAST_NAME"),
+                            result.getString("U_PASSWORD"),
                             result.getString("U_EMAIL"),
                             result.getTimestamp("U_DATE_OF_BIRTH").toLocalDateTime());
             }

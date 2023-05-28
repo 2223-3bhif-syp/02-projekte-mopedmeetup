@@ -8,18 +8,21 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private LocalDateTime dateOfBirth;
 
-    public User(String firstName, String lastName, String email, LocalDateTime dateOfBirth) {
+    public User(String firstName, String lastName, String password, String email, LocalDateTime dateOfBirth) {
         setFirstName(firstName);
         setLastName(lastName);
+        setPassword(password);
         setEmail(email);
         setDateOfBirth(dateOfBirth);
     }
-    public User(Long id, String firstName, String lastName, String email, LocalDateTime dateOfBirth) {
+    public User(Long id, String firstName, String lastName, String password, String email, LocalDateTime dateOfBirth) {
         setId(id);
         setFirstName(firstName);
         setLastName(lastName);
+        setPassword(password);
         setEmail(email);
         setDateOfBirth(dateOfBirth);
     }
@@ -46,6 +49,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
