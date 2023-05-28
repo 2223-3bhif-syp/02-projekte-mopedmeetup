@@ -111,6 +111,25 @@ public class UserRepository {
         return userList;
     }
 
+    public static boolean isUserExisting(String fName, String pwd){
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT count() from MM_USER WHERE U_PASSWORD = ? AND U_FIRST_NAME = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, pwd);
+            statement.setString(2, fName);
+
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                int count = resultSet.getInt(1);
+                return count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public static User getById(long id){
         if (id < 0) {
             throw new IllegalArgumentException("ID must not be negative");

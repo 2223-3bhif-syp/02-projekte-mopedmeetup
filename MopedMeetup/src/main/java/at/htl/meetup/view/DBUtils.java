@@ -65,5 +65,15 @@ public class DBUtils {
         UserRepository user = new UserRepository();
         ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
 
+
+        if(users.isEmpty() || !user.isUserExisting(firstName, password)){
+            System.out.println("User not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Provided credentials are incorrect!");
+            alert.show();
+        }
+        else{
+           changeScene(event, "home-view.fxml", "Home", firstName);
+        }
     }
 }
