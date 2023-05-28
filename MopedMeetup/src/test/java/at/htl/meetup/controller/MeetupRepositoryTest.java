@@ -75,23 +75,10 @@ class MeetupRepositoryTest {
         Meetup meetup = new Meetup(null, null, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
 
         //act
-        meetupRepository.insert(meetup);
 
         // assert
-        assertEquals(meetup.getId(), 1);
-
-        assertThat(table).column("M_ID")
-                .value().isEqualTo(meetup .getId());
-        assertThat(table).column("M_DESCRIPTION")
-                .value().isEqualTo(meetup.getDescription());
-        assertThat(table).column("M_MEETUP_DATE")
-                .value().isEqualTo(meetup .getMeetupDate());
-        assertThat(table).column("M_U_ID")
-                .value().isEqualTo(meetup.getCreator().getId());
-        assertThat(table).column("M_L_ID")
-                .value().isEqualTo(meetup .getLocation().getId());
-
-        output(table).toConsole();
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> meetupRepository.insert(meetup));
     }
 
     @Test
