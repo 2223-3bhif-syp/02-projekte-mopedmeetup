@@ -23,7 +23,7 @@ public class HomeController implements Initializable {
         btn_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "login-view.fxml", "Login!", null);
+                DBUtils.changeScene(event, "/login-view.fxml", "Login!", null);
             }
         });
     }

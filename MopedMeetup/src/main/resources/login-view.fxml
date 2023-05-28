@@ -66,14 +66,6 @@
                   <Font name="Ebrima" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="button_signup" layoutX="214.0" layoutY="474.0" onMouseClicked="#open_registration" styleClass="forgetBtn" stylesheets="@css/loginStyle.css" text="Sign up" textFill="#455a64">
-               <font>
-                  <Font name="Ebrima" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
             <ImageView fitHeight="40.0" fitWidth="32.0" layoutX="360.0" layoutY="14.0" onMouseClicked="#close_app" pickOnBounds="true" preserveRatio="true" styleClass="closeBtn">
                <image>
                   <Image url="@img/close.png" />
@@ -84,6 +76,11 @@
                   <Font size="14.0" />
                </font>
             </PasswordField>
+            <Button fx:id="btn_signup" layoutX="198.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="forgetBtn" stylesheets="@css/loginStyle.css" text="Sign Up">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
          <cursor>
             <Cursor fx:constant="HAND" />
