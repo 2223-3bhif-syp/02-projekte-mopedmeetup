@@ -2,11 +2,9 @@ package at.htl.meetup.view;
 
 import at.htl.meetup.controller.UserRepository;
 import at.htl.meetup.entity.User;
-import javafx.beans.value.ObservableListValue;
-import javafx.beans.value.ObservableValue;
+import at.htl.meetup.view.controller.HomeController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,11 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String firstName){
@@ -49,7 +44,7 @@ public class DBUtils {
         stage.show();
     }
 
-    public static void signUpUser(ActionEvent event, String firstName, String email, String password, String confPassword){
+    public static void signUpUser(ActionEvent event, String firstName, String lastName, String email, int age, String password){
         UserRepository user = new UserRepository();
         ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
 
@@ -60,7 +55,15 @@ public class DBUtils {
             alert.show();
         }
         else{
-           // add user
+            User insUser = new User(firstName, lastName, password, email, age);
+            user.insert(insUser);
+            changeScene(event, "home-view.fxml", "Home", firstName);
         }
+    }
+
+    public static void loginUser(ActionEvent event, String firstName, String password){
+        UserRepository user = new UserRepository();
+        ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
+
     }
 }

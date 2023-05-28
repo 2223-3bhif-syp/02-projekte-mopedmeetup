@@ -1,5 +1,7 @@
-package at.htl.meetup.view;
+package at.htl.meetup.view.controller;
 
+import at.htl.meetup.view.App;
+import at.htl.meetup.view.MetaData;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;

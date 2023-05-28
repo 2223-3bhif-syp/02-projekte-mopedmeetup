@@ -1,4 +1,4 @@
-package at.htl.meetup.view;
+package at.htl.meetup.view.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

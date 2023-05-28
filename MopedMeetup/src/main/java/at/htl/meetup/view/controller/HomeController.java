@@ -1,5 +1,6 @@
-package at.htl.meetup.view;
+package at.htl.meetup.view.controller;
 
+import at.htl.meetup.view.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
