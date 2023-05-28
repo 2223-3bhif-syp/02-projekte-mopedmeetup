@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
 
   /* @FXML
     private void open_registration(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load((getClass().getResource("/registration_view.fxml")));
+        Parent fxml = FXMLLoader.load((getClass().getResource("/registration-view.fxml")));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
     }*/
@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
         btn_signup.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "/registration_view.fxml", "Sign Up!", null);
+                DBUtils.changeScene(event, "/registration-view.fxml", "Sign Up!", null);
             }
         });
     }
