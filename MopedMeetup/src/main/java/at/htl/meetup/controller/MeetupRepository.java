@@ -156,5 +156,8 @@ public class MeetupRepository {
         if (meetup.getLocation() == null) {
             throw new IllegalArgumentException("Meetup must have a location");
         }
+        if(meetup.getCreator().getId() == null || meetup.getLocation().getId() < 0){
+            throw new IllegalArgumentException("Location or Creator must have an ID");
+        }
     }
 }

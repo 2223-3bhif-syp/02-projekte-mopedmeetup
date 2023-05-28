@@ -11,6 +11,7 @@ public class LocationRepository {
 
     private static DataSource dataSource = Database.getDataSource();
     public void insert(Location location) {
+        throwExceptionOnInvalidLocation(location);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_LOCATION (L_STREET, L_CITY, L_ZIP, L_NAME) VALUES (?,?,?,?)";
 
@@ -25,7 +26,6 @@ public class LocationRepository {
                 throw new SQLException("Update of MM_LOCATION failed, no rows affected");
             }
 
-
             try (ResultSet keys = statement.getGeneratedKeys()) {
                 if (keys.next()) {
                     location.setId(keys.getLong(1));
@@ -39,6 +39,7 @@ public class LocationRepository {
     }
 
     public void update(Location location) {
+        throwExceptionOnInvalidLocation(location);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_LOCATION SET L_STREET=?, " +
                     "L_CITY=?, " +
@@ -129,5 +130,10 @@ public class LocationRepository {
         }
 
         return null;
+    }
+    private void throwExceptionOnInvalidLocation(Location location) {
+        if (location == null) {
+            throw new IllegalArgumentException("Location must not be null");
+        }
     }
 }

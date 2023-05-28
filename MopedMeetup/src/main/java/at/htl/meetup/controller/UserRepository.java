@@ -1,5 +1,6 @@
 package at.htl.meetup.controller;
 
+import at.htl.meetup.entity.Meetup;
 import at.htl.meetup.entity.User;
 
 import javax.sql.DataSource;
@@ -10,6 +11,7 @@ import java.util.List;
 public class UserRepository {
     private static final DataSource dataSource = Database.getDataSource();
     public void insert(User user) {
+        throwExceptionOnInvalidUser(user);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_USER (U_FIRST_NAME, U_LAST_NAME, U_PASSWORD, U_EMAIL, U_AGE) VALUES (?,?,?,?,?)";
 
@@ -39,6 +41,7 @@ public class UserRepository {
     }
 
     public void update(User user) {
+        throwExceptionOnInvalidUser(user);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_USER SET " +
                     "U_FIRST_NAME=?, " +
@@ -85,7 +88,6 @@ public class UserRepository {
 
     public List<User> getAll() {
         List<User> userList = new ArrayList<>();
-
 
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_USER";
@@ -134,5 +136,11 @@ public class UserRepository {
         }
 
         return null;
+    }
+
+    private void throwExceptionOnInvalidUser(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User must not be null");
+        }
     }
 }

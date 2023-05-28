@@ -145,6 +145,8 @@ public class ParticipantsRepository {
     }
 
     private void throwExceptionOnInvalidParticipants(Participants participants) {
+        if (participants == null)
+            throw new IllegalArgumentException("Participants is null");
         if(participants.getUser() == null || participants.getMeetup() == null)
             throw new IllegalArgumentException("User or Meetup is null");
         if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
