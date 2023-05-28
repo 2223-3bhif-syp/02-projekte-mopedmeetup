@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@css/loginStyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.meetup.view.RegistrationController">
+   <children>
+      <ImageView fitHeight="108.0" fitWidth="119.0" layoutX="32.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/moped_transparent.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="46.0" layoutY="187.0" text="Registration Form" textFill="#545454">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Label>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="364.0" layoutY="16.0" onMouseClicked="#close_app" pickOnBounds="true" preserveRatio="true" styleClass="closeBtn">
+         <image>
+            <Image url="@img/close.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="46.0" layoutY="217.0" text="Fill the Form for registration" textFill="#a3a3a3">
+         <font>
+            <Font name="Ebrima Bold" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="50.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <PasswordField layoutX="50.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Confirm Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="50.0" layoutY="492.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Register">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#back_to_menu" pickOnBounds="true" preserveRatio="true" styleClass="backBtn">
+         <image>
+            <Image url="@img/arrowback.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="50.0" layoutY="270.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="50.0" layoutY="323.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
