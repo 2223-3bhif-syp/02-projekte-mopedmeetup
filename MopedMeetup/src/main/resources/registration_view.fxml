@@ -65,10 +65,10 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="rf_age" layoutX="50.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Age">
+      <PasswordField fx:id="rf_age" layoutX="50.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Age">
          <font>
             <Font size="14.0" />
          </font>
-      </TextField>
+      </PasswordField>
    </children>
 </AnchorPane>

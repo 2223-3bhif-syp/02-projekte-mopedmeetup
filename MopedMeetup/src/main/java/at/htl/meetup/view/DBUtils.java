@@ -22,7 +22,7 @@ public class DBUtils {
 
         if(firstName != null){
             try{
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
+                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource("/"+fxmlFile));
                 root = loader.load();
                 HomeController homeController = loader.getController();
                 homeController.setUserInformation(firstName);
@@ -62,6 +62,7 @@ public class DBUtils {
     }
 
     public static void loginUser(ActionEvent event, String email, String password){
+        System.out.println("Login user");
         UserRepository user = new UserRepository();
         ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
 
@@ -73,7 +74,7 @@ public class DBUtils {
             alert.show();
         }
         else{
-           changeScene(event, "home-view.fxml", "Home", email);
+           changeScene(event, "./home-view.fxml", "Home", email);
         }
     }
 }

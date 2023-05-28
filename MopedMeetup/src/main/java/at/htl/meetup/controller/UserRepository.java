@@ -113,7 +113,7 @@ public class UserRepository {
 
     public static boolean isUserExisting(String email, String pwd){
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "SELECT count() from MM_USER WHERE U_PASSWORD = ? AND U_EMAIL = ?";
+            String sql = "SELECT count(*) from MM_USER WHERE U_PASSWORD = ? AND U_EMAIL = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, pwd);
             statement.setString(2, email);
