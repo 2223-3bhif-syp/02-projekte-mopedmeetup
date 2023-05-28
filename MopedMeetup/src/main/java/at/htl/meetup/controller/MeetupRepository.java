@@ -13,6 +13,7 @@ import java.util.List;
 public class MeetupRepository {
     private DataSource dataSource = Database.getDataSource();
     public void insert(Meetup meetup) {
+        throwExceptionOnInvalidMeetup(meetup);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO MM_MEETUP (M_DESCRIPTION, M_U_ID, M_L_ID, M_MEETUP_DATE) VALUES (?,?,?,?)";
 
@@ -40,6 +41,7 @@ public class MeetupRepository {
     }
 
     public void update(Meetup meetup) {
+        throwExceptionOnInvalidMeetup(meetup);
         try (Connection connection = dataSource.getConnection()) {
             String sql = "UPDATE MM_MEETUP SET M_DESCRIPTION=?, " +
                     "M_MEETUP_DATE=?, " +
@@ -64,6 +66,9 @@ public class MeetupRepository {
     }
 
     public void delete(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_MEETUP WHERE M_ID=?";
 
@@ -110,6 +115,9 @@ public class MeetupRepository {
     }
 
     public Meetup getById(long id){
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_MEETUP WHERE M_L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -136,5 +144,17 @@ public class MeetupRepository {
         }
 
         return null;
+    }
+
+    private void throwExceptionOnInvalidMeetup(Meetup meetup) {
+        if (meetup == null) {
+            throw new IllegalArgumentException("Meetup must not be null");
+        }
+        if (meetup.getCreator() == null) {
+            throw new IllegalArgumentException("Meetup must have a creator");
+        }
+        if (meetup.getLocation() == null) {
+            throw new IllegalArgumentException("Meetup must have a location");
+        }
     }
 }

@@ -14,6 +14,10 @@ import java.util.List;
 
 import static org.assertj.db.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.db.output.Outputs.output;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
 
 class MeetupRepositoryTest {
 
@@ -39,35 +43,41 @@ class MeetupRepositoryTest {
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
 
-        String description = "Oliver's Meetup";
-        LocalDateTime meetupDate = LocalDateTime.of(2005, 10, 22, 0, 0);
-
+        User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
         Location location = new Location("meetup1", "Linz", "street1", 4020);
-        locationRepository.insert(location);
-
-        User creator = new User("Oliver", "Nestler", "password", "l@.net", 12);
-        userRepository.insert(creator);
-
-        Meetup meetup = new Meetup(creator, location, description, meetupDate);
-
-        meetupRepository.insert(meetup);
-
-        String description2 = "Linus's Meetup";
-        LocalDateTime meetupDate2 = LocalDateTime.of(2020, 5, 5, 12, 0);
-        Location location2 = new Location("meetup12", "Linz", "street1", 4020);
-        locationRepository.insert(location2);
-
-        User creator2 = new User("Oliver2", "Nestler", "password", "l@.net", 14);
-
-        Meetup meetup2 = new Meetup(creator2, location2, description2, meetupDate2);
+        Meetup meetup = new Meetup(creator, location, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
 
         //act
+        locationRepository.insert(location);
+        userRepository.insert(creator);
+        meetupRepository.insert(meetup);
 
-        userRepository.insert(creator2);
-        meetupRepository.insert(meetup2);
 
-        //assert
+        // assert
+        assertThat(meetup.getId().equals(1));
 
+        assertThat(table).row(0)
+                .value().isEqualTo(meetup.getId())
+                .value().isEqualTo(meetup.getDescription())
+                .value().isEqualTo(meetup.getMeetupDate())
+                .value().isEqualTo(meetup.getCreator().getId())
+                .value().isEqualTo(meetup.getLocation().getId());
+
+        output(table).toConsole();
+    }
+
+    @Test
+    void test_insert_meetup_without_location_and_creator_ok() {
+        //arrange
+        Table table = new Table(Database.getDataSource(), tableName);
+
+        MeetupRepository meetupRepository = new MeetupRepository();
+        Meetup meetup = new Meetup(null, null, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
+
+        //act
+        meetupRepository.insert(meetup);
+
+        // assert
         assertEquals(meetup.getId(), 1);
 
         assertThat(table).column("M_ID")
@@ -80,6 +90,8 @@ class MeetupRepositoryTest {
                 .value().isEqualTo(meetup.getCreator().getId());
         assertThat(table).column("M_L_ID")
                 .value().isEqualTo(meetup .getLocation().getId());
+
+        output(table).toConsole();
     }
 
     @Test

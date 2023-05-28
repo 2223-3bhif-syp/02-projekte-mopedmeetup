@@ -13,6 +13,7 @@ import java.util.List;
 public class ParticipantsRepository {
     private DataSource dataSource = Database.getDataSource();
     public void insert(Participants participants) {
+        throwExceptionOnInvalidParticipants(participants);
         if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
             throw new IllegalArgumentException("User or Meetup is null");
 
@@ -42,6 +43,7 @@ public class ParticipantsRepository {
     }
 
     public void update(Participants participants) {
+        throwExceptionOnInvalidParticipants(participants);
         if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
             throw new IllegalArgumentException("User or Meetup is null");
 
@@ -65,6 +67,9 @@ public class ParticipantsRepository {
     }
 
     public void delete(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_PARTICIPANTS WHERE P_ID=?";
 
@@ -109,6 +114,9 @@ public class ParticipantsRepository {
     }
 
     public Participants getById(long id){
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_PARTICIPANTS WHERE P_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -134,5 +142,12 @@ public class ParticipantsRepository {
         }
 
         return null;
+    }
+
+    private void throwExceptionOnInvalidParticipants(Participants participants) {
+        if(participants.getUser() == null || participants.getMeetup() == null)
+            throw new IllegalArgumentException("User or Meetup is null");
+        if(participants.getUser().getId() == null || participants.getMeetup().getId() == null)
+            throw new IllegalArgumentException("User or Meetup are not in Database");
     }
 }

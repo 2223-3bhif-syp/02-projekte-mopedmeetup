@@ -63,6 +63,9 @@ public class LocationRepository {
     }
 
     public void delete(long id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "DELETE FROM MM_LOCATION WHERE L_ID=?";
 
@@ -103,6 +106,9 @@ public class LocationRepository {
     }
 
     public static Location getById(long id){
+        if (id < 0) {
+            throw new IllegalArgumentException("ID must not be negative");
+        }
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM MM_LOCATION WHERE L_ID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
