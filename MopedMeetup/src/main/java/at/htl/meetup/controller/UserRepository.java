@@ -1,6 +1,5 @@
 package at.htl.meetup.controller;
 
-import at.htl.meetup.entity.Meetup;
 import at.htl.meetup.entity.User;
 
 import javax.sql.DataSource;
@@ -111,7 +110,7 @@ public class UserRepository {
         return userList;
     }
 
-    public static boolean isUserExisting(String email, String pwd){
+    public boolean isUserExisting(String email, String pwd){
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT count(*) from MM_USER WHERE U_PASSWORD = ? AND U_EMAIL = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
