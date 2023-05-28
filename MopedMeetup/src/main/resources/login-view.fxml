@@ -44,7 +44,7 @@
                   <Font name="Ebrima Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_firstname" layoutX="49.0" layoutY="256.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
+            <TextField fx:id="rf_email" layoutX="49.0" layoutY="256.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
                <font>
                   <Font size="14.0" />
                </font>
@@ -54,7 +54,7 @@
                   <Font name="Ebrima" size="14.0" />
                </font>
             </Label>
-            <Button layoutX="49.0" layoutY="387.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Login">
+            <Button fx:id="btn_login" layoutX="49.0" layoutY="387.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Login">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -79,7 +79,7 @@
                   <Image url="@img/close.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="tf_password" layoutX="49.0" layoutY="306.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
+            <PasswordField fx:id="rf_password" layoutX="49.0" layoutY="306.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
                <font>
                   <Font size="14.0" />
                </font>

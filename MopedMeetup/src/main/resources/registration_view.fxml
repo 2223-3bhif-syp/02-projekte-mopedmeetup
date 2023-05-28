@@ -7,12 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@css/loginStyle.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.meetup.view.RegistrationController">
    <children>
-      <ImageView fitHeight="108.0" fitWidth="119.0" layoutX="32.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="108.0" fitWidth="119.0" layoutX="34.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/moped_transparent.png" />
          </image>
       </ImageView>
-      <Label layoutX="46.0" layoutY="187.0" text="Registration Form" textFill="#545454">
+      <Label layoutX="48.0" layoutY="157.0" text="Registration Form" textFill="#545454">
          <font>
             <Font name="Impact" size="24.0" />
          </font></Label>
@@ -21,21 +21,21 @@
             <Image url="@img/close.png" />
          </image>
       </ImageView>
-      <Label layoutX="46.0" layoutY="217.0" text="Fill the Form for registration" textFill="#a3a3a3">
+      <Label layoutX="48.0" layoutY="187.0" text="Fill the Form for registration" textFill="#a3a3a3">
          <font>
             <Font name="Ebrima Bold" size="14.0" />
          </font>
       </Label>
-      <PasswordField fx:id="tf_password" layoutX="50.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
+      <PasswordField fx:id="rf_age" layoutX="50.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Age">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <PasswordField fx:id="tf_conf_password" layoutX="50.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Confirm Password">
+      <PasswordField fx:id="rf_password" layoutX="50.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button layoutX="50.0" layoutY="492.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Register">
+      <Button fx:id="btn_register" layoutX="50.0" layoutY="492.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Register">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -44,12 +44,12 @@
             <Image url="@img/arrowback.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tf_firstname" layoutX="50.0" layoutY="270.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Firstname">
+      <TextField fx:id="rf_firstname" layoutX="50.0" layoutY="222.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Firstname">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="tf_email" layoutX="50.0" layoutY="323.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
+      <TextField fx:id="rf_email" layoutX="50.0" layoutY="323.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
          <font>
             <Font size="14.0" />
          </font>
@@ -64,5 +64,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <TextField fx:id="rf_lastname" layoutX="50.0" layoutY="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Lastname">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

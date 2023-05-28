@@ -13,11 +13,14 @@ import  javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class RegistrationController {
-    public PasswordField tf_password;
-    public PasswordField tf_conf_password;
-    public TextField tf_firstname;
-    public TextField tf_email;
     public Button button_login;
+    public Button btn_login;
+    public PasswordField rf_age;
+    public PasswordField rf_password;
+    public Button btn_register;
+    public TextField rf_firstname;
+    public TextField rf_email;
+    public TextField rf_lastname;
 
     public void close_app(MouseEvent event) {
         System.exit(0);

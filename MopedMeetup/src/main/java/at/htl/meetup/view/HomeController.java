@@ -21,8 +21,8 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
-
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "login-view.fxml", "Login!", null);
             }
         });
     }
