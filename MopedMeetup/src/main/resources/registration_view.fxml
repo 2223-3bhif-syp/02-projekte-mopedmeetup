@@ -26,11 +26,11 @@
             <Font name="Ebrima Bold" size="14.0" />
          </font>
       </Label>
-      <PasswordField layoutX="50.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
+      <PasswordField fx:id="tf_password" layoutX="50.0" layoutY="372.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Password">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <PasswordField layoutX="50.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Confirm Password">
+      <PasswordField fx:id="tf_conf_password" layoutX="50.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Confirm Password">
          <font>
             <Font size="14.0" />
          </font>
@@ -44,15 +44,25 @@
             <Image url="@img/arrowback.png" />
          </image>
       </ImageView>
-      <TextField layoutX="50.0" layoutY="270.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Username">
+      <TextField fx:id="tf_firstname" layoutX="50.0" layoutY="270.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Enter Firstname">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="50.0" layoutY="323.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
+      <TextField fx:id="tf_email" layoutX="50.0" layoutY="323.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
+      <Label layoutX="94.0" layoutY="558.0" text="Already a member?" textFill="#a3a3a3">
+         <font>
+            <Font name="Ebrima Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_login" layoutX="221.0" layoutY="552.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="forgetBtn" stylesheets="@css/loginStyle.css" text="Log In!">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

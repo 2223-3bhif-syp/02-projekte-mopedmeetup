@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.meetup.view.HomeController">
    <children>
       <VBox layoutX="-5.0" prefHeight="551.0" prefWidth="279.0" style="-fx-background-color: #455a64;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="124.0" prefWidth="279.0">
                <children>
-                  <ImageView fitHeight="102.0" fitWidth="139.0" layoutX="87.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="108.0" fitWidth="118.0" layoutX="81.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/second_moped_logo.png" />
+                        <Image url="@img/moped_transparent.png" />
                      </image>
                   </ImageView>
                </children>
@@ -59,5 +59,15 @@
                </font>
             </Button>
          </children></VBox>
+      <Label fx:id="label_welcome" layoutX="536.0" layoutY="57.0" text="Welcome!">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_logout" layoutX="444.0" layoutY="435.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" styleClass="loginBtn" stylesheets="@css/loginStyle.css" text="Logout!">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
