@@ -35,7 +35,12 @@ class MeetupRepositoryTest {
     @Test
     void test_insert_meetup_check_database_ok() {
         //arrange
-        Table table = new Table(Database.getDataSource(), tableName);
+        Table table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
 
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
@@ -50,6 +55,10 @@ class MeetupRepositoryTest {
         userRepository.insert(creator);
         meetupRepository.insert(meetup);
 
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
 
         // assert
         assertThat(table).row(0)
@@ -58,7 +67,6 @@ class MeetupRepositoryTest {
                 .value().isEqualTo(meetup.getMeetupDate())
                 .value().isEqualTo(meetup.getCreator().getId())
                 .value().isEqualTo(meetup.getLocation().getId());
-
         output(table).toConsole();
     }
 
@@ -104,7 +112,13 @@ class MeetupRepositoryTest {
     @Test
     void test_update_meetup_check_database_ok() {
         //arrange
-        Table table = new Table(Database.getDataSource(), tableName);
+        Table table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
@@ -120,18 +134,31 @@ class MeetupRepositoryTest {
         userRepository.insert(creator);
         meetupRepository.insert(meetup);
 
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         meetup.setDescription("eee");
         meetup.setLocation(location2);
 
         meetupRepository.update(meetup);
         // assert
-         assertThat(table).row(0)
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
+        assertThat(table).row(0)
                 .value().isEqualTo(meetup.getId())
                 .value().isEqualTo("eee")
                 .value().isEqualTo(meetup.getMeetupDate())
                 .value().isEqualTo(meetup.getCreator().getId())
                 .value().isEqualTo(location2.getId());
-
         output(table).toConsole();
     }
 
@@ -197,7 +224,13 @@ class MeetupRepositoryTest {
     @Test
     void test_delete_meetup_from_database_ok() {
         //arrange
-        Table table = new Table(Database.getDataSource(), tableName);
+        Table table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
@@ -210,10 +243,24 @@ class MeetupRepositoryTest {
         locationRepository.insert(location);
         userRepository.insert(creator);
         meetupRepository.insert(meetup);
+
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         meetupRepository.delete(meetup.getId());
 
         //assert
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
         assertThat(table).hasNumberOfRows(0);
+
+        output(table).toConsole();
     }
 
     @Test
@@ -230,6 +277,13 @@ class MeetupRepositoryTest {
     @Test
     void test_getAll_list_contains_inserted_values_ok() {
         //arrange
+        Table table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
@@ -247,6 +301,13 @@ class MeetupRepositoryTest {
         meetupRepository.insert(meetup1);
         meetupRepository.insert(meetup2);
         meetupRepository.insert(meetup3);
+
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
 
         //assert
         assertThat(meetupRepository.getAll()).hasSize(3)
@@ -258,6 +319,13 @@ class MeetupRepositoryTest {
     @Test
     void test_getById_find_inserted_values_ok() {
         //arrange
+        Table table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
+
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
         UserRepository userRepository = new UserRepository();
@@ -275,6 +343,13 @@ class MeetupRepositoryTest {
         meetupRepository.insert(meetup1);
         meetupRepository.insert(meetup2);
         meetupRepository.insert(meetup3);
+
+        table = new Table(
+                Database.getDataSource(),
+                tableName
+        );
+
+        output(table).toConsole();
 
         //assert
         assertThat(meetupRepository.getById(1)).usingRecursiveComparison().isEqualTo(meetup1);
