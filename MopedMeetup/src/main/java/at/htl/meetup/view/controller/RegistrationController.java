@@ -53,24 +53,55 @@ public class RegistrationController implements Initializable{
         btn_register.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(!rf_firstname.getText().trim().isEmpty() && !rf_lastname.getText().trim().isEmpty() && !rf_age.getText().trim().isEmpty() &&
-                !rf_email.getText().trim().isEmpty() && !rf_password.getText().trim().isEmpty()){
+                if((!rf_firstname.getText().trim().isEmpty() && isAlphabetic(rf_firstname.getText())) && (!rf_lastname.getText().trim().isEmpty() && isAlphabetic(rf_lastname.getText())) &&
+                        (!rf_age.getText().trim().isEmpty() && isNumeric(rf_age.getText())) && (!rf_email.getText().trim().isEmpty() && isValidEmail(rf_email.getText())) &&
+                        (!rf_password.getText().trim().isEmpty() && isNumeric(rf_password.getText()))){
                     DBUtils.signUpUser(event, rf_firstname.getText(), rf_lastname.getText(), rf_email.getText(), Integer.parseInt(rf_age.getText()), rf_password.getText());
                 }
                 else{
-                    System.out.println("Please fill in all information!");
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Please fill in all Information to sign up!");
-                    alert.show();
+                    if(!isNumeric(rf_age.getText())){
+                        showAlert("Invalid Age", "Age should only contain numeric digits.");
+                    } else if (!isAlphabetic(rf_firstname.getText())) {
+                        showAlert("Invalid First Name", "Firstname should only contain alphabetic characters.");
+                    } else if (!isAlphabetic(rf_lastname.getText())) {
+                        showAlert("Invalid Last Name", "Lastname should only contain alphabetic characters.");
+                    } else if (!isValidEmail(rf_email.getText())) {
+                        showAlert("Invalid Email", "Email should be in the format 'example@example.com'");
+                    }
+                    else{
+                        System.out.println("Please fill in all information!");
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Please fill in all Information to sign up!");
+                        alert.show();
+                    }
                 }
             }
         });
-
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "/login-view.fxml", "Login", null);
             }
         });
+    }
+
+    private boolean isNumeric(String input) {
+        return input.matches("\\d+");
+    }
+
+    private boolean isValidEmail(String input) {
+        return input.matches(".+@.+\\..+");
+    }
+
+    private boolean isAlphabetic(String input) {
+        return input.matches("[a-zA-Z]+");
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
