@@ -59,13 +59,13 @@ public class RegistrationController implements Initializable{
                     DBUtils.signUpUser(event, rf_firstname.getText(), rf_lastname.getText(), rf_email.getText(), Integer.parseInt(rf_age.getText()), rf_password.getText());
                 }
                 else{
-                    if(!isNumeric(rf_age.getText())){
+                    if(!isNumeric(rf_age.getText()) && !rf_age.getText().isEmpty()){
                         showAlert("Invalid Age", "Age should only contain numeric digits.");
-                    } else if (!isAlphabetic(rf_firstname.getText())) {
+                    } else if (!isAlphabetic(rf_firstname.getText()) && !rf_firstname.getText().isEmpty()) {
                         showAlert("Invalid First Name", "Firstname should only contain alphabetic characters.");
-                    } else if (!isAlphabetic(rf_lastname.getText())) {
+                    } else if (!isAlphabetic(rf_lastname.getText()) && !rf_lastname.getText().isEmpty()) {
                         showAlert("Invalid Last Name", "Lastname should only contain alphabetic characters.");
-                    } else if (!isValidEmail(rf_email.getText())) {
+                    } else if (!isValidEmail(rf_email.getText()) && !rf_email.getText().isEmpty()) {
                         showAlert("Invalid Email", "Email should be in the format 'example@example.com'");
                     }
                     else{
