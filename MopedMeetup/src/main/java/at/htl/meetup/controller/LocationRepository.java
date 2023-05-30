@@ -106,7 +106,7 @@ public class LocationRepository {
         return locationList;
     }
 
-    public static Location getById(long id){
+    public Location getById(long id){
         if (id < 0) {
             throw new IllegalArgumentException("ID must not be negative");
         }
