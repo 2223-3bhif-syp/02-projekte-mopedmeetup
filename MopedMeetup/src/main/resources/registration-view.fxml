@@ -35,7 +35,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ImageView fitHeight="21.0" fitWidth="20.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#back_to_menu" pickOnBounds="true" preserveRatio="true" styleClass="backBtn">
+      <ImageView fx:id="btn_back_to_menu" fitHeight="21.0" fitWidth="20.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#back_to_menu" pickOnBounds="true" preserveRatio="true" styleClass="backBtn">
          <image>
             <Image url="@img/arrowback.png" />
          </image>
@@ -65,10 +65,10 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="rf_age" layoutX="50.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Age">
+      <TextField fx:id="rf_age" layoutX="50.0" layoutY="374.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Age">
          <font>
             <Font size="14.0" />
          </font>
-      </PasswordField>
+      </TextField>
    </children>
 </AnchorPane>

@@ -5,10 +5,17 @@ import at.htl.meetup.view.DBUtils;
 import at.htl.meetup.view.MetaData;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,20 +24,28 @@ import javafx.scene.layout.AnchorPane;
 
 public class RegistrationController implements Initializable{
     public Button btn_login;
-    public PasswordField rf_age;
+    public TextField rf_age;
     public PasswordField rf_password;
     public Button btn_register;
     public TextField rf_firstname;
     public TextField rf_email;
     public TextField rf_lastname;
+    public ImageView btn_back_to_menu;
 
     public void close_app(MouseEvent event) {
         System.exit(0);
     }
 
     @FXML
-    private void back_to_menu(MouseEvent event) {
-        App.stage.getScene().setRoot(MetaData.parent);
+    private void back_to_menu() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) btn_back_to_menu.getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
     }
 
     @Override
