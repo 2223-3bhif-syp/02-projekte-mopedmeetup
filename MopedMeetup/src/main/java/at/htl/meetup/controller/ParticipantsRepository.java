@@ -26,7 +26,7 @@ public class ParticipantsRepository {
 
 
             if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of MM_PARTICIPANTS failed, no rows affected");
+                throw new SQLException("Insert into MM_PARTICIPANTS failed, no rows affected");
             }
 
 

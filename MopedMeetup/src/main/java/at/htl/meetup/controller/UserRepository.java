@@ -129,7 +129,7 @@ public class UserRepository {
         return false;
     }
 
-    public static User getById(long id){
+    public User getById(long id){
         if (id < 0) {
             throw new IllegalArgumentException("ID must not be negative");
         }

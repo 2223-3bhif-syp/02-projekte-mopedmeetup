@@ -33,7 +33,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_insert_meetup_check_database_ok() {
+    void T01_insert_meetup_check_database_ok() {
         //arrange
         Table table = new Table(
                 Database.getDataSource(),
@@ -71,7 +71,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_insert_meetup_without_location_and_creator_ok() {
+    void T02_insert_meetup_without_location_and_creator_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         Meetup meetup = new Meetup(null, null, "Oliver's Meetup", LocalDateTime.of(2005, 10, 22, 0, 0));
@@ -84,7 +84,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_insert_meetup_without_location_and_creator_present_in_DB_ok() {
+    void T03_insert_meetup_without_location_and_creator_present_in_DB_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         User creator = new User("Oliver", "Nestler", "password", "l@.net", 1);
@@ -99,7 +99,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_insert_meetup_null_ok() {
+    void T04_insert_meetup_null_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         //act
@@ -110,7 +110,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_update_meetup_check_database_ok() {
+    void T05_update_meetup_check_database_ok() {
         //arrange
         Table table = new Table(
                 Database.getDataSource(),
@@ -163,7 +163,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_update_meetup_set_location_null_ok() {
+    void T06_update_meetup_set_location_null_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
@@ -186,7 +186,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_update_meetup_set_creator_null_ok() {
+    void T07_update_meetup_set_creator_null_ok() {
         //arrange
 
         MeetupRepository meetupRepository = new MeetupRepository();
@@ -210,7 +210,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_update_null_ok() {
+    void T08_update_null_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
 
@@ -222,7 +222,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_delete_meetup_from_database_ok() {
+    void T09_delete_meetup_from_database_ok() {
         //arrange
         Table table = new Table(
                 Database.getDataSource(),
@@ -264,7 +264,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_delete_meetup_illegal_id_ok() {
+    void T10_delete_meetup_illegal_id_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
         //act
@@ -275,7 +275,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_getAll_list_contains_inserted_values_ok() {
+    void T11_getAll_list_contains_inserted_values_ok() {
         //arrange
         Table table = new Table(
                 Database.getDataSource(),
@@ -317,7 +317,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_getById_find_inserted_values_ok() {
+    void T12_getById_find_inserted_values_ok() {
         //arrange
         Table table = new Table(
                 Database.getDataSource(),
@@ -358,7 +358,7 @@ class MeetupRepositoryTest {
     }
 
     @Test
-    void test_getById_with_id_not_in_database_ok() {
+    void T13_getById_with_id_not_in_database_ok() {
         //arrange
         MeetupRepository meetupRepository = new MeetupRepository();
 

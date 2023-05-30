@@ -164,7 +164,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T05_delete_location_in_db_ok() {
+    void T06_delete_location_in_db_ok() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -193,7 +193,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T06_delete_location_null_invalid() {
+    void T07_delete_location_null_invalid() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -207,7 +207,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T07_delete_location_invalid_id_invalid() {
+    void T08_delete_location_invalid_id_invalid() {
         //arrange
         LocationRepository locationRepository = new LocationRepository();
         //act
@@ -217,7 +217,7 @@ class LocationRepositoryTest {
                 .isThrownBy(() -> locationRepository.delete((long) -1));
     }
     @Test
-    void T08_get_location_by_id_ok() {
+    void T09_get_location_by_id_ok() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -238,7 +238,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T09_get_location_by_id_null_invalid() {
+    void T10_get_location_by_id_null_invalid() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -252,7 +252,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T10_get_all_locations_ok() {
+    void T11_get_all_locations_ok() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -290,7 +290,7 @@ class LocationRepositoryTest {
         Assertions.assertThat(locationRepository.getAll()).usingRecursiveComparison().isEqualTo(locationlist);
     }
     @Test
-    void T11_get_all_locations_empty() {
+    void T12_get_all_locations_empty() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();
@@ -304,7 +304,7 @@ class LocationRepositoryTest {
     }
 
     @Test
-    void T12_get_all_locations_null_invalid() {
+    void T13_get_all_locations_null_invalid() {
         //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         LocationRepository locationRepository = new LocationRepository();

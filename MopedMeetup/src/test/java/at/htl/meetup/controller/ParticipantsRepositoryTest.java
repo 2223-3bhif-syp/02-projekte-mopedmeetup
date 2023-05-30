@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.db.api.Assertions.assertThat;
+import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ParticipantsRepositoryTest {
     private static final String tableName = "MM_PARTICIPANTS";
@@ -29,270 +31,181 @@ public class ParticipantsRepositoryTest {
     }
 
     @Test
-    void insertTest() {
+    void T01_insert_participants_ok() {
+        //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
         UserRepository userRepository = new UserRepository();
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
 
-        String fName = "Bajtik";
-        String lName = "Berg";
-        String email = "example@mail.com";
-        String password = "1234";
+        User user = new User("Bajtik", "Berg", "1234", "bb@htl.at", 11);
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
 
-        User user1 = new User(fName,lName,password,email,13);
-        userRepository.insert(user1);
-
-        String fName2 = "Linus";
-        String lName2 = "Nestler";
-        String email2 = "example@gmail.com";
-
-        User organisator = new User( fName2, lName2,password, email2, 13);
-        userRepository.insert(organisator);
-
-        String street = "Limesstraße 8";
-        String city = "Leonding";
-        int zip = 4060;
-        String name = "Meetup";
-
-        Location location = new Location( name, city, street, zip);
+        //act
+        userRepository.insert(user);
+        userRepository.insert(creator);
         locationRepository.insert(location);
-
-        String description = "...";
-        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup = new Meetup(organisator, location, description, meetupDate);
         meetupRepository.insert(meetup);
-        Participants participants = new Participants(user1, meetup);
-
         participantsRepository.insert(participants);
+        output(table).toConsole();
 
-        assertEquals(participants.getId(), 1);
+        //assert
 
-        assertThat(table).column("P_U_ID")
-                .value().isEqualTo(participants.getUser().getId());
-        assertThat(table).column("P_M_ID")
-                .value().isEqualTo(participants.getMeetup().getId());
+        assertThat(table).row(0)
+                .value().isEqualTo(1)
+                .value().isEqualTo(1);
     }
 
     @Test
-    void updateTest() {
+    void T02_insert_participants_fail() {
+        //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
         UserRepository userRepository = new UserRepository();
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
 
-        String fName = "Bajtik";
-        String lName = "Berg";
-        String email = "example@mail.com";
-        String password = "1234";
+        User user = null;
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
 
-        User user1 = new User(fName,lName,password,email,13);
-        userRepository.insert(user1);
-
-        String fName2 = "Linus";
-        String lName2 = "Nestler";
-        String email2 = "example@gmail.com";
-
-        User organisator = new User(fName2, lName2,password, email2, 13);
-        userRepository.insert(organisator);
-
-        String street = "Limesstraße 8";
-        String city = "Leonding";
-        int zip = 4060;
-        String name = "Meetup";
-
-        Location location = new Location( name, city, street, zip);
+        //act
+        userRepository.insert(creator);
         locationRepository.insert(location);
-
-        String description = "...";
-        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup = new Meetup(organisator, location, description, meetupDate);
         meetupRepository.insert(meetup);
-        Participants participants = new Participants(user1, meetup);
+        output(table).toConsole();
 
+        //assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> participantsRepository.insert(participants));
+    }
+
+    @Test
+    void T03_update_participants_ok() {
+        //arrange
+        Table table = new Table(Database.getDataSource(), tableName);
+        ParticipantsRepository participantsRepository = new ParticipantsRepository();
+        UserRepository userRepository = new UserRepository();
+        MeetupRepository meetupRepository = new MeetupRepository();
+        LocationRepository locationRepository = new LocationRepository();
+
+        User user = new User("Bajtik", "Berg", "1234", "bb@htl.at", 11);
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
+        String newUserLastName = "UgahBugah";
+
+        //act
+        userRepository.insert(user);
+        userRepository.insert(creator);
+        locationRepository.insert(location);
+        meetupRepository.insert(meetup);
         participantsRepository.insert(participants);
-
-        String newUserLastName = "Random";
         participants.getUser().setLastName(newUserLastName);
-
         participantsRepository.update(participants);
 
-        assertThat(table).column("P_U_ID")
-                .value().isEqualTo(participants.getUser().getId());
-
-        assertThat(table).column("P_M_ID")
-                .value().isEqualTo(participants.getMeetup().getId());
+        //assert
+        assertThat(table).row(0)
+                .value().isEqualTo(1)
+                .value().isEqualTo(1);
     }
 
     @Test
-    void deleteTest() {
+    void T04_delete_participant_ok() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
         UserRepository userRepository = new UserRepository();
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
 
-        String fName = "Bajtik";
-        String lName = "Berg";
-        String email = "example@mail.com";
-        String password = "1234";
+        User user = new User("Bajtik", "Berg", "1234", "bb@htl.at", 11);
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
 
-        User user1 = new User(fName,lName,password, email,13);
-        userRepository.insert(user1);
-
-        String fName2 = "Linus";
-        String lName2 = "Nestler";
-        String email2 = "example@gmail.com";
-
-        User organisator = new User(fName2, lName2,password, email2, 14);
-        userRepository.insert(organisator);
-
-        String street = "Limesstraße 8";
-        String city = "Leonding";
-        int zip = 4060;
-        String name = "Meetup";
-
-        Location location = new Location( name, city, street, zip);
+        //act
+        userRepository.insert(user);
+        userRepository.insert(creator);
         locationRepository.insert(location);
-
-        String description = "...";
-        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup = new Meetup(organisator, location, description, meetupDate);
         meetupRepository.insert(meetup);
-
-        Participants participants = new Participants(user1, meetup);
-
         participantsRepository.insert(participants);
+        output(table).toConsole();
         participantsRepository.delete(Integer.parseInt(participants.getId().toString()));
+        table = new Table(Database.getDataSource(), tableName);
+        output(table).toConsole();
 
+        //assert
         assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
-    void getAllTest() {
+    void T05_get_all_participants_ok() {
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
         UserRepository userRepository = new UserRepository();
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
 
-        String fName = "Bajtik";
-        String lName = "Berg";
-        String email = "example@mail.com";
-        String password = "1234";
-
-        User user1 = new User(fName,lName,password,email,13);
-        userRepository.insert(user1);
-
-        String fName2 = "Linus";
-        String lName2 = "Nestler";
-        String email2 = "example@gmail.com";
-
-        User organisator1 = new User(fName2, lName2,password, email2, 12);
-        userRepository.insert(organisator1);
-
-        String street = "Limesstraße 8";
-        String city = "Leonding";
-        int zip = 4060;
-        String name = "Meetup";
-
-        Location location = new Location(name, city, street, zip);
-        locationRepository.insert(location);
-
-        String description = "...";
-        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup = new Meetup(organisator1, location, description, meetupDate);
-        meetupRepository.insert(meetup);
-
-        Participants participants = new Participants(user1, meetup);
-
-        participantsRepository.insert(participants);
-
-        String fName3 = "Oliver";
-        String lName3 = "Daxinger";
-        String email3 = "example@mail.com";
-
-        User user2 = new User(fName3,lName3,password, email3,133);
-        userRepository.insert(user2);
-
-        String fName4 = "Linus";
-        String lName4 = "Nestler";
-        String email4 = "example@gmail.com";
-
-        User organisator2 = new User(fName4, lName4,password, email4, 12);
-        userRepository.insert(organisator2);
-
-        String street2 = "Hamerlingstraße 8";
-        String city2 = "Linz";
-        int zip2 = 4020;
-        String name2 = "Meetup";
-
-        Location location2 = new Location(name2, city2, street2, zip2);
-        locationRepository.insert(location2);
-
-        String description2 = "...";
-        LocalDateTime meetupDate2 = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup2 = new Meetup(organisator2, location2, description2, meetupDate2);
-        meetupRepository.insert(meetup2);
-
+        User user = new User("Bajtik", "Berg", "1234", "bb@htl.at", 11);
+        User user2 = new User("Said", "Nurceski", "1234", "sn@htl.at", 16);
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        User creator2 = new User("Oliver", "Daxinger", "1234", "od@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Location location2 = new Location("TestMeetup02", "Linz", "Mariastraße 3", 4020);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Meetup meetup2 = new Meetup(creator2, location2, "Test2", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
         Participants participants2 = new Participants(user2, meetup2);
 
+        //act
+        userRepository.insert(user);
+        userRepository.insert(user2);
+        userRepository.insert(creator);
+        userRepository.insert(creator2);
+        locationRepository.insert(location);
+        locationRepository.insert(location2);
+        meetupRepository.insert(meetup);
+        meetupRepository.insert(meetup2);
+        participantsRepository.insert(participants);
         participantsRepository.insert(participants2);
+        output(table).toConsole();
 
-        //Creating list with getAll()
-        List<Participants> participantsList = participantsRepository.getAll();
-
-        assertEquals(2, participantsList.size());
+        //assert
+        assertThat(table).hasNumberOfRows(2);
     }
 
     @Test
-    void getByIdTest() {
+    void T06_get_participant_by_id_ok() {
+        //arrange
         Table table = new Table(Database.getDataSource(), tableName);
         ParticipantsRepository participantsRepository = new ParticipantsRepository();
         UserRepository userRepository = new UserRepository();
         MeetupRepository meetupRepository = new MeetupRepository();
         LocationRepository locationRepository = new LocationRepository();
 
-        String fName = "Bajtik";
-        String lName = "Berg";
-        String email = "example@mail.com";
-        String password = "1234";
+        User user = new User("Bajtik", "Berg", "1234", "bb@htl.at", 11);
+        User creator = new User("Linus", "Nestler", "1234", "ln@htl.at", 16);
+        Location location = new Location("TestMeetup01", "Leonding", "Limesstraße 6", 4060);
+        Meetup meetup = new Meetup(creator, location, "Test", LocalDateTime.of(2023, 4, 29, 0, 0));
+        Participants participants = new Participants(user, meetup);
 
-        User user1 = new User(fName,lName, password, email,13);
-        userRepository.insert(user1);
-
-        String fName2 = "Linus";
-        String lName2 = "Nestler";
-        String email2 = "example@gmail.com";
-
-        User organisator = new User(fName2, lName2,password, email2, 8);
-        userRepository.insert(organisator);
-
-        String street = "Limesstraße 8";
-        String city = "Leonding";
-        int zip = 4060;
-        String name = "Meetup";
-
-        Location location = new Location(1L,name, city, street, zip);
+        //act
+        userRepository.insert(user);
+        userRepository.insert(creator);
         locationRepository.insert(location);
-
-        String description = "...";
-        LocalDateTime meetupDate = LocalDateTime.of(2023,4,29,0,0);
-
-        Meetup meetup = new Meetup(organisator, location, description, meetupDate);
         meetupRepository.insert(meetup);
-
-        Participants participants = new Participants(user1, meetup);
-
         participantsRepository.insert(participants);
+        output(table).toConsole();
 
+        //assert
         assertEquals(1, Integer.parseInt(participantsRepository.getById(1).getId().toString()));
     }
 }
