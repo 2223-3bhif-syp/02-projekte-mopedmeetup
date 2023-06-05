@@ -75,7 +75,11 @@ public class DBUtils {
             alert.show();
         }
         else{
-           changeScene(event, "./home-view.fxml", "Home", email);
+            String name = "";
+            if(user.getByEmail(email) != null){
+                name = user.getByEmail(email).getFirstName();
+            }
+            changeScene(event, "./home-view.fxml", "Home", name);
         }
     }
 }
