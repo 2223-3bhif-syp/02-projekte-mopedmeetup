@@ -19,7 +19,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Create Meetup" textFill="WHITE">
+            <Button fx:id="btn_create_mm" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="289.0" stylesheets="@css/homeStyle.css" text="Create Meetup" textFill="WHITE">
                <padding>
                   <Insets left="50.0" />
                </padding>

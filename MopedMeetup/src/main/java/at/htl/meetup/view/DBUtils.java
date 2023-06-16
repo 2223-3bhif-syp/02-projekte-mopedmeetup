@@ -20,6 +20,7 @@ import java.util.Objects;
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String firstName){
         Parent root = null;
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();;
 
         if(firstName != null){
             try{
@@ -34,15 +35,18 @@ public class DBUtils {
         }
         else{
             try{
-                root = FXMLLoader.load(Objects.requireNonNull(DBUtils.class.getResource(fxmlFile)));
+                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource("/"+fxmlFile));
+                System.out.println((char[]) loader.load());
+                root = loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root));
-        stage.show();
+        if(stage != null) {
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
     }
 
     public static void signUpUser(ActionEvent event, String firstName, String lastName, String email, int age, String password){
@@ -62,7 +66,7 @@ public class DBUtils {
         }
     }
 
-    public static void loginUser(ActionEvent event, String email, String password){
+    public static Long loginUser(ActionEvent event, String email, String password){
         System.out.println("Login user");
         UserRepository user = new UserRepository();
         ObservableList<User> users = FXCollections.observableArrayList(user.getAll());
@@ -73,6 +77,7 @@ public class DBUtils {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Provided credentials are incorrect!");
             alert.show();
+            return null;
         }
         else{
             String name = "";
@@ -80,6 +85,7 @@ public class DBUtils {
                 name = user.getByEmail(email).getFirstName();
             }
             changeScene(event, "./home-view.fxml", "Home", name);
+            return user.getByEmail(email).getId();
         }
     }
 }

@@ -45,7 +45,8 @@ public class LoginController implements Initializable {
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.loginUser(event, rf_email.getText(), rf_password.getText());
+                //DBUtils.loginUser(event, rf_email.getText(), rf_password.getText());
+                UserSession.getInstace(DBUtils.loginUser(event, rf_email.getText(), rf_password.getText()));
             }
         });
 
