@@ -7,6 +7,7 @@ import org.apache.ibatis.logging.LogFactory;
 import javax.sql.DataSource;
 import java.io.*;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -84,5 +85,19 @@ public class SqlRunner {
     } catch (SQLException | IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public static boolean tableExist(Connection conn, String tableName) throws SQLException {
+    boolean tExists = false;
+    try (ResultSet rs = conn.getMetaData().getTables(null, null, tableName, null)) {
+      while (rs.next()) {
+        String tName = rs.getString("TABLE_NAME");
+        if (tName != null && tName.equals(tableName)) {
+          tExists = true;
+          break;
+        }
+      }
+    }
+    return tExists;
   }
 }
