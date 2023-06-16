@@ -28,12 +28,12 @@ public class HomeController implements Initializable {
                 DBUtils.changeScene(event, "/login-view.fxml", "Login!", null);
             }
         });
-        btn_create_mm.setOnAction(new EventHandler<ActionEvent>() {
+        /*btn_create_mm.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "/create-mm-view.fxml", "Create Meetup!", null);
             }
-        });
+        });*/
     }
 
     public void setUserInformation(String firstName){
