@@ -18,38 +18,23 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class DBUtils {
-    public static void changeScene(ActionEvent event, String fxmlFile, String title, String firstName){
+    public static void changeScene(ActionEvent event, String fxmlFile, String title){
         Parent root = null;
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();;
 
-        if(firstName != null){
-            try{
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource("/"+fxmlFile));
-                root = loader.load();
-                HomeController homeController = loader.getController();
-                homeController.setUserInformation(firstName);
+        try{
+            FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource("/"+fxmlFile));
+            root = loader.load();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        else{
-            try{
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource("/"+fxmlFile));
-                System.out.println((char[]) loader.load());
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        if(stage != null) {
-            stage.setTitle(title);
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle(title);
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
-    public static void signUpUser(ActionEvent event, String firstName, String lastName, String email, int age, String password){
+    public static Long signUpUser(ActionEvent event, String firstName, String lastName, String email, int age, String password){
         UserRepository user = new UserRepository();
         boolean isUserExisting = user.isUserExisting(email, password);
 
@@ -58,11 +43,12 @@ public class DBUtils {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("You cannot use this username!");
             alert.show();
+            return null;
         }
         else{
             User insUser = new User(firstName, lastName, password, email, age);
             user.insert(insUser);
-            changeScene(event, "home-view.fxml", "Home", firstName);
+            return user.getByEmail(email).getId();
         }
     }
 
@@ -80,11 +66,6 @@ public class DBUtils {
             return null;
         }
         else{
-            String name = "";
-            if(user.getByEmail(email) != null){
-                name = user.getByEmail(email).getFirstName();
-            }
-            changeScene(event, "./home-view.fxml", "Home", name);
             return user.getByEmail(email).getId();
         }
     }

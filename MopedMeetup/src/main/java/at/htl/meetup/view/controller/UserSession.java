@@ -20,7 +20,7 @@ public final class UserSession {
         return userId;
     }
 
-    public void cleanUserSession() {
-        userId = null;
+    public static void cleanUserSession() {
+        instance = null;
     }
 }

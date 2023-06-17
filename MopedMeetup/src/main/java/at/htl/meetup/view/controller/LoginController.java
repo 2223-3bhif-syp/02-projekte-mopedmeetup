@@ -1,5 +1,6 @@
 package at.htl.meetup.view.controller;
 
+import at.htl.meetup.entity.User;
 import at.htl.meetup.view.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -46,14 +47,18 @@ public class LoginController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 //DBUtils.loginUser(event, rf_email.getText(), rf_password.getText());
+                if(UserSession.getId() != null) {
+                    UserSession.cleanUserSession();
+                }
                 UserSession.getInstace(DBUtils.loginUser(event, rf_email.getText(), rf_password.getText()));
+                DBUtils.changeScene(event, "home-view.fxml", "Home");
             }
         });
 
         btn_signup.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "/registration-view.fxml", "Sign Up!", null);
+                DBUtils.changeScene(event, "registration-view.fxml", "Sign Up!");
             }
         });
     }

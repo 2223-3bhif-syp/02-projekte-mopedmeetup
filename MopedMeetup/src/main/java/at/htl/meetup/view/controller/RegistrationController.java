@@ -50,13 +50,15 @@ public class RegistrationController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(UserSession.getId());
         btn_register.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if((!rf_firstname.getText().trim().isEmpty() && isAlphabetic(rf_firstname.getText())) && (!rf_lastname.getText().trim().isEmpty() && isAlphabetic(rf_lastname.getText())) &&
                         (!rf_age.getText().trim().isEmpty() && isNumeric(rf_age.getText())) && (!rf_email.getText().trim().isEmpty() && isValidEmail(rf_email.getText())) &&
                         (!rf_password.getText().trim().isEmpty() && isNumeric(rf_password.getText()))){
-                    DBUtils.signUpUser(event, rf_firstname.getText(), rf_lastname.getText(), rf_email.getText(), Integer.parseInt(rf_age.getText()), rf_password.getText());
+                    UserSession.getInstace(DBUtils.signUpUser(event, rf_firstname.getText(), rf_lastname.getText(), rf_email.getText(), Integer.parseInt(rf_age.getText()), rf_password.getText()));
+                    DBUtils.changeScene(event, "home-view.fxml", "Home");
                 }
                 else{
                     if(!isNumeric(rf_age.getText()) && !rf_age.getText().isEmpty()){
@@ -80,7 +82,7 @@ public class RegistrationController implements Initializable{
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "/login-view.fxml", "Login", null);
+                DBUtils.changeScene(event, "login-view.fxml", "Login");
             }
         });
     }
