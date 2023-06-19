@@ -13,10 +13,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -36,6 +40,8 @@ public class CreateMMController implements Initializable{
     public Button cr_mm_btn_submit;
 
     public Location location;
+    public ImageView btn_back_to_menu;
+
     public LocationRepository locationRepository = new LocationRepository();
 
     public Meetup meetup;
@@ -65,6 +71,22 @@ public class CreateMMController implements Initializable{
                 }
             }
         });
+    }
+
+    public void close_app(MouseEvent event) {
+        System.exit(0);
+    }
+
+    @FXML
+    private void back_to_menu() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home-view.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) btn_back_to_menu.getScene().getWindow();
+        Stage newStage = new Stage();
+        newStage.setScene(scene);
+        newStage.show();
+        currentStage.close();
     }
 
 
