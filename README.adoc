@@ -1,0 +1,32 @@
+= MopedMeetup
+
+== Dokumentation
+https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Dokumentation]
+
+== Project Backlog
+https://vm81.htl-leonding.ac.at/projects/32b82658-1098-4f00-87c4-6e19a2d1bd3b[Project Backlog]
+
+== Aufgabenstellung
+App um sich mit anderen Mopedfahrer/innen zu treffen und gleichzeitig neue Leute kennenzulernen.
+
+== Probleme
+Mit herkömmlichen Methoden (z.B WhatsApp-Gruppen) ist es schwierig ein Treffen mit neuen Leuten auszumachen.
+
+== Sample Data
+=== Login:
+----
++--------------+-----------------+
+|   E-Mail     |    Passwort     |
++--------------+-----------------+
+| od@gmail.com |      123        |
+| ln@gmail.com |      123        |
+| bb@gmail.com |      123        |
+| sn@gmail.com |      123        |
++--------------+-----------------+
+----
+
+== Asciidoc Documente:
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/[Index]
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Projektauftrag[Projektauftrag]
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Klassendiagramm[Klassendiagramm]
+- https://2223-3bhif-syp.github.io/02-projekte-mopedmeetup/Pflichtenheft[Pflichtenheft]

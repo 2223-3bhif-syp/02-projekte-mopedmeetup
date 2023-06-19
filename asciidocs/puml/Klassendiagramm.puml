@@ -1,0 +1,38 @@
+@startuml
+class User {
+    - id : Long
+    - firstName: String
+    - lastName : String
+    - password : String
+    - email: String
+    - age : Int
+}
+class Meetup {
+    + id : Long
+    + meetupDate : LocalDateTime
+    + creator : User
+    + location : Location
+    + description : String
+}
+
+class Location {
+    - id : Long
+    - city: String
+    - street : String
+    - zip : Int
+}
+
+class Participant {
+    - id : Long
+    - meetup : Meetup
+    - user : User
+}
+
+
+
+Location "1"--"*" Meetup : ""
+Meetup "1"--"1" User : "creates"
+Meetup "*"--"*" User : ""
+(User, Meetup) .. Participant
+
+@enduml
